@@ -38,9 +38,40 @@ namespace SIC
             this.ImportarPlanilha(this.txEnderecoPlanilha.Text);
         }
 
+        //Cria a tabela com o nome dos campos que serão exibidos quando abrir a tela
+        public void ListagemPrecificacao()
+        {
+            dtSKU = new DataTable();
+
+            //Criando colunas
+            DataColumn dcNro = new DataColumn("Número", typeof(int));
+            DataColumn dcIdLoja = new DataColumn("ID Loja", typeof(string));
+            DataColumn dcNomeLoja = new DataColumn("Nome Loja", typeof(string));
+            DataColumn dcIdSKU = new DataColumn("ID SKU(SKU MP)", typeof(string));
+            DataColumn dcSKULojista = new DataColumn("SKU Lojista", typeof(string));
+            DataColumn dcPrecoPor = new DataColumn("Preço POR", typeof(decimal));
+
+            //Adicionando as colunas na tabela
+            dtSKU.Columns.AddRange(new DataColumn[] { dcNro, dcIdLoja, dcNomeLoja, dcIdSKU, dcSKULojista, dcPrecoPor });
+
+            //Passando a tabela preenchida com as colunas acima para o grid de exibição de tela
+            this.gridSKUsAlterar.DataSource = dtSKU;
+
+            this.gridSKUsAlterar.Columns[0].Width = 150;
+            this.gridSKUsAlterar.Columns[1].Width = 150;
+            this.gridSKUsAlterar.Columns[2].Width = 310;
+            this.gridSKUsAlterar.Columns[3].Width = 150;
+            this.gridSKUsAlterar.Columns[4].Width = 150;
+            this.gridSKUsAlterar.Columns[5].Width = 175;
+            this.gridSKUsAlterar.Columns[5].DefaultCellStyle.Format = "N2";
+            
+        }
+
+        //Método de abertura da planilha
         public void ImportarPlanilha(string nomePlanilha)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+
             try
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -49,38 +80,56 @@ namespace SIC
                     
                     produtosBLL = new ProdutosBLL();
 
-                    dtSKU = new DataTable();
-                    DataTable dtSkuFiltrado = new DataTable();
+                    //Limpando a tabela que exibe os skus na tela
+                    this.dtSKU.Clear();
 
-                    dtSKU = produtosBLL.LerPlanilhaPreco(txEnderecoPlanilha.Text);
+                    DataTable dtSkuPlanilha = new DataTable();
 
-                    foreach(DataRow dr in dtSKU.Rows)
+                    //Recebendo retorno da camada DAO
+                    //Passando a planilha para leitura
+                    dtSkuPlanilha = produtosBLL.LerPlanilhaPreco(txEnderecoPlanilha.Text);
+
+                    //Variáveis de contagem
+                    int count = 0;
+                    int countSemOrigin = 0;
+
+                    foreach (DataRow dr in dtSkuPlanilha.Rows)
                     {
+                        count++;
 
+                        if (dr[0].ToString().Length != 0)
+                        {
+                            if (dr[2].ToString().Length != 0)
+                            {
+                                dtSKU.Rows.Add(count, dr[0], dr[1], dr[2], dr[3], dr[4]);
+                            }
+                            else
+                            {
+                                dtSKU.Rows.Add(count, dr[0], dr[1], dr[2], dr[3], dr[4]);
+                                countSemOrigin ++;
+                            }
+                        }
                     }
 
+                    //Exibindo a qtde de registros que não tem valor do SKU MP
+                    this.txQtdeSemSQKUID.Text = countSemOrigin.ToString();
+
+                    //Exibindo a tabela preenchida
                     this.gridSKUsAlterar.DataSource = dtSKU;
 
-                    //this.gridSKUsAlterar.DataSource = produtosBLL.LerPlanilhaPreco(txEnderecoPlanilha.Text);
-
-                    this.gridSKUsAlterar.Columns[0].Width = 150;
-                    this.gridSKUsAlterar.Columns[1].Width = 150;
-                    this.gridSKUsAlterar.Columns[2].Width = 310;                    
-                    this.gridSKUsAlterar.Columns[3].Width = 150;
-                    this.gridSKUsAlterar.Columns[4].Width = 150;
-                    this.gridSKUsAlterar.Columns[5].Width = 150;
-                    this.gridSKUsAlterar.Columns[5].DefaultCellStyle.Format = "N2";
-
+                    //Exibindo o total de linhas percorridas na planilha
                     this.txQtdeLinhas.Text = this.gridSKUsAlterar.RowCount.ToString();
-                    
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Erro:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+        }
+
+        private void ImportarPrecificacaoEdit_Load(object sender, EventArgs e)
+        {
+            this.ListagemPrecificacao();
         }
     }
 }

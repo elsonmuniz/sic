@@ -365,39 +365,6 @@ namespace SIC.DAO
                 //LER SELECT E PREENCHER A TABELA COM OS REGISTROS DA PLANILHA
                 dt.Load(cmd.ExecuteReader());
 
-                dtSKU = new DataTable();
-                
-                //Criando colunas
-                DataColumn dcNro = new DataColumn("Número", typeof(int));
-                DataColumn dcIdLoja = new DataColumn("ID Loja", typeof(string));
-                DataColumn dcNomeLoja = new DataColumn("Nome Loja", typeof(string));
-                DataColumn dcIdSKU = new DataColumn("ID SKU(SKU MP)", typeof(string));
-                DataColumn dcSKULojista = new DataColumn("SKU Lojista", typeof(string));
-                DataColumn dcPrecoPor = new DataColumn("Preço POR", typeof(decimal));
-                //DataColumn dcDataInicio = new DataColumn("Data Início", typeof(string));
-                //DataColumn dcDataFim = new DataColumn("Data Fim", typeof(string));
-                //DataColumn dcHora = new DataColumn("Hora", typeof(string));
-                //DataColumn dcNomeSolicitante = new DataColumn("Nome do Solicitante", typeof(string));
-                /*, dcDataInicio, dcDataFim, dcHora, dcNomeSolicitante*/
-
-                dtSKU.Columns.AddRange(new DataColumn[] { dcNro, dcIdLoja, dcNomeLoja, dcIdSKU, dcSKULojista, dcPrecoPor });
-                
-
-                int count = 0;
-                foreach (DataRow dr in dt.Rows)
-                {
-                    count++;
-
-                    if(dr[0].ToString().Length !=0)
-                    {
-                        dtSKU.Rows.Add(count, dr[0], dr[1], dr[2], dr[3], dr[4]);
-
-                        /*, dr[5], dr[6], dr[7].ToString().Remove(0,10), dr[8]*/
-                    }
-
-                }
-
-
             }
             catch (Exception ex)
             {
@@ -409,9 +376,7 @@ namespace SIC.DAO
                 _conexao.Close();
             }
             
-            
-            
-            return dtSKU;
+            return dt;
  
         }
 

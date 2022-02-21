@@ -147,7 +147,7 @@
             // 
             // txQtdeSemSQKUID
             // 
-            this.txQtdeSemSQKUID.Location = new System.Drawing.Point(396, 635);
+            this.txQtdeSemSQKUID.Location = new System.Drawing.Point(401, 635);
             this.txQtdeSemSQKUID.MaxLength = 12;
             this.txQtdeSemSQKUID.Name = "txQtdeSemSQKUID";
             this.txQtdeSemSQKUID.ReadOnly = true;
@@ -175,6 +175,7 @@
             this.Controls.Add(this.txQtdeLinhas);
             this.Name = "ImportarPrecificacaoEdit";
             this.Text = "Importar planilha de preços do seller";
+            this.Load += new System.EventHandler(this.ImportarPrecificacaoEdit_Load);
             this.Controls.SetChildIndex(this.txQtdeLinhas, 0);
             this.Controls.SetChildIndex(this.txQtdeSemSQKUID, 0);
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);
