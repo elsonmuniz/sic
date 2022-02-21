@@ -1,0 +1,12 @@
+C:\Users\elson\source\repos\SIC\Modelo\bin\Debug\Modelo.dll
+C:\Users\elson\source\repos\SIC\Modelo\bin\Debug\Modelo.pdb
+C:\Users\elson\source\repos\SIC\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\elson\source\repos\SIC\Modelo\obj\Debug\Modelo.dll
+C:\Users\elson\source\repos\SIC\Modelo\obj\Debug\Modelo.pdb
+C:\Users\elson\source\repos\SIC\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\elson\source\repos\SIC\Modelo\bin\Debug\MongoDB.Bson.dll
+C:\Users\elson\source\repos\SIC\Modelo\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\elson\source\repos\SIC\Modelo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\elson\source\repos\SIC\Modelo\bin\Debug\MongoDB.Bson.xml
+C:\Users\elson\source\repos\SIC\Modelo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\elson\source\repos\SIC\Modelo\obj\Debug\Modelo.csproj.CopyComplete

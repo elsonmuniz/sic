@@ -1,0 +1,10 @@
+C:\Users\elson\source\repos\SIC\Forms\bin\Debug\Forms.dll
+C:\Users\elson\source\repos\SIC\Forms\bin\Debug\Forms.pdb
+C:\Users\elson\source\repos\SIC\Forms\obj\Debug\Forms.AppForm.resources
+C:\Users\elson\source\repos\SIC\Forms\obj\Debug\Forms.csproj.GenerateResource.cache
+C:\Users\elson\source\repos\SIC\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
+C:\Users\elson\source\repos\SIC\Forms\obj\Debug\Forms.dll
+C:\Users\elson\source\repos\SIC\Forms\obj\Debug\Forms.pdb
+C:\Users\elson\source\repos\SIC\Forms\obj\Debug\Forms.FormEdit.resources
+C:\Users\elson\source\repos\SIC\Forms\obj\Debug\Forms.csproj.AssemblyReference.cache
+C:\Users\elson\source\repos\SIC\Forms\obj\Debug\Forms.AppLogin.resources
