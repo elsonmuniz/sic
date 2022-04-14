@@ -14,19 +14,15 @@ namespace SIC.DAO
 {
     public class ProdutosDAO
     {
-        //DataTable
-        DataTable dtWareHouse;
+        //DataTable        
         DataTable dtSKU;
-        DataTable dtSKUFrontExtra;
-
+        
         //CONEXÃO SQLSERVER
         SqlConnection conexaoFront;
 
         //DATAADAPTER
-        OracleDataAdapter daWareHouse;
         OracleDataAdapter daSKU;
-        SqlDataAdapter daSKUFrontExtra;
-
+        
         //CMD        
         OracleCommand cmdSKU;
         OracleCommand cmdDesativarSku;

@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao.cs" />
+    <Compile Include="LojistaAdquirenteDAO.cs" />
     <Compile Include="MPComprasDAO.cs" />
     <Compile Include="ProdutosDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,6 +171,7 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="mongocrypt.dll" />
+    <Content Include="Util\AccessDatabaseEngine.exe" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modelo\Modelo.csproj">

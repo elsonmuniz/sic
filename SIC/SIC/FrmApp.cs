@@ -123,5 +123,11 @@ namespace SIC
             ConsultarOrderGetNet consultarOrderGetNet = new ConsultarOrderGetNet(this, loginModelo);
             consultarOrderGetNet.Show();
         }
+
+        private void consultarLojaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarLojaGetNet consultarLojaGetNet = new ConsultarLojaGetNet(this);
+            consultarLojaGetNet.Show();
+        }
     }
 }

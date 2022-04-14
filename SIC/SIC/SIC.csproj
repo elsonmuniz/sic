@@ -146,6 +146,12 @@
     <Compile Include="CompararPlanilhaPreco.Designer.cs">
       <DependentUpon>CompararPlanilhaPreco.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarLojaGetNet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarLojaGetNet.Designer.cs">
+      <DependentUpon>ConsultarLojaGetNet.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarOrderGetNet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </Compile>
     <EmbeddedResource Include="CompararPlanilhaPreco.resx">
       <DependentUpon>CompararPlanilhaPreco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarLojaGetNet.resx">
+      <DependentUpon>ConsultarLojaGetNet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarOrderGetNet.resx">
       <DependentUpon>ConsultarOrderGetNet.cs</DependentUpon>

@@ -58,9 +58,9 @@
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
             this.groupBoxSeller.Controls.Add(this.txIdLojista);
             this.groupBoxSeller.Controls.Add(this.btPesquisarLojista);
-            this.groupBoxSeller.Location = new System.Drawing.Point(39, 64);
+            this.groupBoxSeller.Location = new System.Drawing.Point(39, 42);
             this.groupBoxSeller.Name = "groupBoxSeller";
-            this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
+            this.groupBoxSeller.Size = new System.Drawing.Size(880, 103);
             this.groupBoxSeller.TabIndex = 3;
             this.groupBoxSeller.TabStop = false;
             this.groupBoxSeller.Text = "Consulta pedido no MP-Compras";
@@ -109,6 +109,8 @@
             this.Controls.Add(this.gridSeller);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "MpCompras";
+            this.Text = "Consultar Pedido - MPCompras";
+            this.Load += new System.EventHandler(this.MpCompras_Load);
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);
             this.Controls.SetChildIndex(this.gridSeller, 0);
             this.Controls.SetChildIndex(this.lstbDados, 0);

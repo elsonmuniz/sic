@@ -1,17 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+//using System.Collections.Generic;
+//using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Linq;
+//using MongoDB.Driver.Linq;
 using System.Configuration;
 using SIC.Modelo;
+using MongoDB.Bson.Serialization.Serializers;
+
+using System.IO;
+using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization;
+using System.Threading.Tasks;
+using System.Text.Json;
+using System.Collections.Generic;
+
 
 namespace SIC.DAO
 {
     public  class MPComprasDAO
     {
-        //MPComprasModelo mPComprasModelo;
+        MPComprasModelo mPComprasModelo;
+
+
 
         public static string ConnectionString
         {
@@ -20,71 +31,68 @@ namespace SIC.DAO
                 return ConfigurationManager.AppSettings["ConexaoMongoDB"];
             }
         }
-
-        
-      
-
-
-        public IEnumerable<MPComprasModelo> Pesquisar(Int64 idSeller)
+        public MPComprasModelo PesquisarAsync(Int64 idSeller)
         {
-
-            MongoClient cliente = new MongoClient("mongodb://mp-compras-admin:mp-compras-admin%40@mp-compras-mongo-prd001.dc.nova:27017,mp-compras-mongo-prd002.dc.nova:27017,mp-compras-mongo-prd003.dc.nova:27017/mp-compras?readPreference=secondary&connectTimeoutMS=10000&authSource=mp-compras&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MP-COMPRAS+-+leitura&3t.ssh=true&3t.sshAddress=10.128.46.16&3t.sshPort=22&3t.sshAuthMode=password&3t.sshUser=leitura&3t.sshPassword=temp@123&3t.databases=mp-compras&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
-            MongoServer server = cliente.GetServer();
-            MongoDatabase database = server.GetDatabase("mp-compras");
-
-            var colecao = database.GetCollection("compra");
-
-            if(server.State != MongoServerState.Connected)
-            {
-                server.Connect();
-            }
+     
+            //23860499801
            
-                var query = from e in colecao.AsQueryable<MPComprasModelo>()
-                            where e.id == idSeller
-                            select e;
-
-                return query; //.ToList<MPComprasModelo>();
+            var dbClient = new MongoClient("mongodb://mp-compras-admin:mp-compras-admin%40@mp-compras-mongo-prd001.dc.nova:27017,mp-compras-mongo-prd002.dc.nova:27017,mp-compras-mongo-prd003.dc.nova:27017/mp-compras?readPreference=secondary&connectTimeoutMS=10000&authSource=mp-compras&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MP-COMPRAS+-+leitura&3t.ssh=true&3t.sshAddress=10.128.46.16&3t.sshPort=22&3t.sshAuthMode=password&3t.sshUser=leitura&3t.sshPassword=temp@123&3t.databases=mp-compras&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
+            IMongoDatabase db = dbClient.GetDatabase("mp-compras");
             
+            var carros = db.GetCollection<BsonDocument>("compra");            
+            var filter =  Builders<BsonDocument>.Filter.Eq("id", idSeller);
+            var doc =  carros.Find(filter).FirstOrDefault();
+
+            
+
+            mPComprasModelo = new MPComprasModelo();
+            MPComprasModelo.Status mPstatus = new MPComprasModelo.Status();
+            List<MPComprasModelo> listModelo = new List<MPComprasModelo>();
+            List<MPComprasModelo.Status> listModeloStatus = new List<MPComprasModelo.Status>();
+
+            //orderResponseGetNetModelo = JsonConvert.DeserializeObject<OrderResponseGetNetModelo>(responseJson.Result);
+
+            //mPComprasModelo = JsonConvert.DeserializeObject<MPComprasModelo>(doc.Values);
+
+            //Passando valroe Json para Objeto MPModelo
+            mPComprasModelo._id = doc.GetValue("_id").ToInt64();
+            mPComprasModelo.Id = doc.GetValue("id").ToInt64();
+            mPComprasModelo.DataCriacaoDocumento = ((DateTime)doc.GetValue("dataCriacaoDocumento"));
+            mPComprasModelo.DataCriacaoDocumento = ((DateTime)doc.GetValue("dataModificacaoDocumento"));
+            mPComprasModelo.IdCompraBandeira = doc.GetValue("idCompraBandeira").ToInt64();
+            mPComprasModelo.IdUnidadeNegocio = doc.GetValue("idUnidadeNegocio").ToInt32();
+            mPComprasModelo.IdCanalVenda = doc.GetValue("idCanalVenda").ToString();
+            mPComprasModelo.Data = ((DateTime)doc.GetValue("data"));
+            mPComprasModelo.Valor = doc.GetValue("valor").ToDouble();
+            mPComprasModelo.ValorFrete = doc.GetValue("valorFrete").ToDouble();
+            mPComprasModelo.Desconto = doc.GetValue("desconto").ToDouble();
+            mPComprasModelo.ValorTotal = doc.GetValue("valorTotal").ToDouble();
+            mPComprasModelo.SplitPagamento = doc.GetValue("splitPagamento").ToBoolean();
+
+            //Pegando os valores do statuso do pedido do BsonDocumentElement
+            mPstatus.Id = doc["status"].AsBsonDocument["id"].ToString();
+            mPstatus.descricao = doc["status"].AsBsonDocument["descricao"].ToString();
+            mPstatus.dataPagamento = ((DateTime)doc["status"].AsBsonDocument["dataPagamento"]);
+
+            //Passando os valores do statuso do pedido
+            mPComprasModelo.status = mPstatus;
+
+            //listModelo.AddRange(new MPComprasModelo[] { mPComprasModelo });
+
+            
+            return mPComprasModelo;
         }
 
-
-
-        //        //MongoClient cliente = new MongoClient("mongodb://suporte:suporte@mp-lojista-mongo-prd001.dc.nova:27017,mp-lojista-mongo-prd002.dc.nova:27017,mp-lojista-mongo-prd003.dc.nova:27017/mp-lojista?replicaSet=rsMpLojista&readPreference=secondary&connectTimeoutMS=10000&authSource=mp-lojista&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MP-Lojista+-+imported+on+10+de+fev+de+2021&3t.ssh=true&3t.sshAddress=10.128.46.16&3t.sshPort=22&3t.sshAuthMode=password&3t.sshUser=leitura&3t.sshPassword=temp@123&3t.databases=mp-lojista&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
-        //        MongoClient cliente = new MongoClient("mongodb://mp-compras-admin:mp-compras-admin%40@mp-compras-mongo-prd001.dc.nova:27017,mp-compras-mongo-prd002.dc.nova:27017,mp-compras-mongo-prd003.dc.nova:27017/mp-compras?readPreference=secondary&connectTimeoutMS=10000&authSource=mp-compras&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MP-COMPRAS+-+leitura&3t.ssh=true&3t.sshAddress=10.128.46.16&3t.sshPort=22&3t.sshAuthMode=password&3t.sshUser=leitura&3t.sshPassword=temp@123&3t.databases=mp-compras&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
-
-        //        //MongoClient cliente = new MongoClient("mongodb://suporte:suporte@mp-lojista-mongo-prd001.dc.nova:27017,mp-lojista-mongo-prd002.dc.nova:27017,mp-lojista-mongo-prd003.dc.nova:27017/mp-lojista?replicaSet=rsMpLojista&readPreference=secondary&connectTimeoutMS=10000&authSource=mp-lojista&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MP-Lojista+-+imported+on+10+de+fev+de+2021&3t.ssh=true&3t.sshAddress=10.128.46.16&3t.sshPort=22&3t.sshAuthMode=password&3t.sshUser=leitura&3t.sshPassword=temp@123&3t.databases=mp-lojista&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
-        //        //var list = cliente.ListDatabases().ToList();
-
-        //        //23699889001
-
-        //MongoServer server = cliente
-        //        //MongoDatabase database = server.GetDatabase("mp-lojista");
-        //        var database = cliente.GetDatabase("mp-compras");
-
-
-        //        IMongoCollection<MPComprasModelo> mongoCollection = database.GetCollection<MPComprasModelo>("mp-compras");
-        //        //var contatosLista = database.GetCollection<MPComprasModelo>("compra");
-        //        //var contatosLista = database.GetCollection("compra");
-
-        //        //var query = from e in contatosLista.AsQueryable<MPComprasModelo>()
-        //        //            where e.Id == id
-        //        //            select e;
-
-        //        //mPComprasModelo = JsonConvert.DeserializeObject<MPComprasModelo>(query);
-
-        //        //contatosLista.qu
-
-        //        return await contatosLista.ToList<MPComprasModelo>();
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw new Exception("Erro" + ex.Message);
-        //    }
-
-
-
-        //}
+        // private methods
+        private BsonDocument Deserialize(byte[] bson, PartiallyRawBsonDocumentSerializer serializer)
+        {
+            using (var stream = new MemoryStream(bson))
+            using (var reader = new BsonBinaryReader(stream))
+            {
+                var context = BsonDeserializationContext.CreateRoot(reader);
+                return serializer.Deserialize(context);
+            }
+        }
 
     }
 }

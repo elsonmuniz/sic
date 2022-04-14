@@ -69,8 +69,6 @@ namespace SIC
             string idSeller_CasasBahia  = "f5619066-5eca-4048-aade-e8a7149dc55e";
             string idSeller_PontoFrio   = "90fdcbdd-49ae-4b39-8b2b-fe7ced365e5d";
                                            
-            string idSeller;
-            
             //Variáveis utilizadas no laço abaixo
             string underline = "_";
             int valorInicial = 1;

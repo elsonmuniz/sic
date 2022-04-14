@@ -14,22 +14,20 @@ namespace SIC.Modelo
     {
 
 
-        //public class Rootobject
-        //{
             public Int64 _id { get; set; }
-            public Int64 id { get; set; }
-            public DateTime dataCriacaoDocumento { get; set; }
-            public DateTime dataModificacaoDocumento { get; set; }
-            public Int64 idCompraBandeira { get; set; }
-            public Int32 idUnidadeNegocio { get; set; }
-            public string idCanalVenda { get; set; }
-            public DateTime data { get; set; }
-            public double valor { get; set; }
-            public double valorFrete { get; set; }
-            public double desconto { get; set; }
-            public double valorTotal { get; set; }
-            public bool splitPagamento { get; set; }
-            public string tipoCompra { get; set; }
+            public Int64 Id { get; set; }
+            public DateTime DataCriacaoDocumento { get; set; }
+            public DateTime DataModificacaoDocumento { get; set; }
+            public Int64 IdCompraBandeira { get; set; }
+            public Int32 IdUnidadeNegocio { get; set; }
+            public string IdCanalVenda { get; set; }
+            public DateTime Data { get; set; }
+            public double Valor { get; set; }
+            public double ValorFrete { get; set; }
+            public double Desconto { get; set; }
+            public double ValorTotal { get; set; }
+            public bool SplitPagamento { get; set; }
+            public string TipoCompra { get; set; }
             public Status status { get; set; }
             public Frete frete { get; set; }
             public Cliente cliente { get; set; }
@@ -39,11 +37,11 @@ namespace SIC.Modelo
             public Entrega[] entregas { get; set; }
             public Formaspagamento1[] formasPagamentos { get; set; }
             public string _class { get; set; }
-        //}
+       
 
         public class Status
         {
-            public string id { get; set; }
+            public string Id { get; set; }
             public string descricao { get; set; }
             public DateTime dataPagamento { get; set; }
         }

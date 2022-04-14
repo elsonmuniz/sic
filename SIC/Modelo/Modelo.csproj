@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginModelo.cs" />
+    <Compile Include="LojistaAdquirenteModelo.cs" />
     <Compile Include="MPComprasModelo.cs" />
     <Compile Include="OrderResponseGetNetModelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
