@@ -51,12 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsultarLojaGetnetModelo.cs" />
+    <Compile Include="GatilhoModelo.cs" />
     <Compile Include="LoginModelo.cs" />
     <Compile Include="LojistaAdquirenteModelo.cs" />
     <Compile Include="MPComprasModelo.cs" />
+    <Compile Include="OrderBandeiraModelo.cs" />
     <Compile Include="OrderResponseGetNetModelo.cs" />
+    <Compile Include="PagamentosModelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SKUModelo.cs" />
+    <Compile Include="TrackingComissionamentoModelo.cs" />
+    <Compile Include="TransacoesModelo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

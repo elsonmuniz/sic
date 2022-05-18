@@ -16,5 +16,10 @@ namespace Forms
         {
             InitializeComponent();
         }
+
+        public virtual void Sair()
+        {
+            Application.Exit();
+        }
     }
 }

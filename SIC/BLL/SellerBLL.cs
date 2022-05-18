@@ -105,19 +105,17 @@ namespace SIC.BLL
 
         public DataTable ListagemSellerReprocessamento(int idLogista, LoginModelo loginModelo)
         {
-            sellerDAO = new SellerDAO();
-            return sellerDAO.ListagemSellerReprocessamento(idLogista, loginModelo);
+            try
+            {
+                sellerDAO = new SellerDAO();
+                return sellerDAO.ListagemSellerReprocessamento(idLogista, loginModelo); 
+            }
+            catch (Exception)
+            {
 
-            //try
-            //{
-            //    sellerDAO = new SellerDAO();
-            //    return sellerDAO.ListagemSellerReprocessamento(idLogista);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Erro na ativação do Seller. " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //return sellerDAO.ListagemSellerReprocessamento(idLogista);
+                throw;
+            }
+            
         }
 
         public bool ReprocessarLoja(int idLogista, Label label, LoginModelo loginModelo)

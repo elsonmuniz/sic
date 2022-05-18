@@ -38,6 +38,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ativarLojaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ativarProdutosDaLojaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.destivarTodosProdutosDaLojaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxSeller = new System.Windows.Forms.GroupBox();
             this.rbProductId = new System.Windows.Forms.RadioButton();
             this.rbReferenceId = new System.Windows.Forms.RadioButton();
@@ -52,9 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txAtivo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.ativarProdutosDaLojaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.destivarTodosProdutosDaLojaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeller)).BeginInit();
             this.contextMenuStripSku.SuspendLayout();
             this.groupBoxSeller.SuspendLayout();
@@ -91,48 +91,65 @@
             this.ativarProdutosDaLojaToolStripMenuItem,
             this.destivarTodosProdutosDaLojaToolStripMenuItem});
             this.contextMenuStripSku.Name = "contextMenuStripSeller";
-            this.contextMenuStripSku.Size = new System.Drawing.Size(293, 218);
+            this.contextMenuStripSku.Size = new System.Drawing.Size(273, 176);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(289, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
             // 
             // copiarToolStripMenuItem
             // 
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.copiarToolStripMenuItem.Text = "Copiar";
             // 
             // colarToolStripMenuItem
             // 
             this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
-            this.colarToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
+            this.colarToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.colarToolStripMenuItem.Text = "Colar";
             // 
             // recortarToolStripMenuItem
             // 
             this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
-            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
+            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.recortarToolStripMenuItem.Text = "Recortar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(289, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(269, 6);
             // 
             // ativarLojaToolStripMenuItem1
             // 
             this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
-            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(292, 24);
+            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(272, 22);
             this.ativarLojaToolStripMenuItem1.Text = "Ativar Flag Lock";
             this.ativarLojaToolStripMenuItem1.Click += new System.EventHandler(this.ativarLojaToolStripMenuItem1_Click);
             // 
             // pesquisarToolStripMenuItem
             // 
             this.pesquisarToolStripMenuItem.Name = "pesquisarToolStripMenuItem";
-            this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
+            this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.pesquisarToolStripMenuItem.Text = "Desativar Flag Lock";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(269, 6);
+            // 
+            // ativarProdutosDaLojaToolStripMenuItem
+            // 
+            this.ativarProdutosDaLojaToolStripMenuItem.Name = "ativarProdutosDaLojaToolStripMenuItem";
+            this.ativarProdutosDaLojaToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.ativarProdutosDaLojaToolStripMenuItem.Text = "Ativar Todos Produtos da Loja";
+            // 
+            // destivarTodosProdutosDaLojaToolStripMenuItem
+            // 
+            this.destivarTodosProdutosDaLojaToolStripMenuItem.Name = "destivarTodosProdutosDaLojaToolStripMenuItem";
+            this.destivarTodosProdutosDaLojaToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.destivarTodosProdutosDaLojaToolStripMenuItem.Text = "Destivar Todos Produtos da Loja";
             // 
             // groupBoxSeller
             // 
@@ -205,7 +222,7 @@
             // txIdSKU
             // 
             this.txIdSKU.Location = new System.Drawing.Point(29, 77);
-            this.txIdSKU.MaxLength = 10;
+            this.txIdSKU.MaxLength = 12;
             this.txIdSKU.Name = "txIdSKU";
             this.txIdSKU.Size = new System.Drawing.Size(102, 22);
             this.txIdSKU.TabIndex = 1;
@@ -270,23 +287,6 @@
             this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Ativos:";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(289, 6);
-            // 
-            // ativarProdutosDaLojaToolStripMenuItem
-            // 
-            this.ativarProdutosDaLojaToolStripMenuItem.Name = "ativarProdutosDaLojaToolStripMenuItem";
-            this.ativarProdutosDaLojaToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
-            this.ativarProdutosDaLojaToolStripMenuItem.Text = "Ativar Todos Produtos da Loja";
-            // 
-            // destivarTodosProdutosDaLojaToolStripMenuItem
-            // 
-            this.destivarTodosProdutosDaLojaToolStripMenuItem.Name = "destivarTodosProdutosDaLojaToolStripMenuItem";
-            this.destivarTodosProdutosDaLojaToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
-            this.destivarTodosProdutosDaLojaToolStripMenuItem.Text = "Destivar Todos Produtos da Loja";
             // 
             // SKURelated
             // 

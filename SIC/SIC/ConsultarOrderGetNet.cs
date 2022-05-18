@@ -41,6 +41,7 @@ namespace SIC
             dtOrderGetNet = new DataTable();
             
             DataColumn dcIdItem = new DataColumn("Id Item", typeof(string));
+            DataColumn dcTransacao = new DataColumn("Id Transação", typeof(string));
             DataColumn dcNomePlanoPagamento = new DataColumn("Nome Plano Pgto", typeof(string));
             DataColumn dcValorParcelas = new DataColumn("Valor Parcela", typeof(string));
             DataColumn dcNumeroParcela = new DataColumn("Número Parc.", typeof(string));
@@ -48,17 +49,18 @@ namespace SIC
             DataColumn dcDataPagto = new DataColumn("Data Pagto", typeof(string));
             DataColumn dcStatusLiberacao = new DataColumn("StatusLiberacao", typeof(string));
 
-            dtOrderGetNet.Columns.AddRange(new DataColumn []{ dcIdItem, dcNomePlanoPagamento, dcValorParcelas, dcNumeroParcela, dcDataTransacao, dcDataPagto, dcStatusLiberacao });
+            dtOrderGetNet.Columns.AddRange(new DataColumn []{ dcIdItem, dcTransacao,dcNomePlanoPagamento, dcValorParcelas, dcNumeroParcela, dcDataTransacao, dcDataPagto, dcStatusLiberacao });
 
             this.gridSeller.DataSource = dtOrderGetNet;
 
             this.gridSeller.Columns[0].Width = 80;
-            this.gridSeller.Columns[1].Width = 150;
-            this.gridSeller.Columns[2].Width = 80;
+            this.gridSeller.Columns[1].Width = 110;
+            this.gridSeller.Columns[2].Width = 150;
             this.gridSeller.Columns[3].Width = 80;
-            this.gridSeller.Columns[4].Width = 120;
+            this.gridSeller.Columns[4].Width = 80;
             this.gridSeller.Columns[5].Width = 120;
-            this.gridSeller.Columns[6].Width = 85;
+            this.gridSeller.Columns[6].Width = 120;
+            this.gridSeller.Columns[7].Width = 85;
         }
 
         private async void btPesquisarSKU_Click(object sender, EventArgs e)
@@ -110,7 +112,7 @@ namespace SIC
 
                 for (int i = 0; i <= 10; i++)
                 {
-                    orderResponseGetNetModelo = new OrderResponseGetNetModelo();
+                    
 
                    //Monta requisição
                     HttpResponseMessage response = await client.GetAsync(String.Format(urlTotal.Trim() + i));
@@ -120,27 +122,63 @@ namespace SIC
 
                     if (response.StatusCode != HttpStatusCode.NotFound)
                     {
+                        orderResponseGetNetModelo = new OrderResponseGetNetModelo();
                         var responseJson = response.Content.ReadAsStringAsync();
                         orderResponseGetNetModelo = JsonConvert.DeserializeObject<OrderResponseGetNetModelo>(responseJson.Result);
 
-                        if (orderResponseGetNetModelo.conteudo.transacoes != null)
+                        if (orderResponseGetNetModelo.conteudo != null)
                         {
                             for(int j = 0; j < orderResponseGetNetModelo.conteudo.transacoes.Length; j++)
                             {
+                                //for(int y =0; y < orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].ToString().Length; y++)
+                                //int cont = orderResponseGetNetModelo.conteudo.transacoes[0].detalhes[0].d;
                                 DataRow dr = dtOrderGetNet.NewRow();
-                                dr[0] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].idAgendamentoMarketplace;
-                                dr[1] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].nomePlanoPagamento;
-                                dr[2] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].valorParcela;
-                                dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].numeroParcelas;
-                                dr[4] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].dataTransacao;
-                                dr[5] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].dataPagamento;
-                                dr[6] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].statusLiberacao;
+                                if(orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                {
+                                    dr[0] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].idAgendamentoMarketplace;
+                                }
+                                
+                                dr[1] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.idPedido;
+                                
+                                if(orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                {
+                                    dr[2] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].nomePlanoPagamento;
+                                }
+
+                                if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                {
+                                    dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].valorParcela;
+                                }
+
+                                if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                {
+                                    dr[4] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].numeroParcelas;
+                                }
+
+                                if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                {
+                                    dr[5] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].dataTransacao;
+                                }
+
+                                if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                {
+                                    dr[6] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].dataPagamento;
+                                }
+
+                                if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                {
+                                    dr[7] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].statusLiberacao;
+                                }
 
                                 dtOrderGetNet.Rows.Add(dr);
 
                             }
                         }
 
+                        else
+                        {
+                            MessageBox.Show("Pedido não localizado o pedido " + txIdCompra.Text + "na getnet.","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         if(dtOrderGetNet.Rows.Count != 0)
                         {
                             return;
@@ -183,12 +221,13 @@ namespace SIC
                             {
                                 DataRow dr = dtOrderGetNet.NewRow();
                                 dr[0] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].idItem;
-                                dr[1] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].nomePlanoPagamento;
-                                dr[2] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].valorParcela;
-                                dr[3] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].numeroParcelas;
-                                dr[4] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].dataTransacao;
-                                dr[5] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].dataPagamento;
-                                dr[6] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].statusLiberacao;
+                                dr[1] = orderResponseGetNetModelo.conteudo.transacoes[0].resumo.idPedido;
+                                dr[2] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].nomePlanoPagamento;
+                                dr[3] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].valorParcela;
+                                dr[4] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].numeroParcelas;
+                                dr[5] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].dataTransacao;
+                                dr[6] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].dataPagamento;
+                                dr[7] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].statusLiberacao;
 
                                 dtOrderGetNet.Rows.Add(dr);
 
@@ -206,7 +245,7 @@ namespace SIC
             catch (Exception ex)
             {
 
-                MessageBox.Show("Erro" + ex.Message,"Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro" + this.txIdCompra.Text + ex.Message,"Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
 

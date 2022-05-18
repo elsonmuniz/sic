@@ -35,6 +35,7 @@ namespace SIC
 
             if(dialogResult == DialogResult.Yes)
             {
+                Application.Exit();
                 this.Close();
             }
             else
@@ -128,6 +129,12 @@ namespace SIC
         {
             ConsultarLojaGetNet consultarLojaGetNet = new ConsultarLojaGetNet(this);
             consultarLojaGetNet.Show();
+        }
+
+        private void consultarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarPedidoFinanceiro consultarPedidoFinanceiro = new ConsultarPedidoFinanceiro(this);
+            consultarPedidoFinanceiro.Show();
         }
     }
 }

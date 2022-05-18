@@ -6,12 +6,17 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using SIC.Modelo;
+using SIC.BLL;
 
 namespace SIC
-{
+{    
     public partial class FrmLogin : Forms.AppLogin
     {
+        //Modelo
         LoginModelo loginModelo;
+        
+        //BLL
+        LogarBLL logarBLL;
 
         public FrmLogin()
         {
@@ -24,12 +29,21 @@ namespace SIC
             loginModelo.Usuario = this.txUsuario.Text;
             loginModelo.Senha = this.txSenha.Text;
 
-            this.Visible = false;
+            logarBLL = new LogarBLL();
+            logarBLL.Logar(loginModelo);
 
-            FrmApp frmApp = new FrmApp(loginModelo);
-            frmApp.Show();
+            //Se o resultado da conexão for o campo Logado == true, chama o formulário principal do sistema.
+            if(loginModelo.Logado == true)
+            {
+                this.Visible = false;
 
-            //this.Dispose();
+                FrmApp frmApp = new FrmApp(loginModelo);
+                frmApp.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha inválido. Em três tentativas inválidas, bloqueará seu usuário do banco de dados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 

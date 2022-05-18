@@ -158,6 +158,12 @@
     <Compile Include="ConsultarOrderGetNet.Designer.cs">
       <DependentUpon>ConsultarOrderGetNet.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarPedidoFinanceiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarPedidoFinanceiro.Designer.cs">
+      <DependentUpon>ConsultarPedidoFinanceiro.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarSkuAtivoComVariante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,12 @@
     </Compile>
     <Compile Include="ImportarPrecificacaoEdit.Designer.cs">
       <DependentUpon>ImportarPrecificacaoEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportarTransacaoLote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportarTransacaoLote.Designer.cs">
+      <DependentUpon>ImportarTransacaoLote.cs</DependentUpon>
     </Compile>
     <Compile Include="IntegracaoSKU.cs">
       <SubType>Form</SubType>
@@ -247,6 +259,9 @@
     <EmbeddedResource Include="ConsultarOrderGetNet.resx">
       <DependentUpon>ConsultarOrderGetNet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarPedidoFinanceiro.resx">
+      <DependentUpon>ConsultarPedidoFinanceiro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsultarSkuAtivoComVariante.resx">
       <DependentUpon>ConsultarSkuAtivoComVariante.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ImportarPrecificacaoEdit.resx">
       <DependentUpon>ImportarPrecificacaoEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportarTransacaoLote.resx">
+      <DependentUpon>ImportarTransacaoLote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IntegracaoSKU.resx">
       <DependentUpon>IntegracaoSKU.cs</DependentUpon>

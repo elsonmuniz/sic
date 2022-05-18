@@ -8,7 +8,6 @@ using System.Data.SqlClient;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
 using SIC.Modelo;
-
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.IO;
@@ -43,6 +42,36 @@ namespace SIC.DAO
         //Begin
         OracleTransaction transaction = null;
         //SqlTransaction transactionFront = null;
+
+        //Modelo
+        LojistaAdquirenteModelo lojistaAdquirenteModelo;
+
+        //List
+        List<LojistaAdquirenteModelo> listLojistaAdquirenteModelo; // = new List<LojistaAdquirenteModelo>();
+
+        //*********** Elements ******************
+        List<BsonValue> listElements = new List<BsonValue>();
+        public void setElement(BsonValue listElement)
+        {
+            this.listElements.Add(listElement);
+        }
+
+        public String getElement(String sElement)
+        {
+            foreach (var itemTransaction in listElements)
+            {
+                for (int i = 0; i < itemTransaction.AsBsonDocument.ElementCount; i++)
+                {
+                    var svalue = itemTransaction.AsBsonDocument.GetElement(i).Name;
+                    if (svalue == sElement)
+                    {
+                        return sElement;
+                    }
+                }
+            }
+
+            return "";
+        }
 
         public DataTable ListagemSellerFront(int IdSeller)
         {
@@ -278,83 +307,223 @@ namespace SIC.DAO
             return sellerAtivada;
         }
 
-        public LojistaAdquirenteModelo PesquisarAsync(Int64 idSeller)
+        public List<LojistaAdquirenteModelo> PesquisarAsync(List<String> idSeller)
         {
 
+            listLojistaAdquirenteModelo = new List<LojistaAdquirenteModelo>();
             //23860499801
 
-            var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
-            IMongoDatabase db = dbClient.GetDatabase("mp-adquirente");
-
-            var carros = db.GetCollection<BsonDocument>("lojistaAdquirente");
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", idSeller);
-            var doc = carros.Find(filter).FirstOrDefault();
-
-            
-
-            LojistaAdquirenteModelo lojistaAdquirenteModelo = new LojistaAdquirenteModelo();
-            
-            List<LojistaAdquirenteModelo.Carteira> listModelo = new List<LojistaAdquirenteModelo.Carteira>();
-            
-
-            //orderResponseGetNetModelo = JsonConvert.DeserializeObject<OrderResponseGetNetModelo>(responseJson.Result);
-
-            //mPComprasModelo = JsonConvert.DeserializeObject<MPComprasModelo>(doc.Values);
-
-            //Passando valroe Json para Objeto MPModelo
-            lojistaAdquirenteModelo._id = doc.GetValue("_id").ToInt64();
-            lojistaAdquirenteModelo.nomeFantasia = doc.GetValue("nomeFantasia").ToString();
-            lojistaAdquirenteModelo.razaoSocial = doc.GetValue("razaoSocial").ToString();
-            lojistaAdquirenteModelo.nomeLoja = doc.GetValue("nomeLoja").ToString();
-            lojistaAdquirenteModelo.numeroDocumento = doc.GetValue("numeroDocumento").ToString();
-            lojistaAdquirenteModelo.nomeExibicao = doc.GetValue("nomeExibicao").ToString();
-
-            LojistaAdquirenteModelo.Carteira[] carteira = new LojistaAdquirenteModelo.Carteira[3];
-
-            //Percorre a TAg Element
-            foreach(var cart in doc.ToBsonDocument().Elements) //doc["carteiras"].AsBsonDocument["tipoCarteiraAdquirente"].ToString())
+            try
             {
-                //Identificar se é a TAG carteira
-               if(cart.Name == "carteiras")
+                var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                IMongoDatabase db = dbClient.GetDatabase("mp-adquirente");
+
+                for (int i = 0; i < idSeller.Count; i++)
                 {
-                    //Passa os valores da TAG carteira
-                    var teste = cart.Value;
+                    var carros = db.GetCollection<BsonDocument>("lojistaAdquirente");
+                    var filter = Builders<BsonDocument>.Filter.Eq("numeroDocumento", idSeller[i]);
+                    var resultSeller = carros.Find(filter).ToList();
 
-                    int cont = 0;
 
-                    //Percorre os valores da TAG carteira
-                    foreach (var bb in teste.AsBsonArray)
+                    if (resultSeller != null)
                     {
-                        //Preenche o objeto com os valores dos Elements
-                        if (bb[0] != "STONE")
+                        foreach (var itemSeller in resultSeller.ToArray())
                         {
-                            LojistaAdquirenteModelo.Carteira Ccarteira = new LojistaAdquirenteModelo.Carteira();
+                            lojistaAdquirenteModelo = new LojistaAdquirenteModelo();
 
-                            Ccarteira._id = bb[0].ToString();
-                            Ccarteira.tipoCarteiraAdquirente = bb[1].ToString();
-                            Ccarteira.site = Convert.ToInt32(bb[2]);
-                            Ccarteira.repasseBloqueado = Convert.ToBoolean(bb[3]);
-                            Ccarteira.ativo = Convert.ToBoolean(bb[4]);
-                            Ccarteira.status = bb[5].ToString();
-                            Ccarteira.statusGetnet = bb[6].ToString();
-                            Ccarteira.dataIntegracao = Convert.ToDateTime(bb[7]);
-                            Ccarteira.idPlanoPagamento = bb[8].ToString();
-                            Ccarteira.capturaHabilitada = Convert.ToBoolean(bb[9]);
+                            //List<LojistaAdquirenteModelo.Carteira> listModelo = new List<LojistaAdquirenteModelo.Carteira>();
 
-                            carteira[cont] = Ccarteira;
-                            lojistaAdquirenteModelo.setCarteiras(carteira);
+                            this.listElements.Clear();
+                            this.setElement(itemSeller);
 
-                            cont++;
+
+                            //Passando valor e Json para Objeto MPModelo
+                            //Criação de variáveis para verificar se as TAGs existem nos Elements do Payload    
+                            String _sId = this.getElement("_id");
+                            if (_sId.Length != 0)
+                            {
+                                lojistaAdquirenteModelo._id = itemSeller.GetValue("_id").ToInt64();
+                            }
+
+                            String sNomeFantasia = this.getElement("_id");
+                            if (sNomeFantasia.Length != 0)
+                            {
+                                lojistaAdquirenteModelo.nomeFantasia = itemSeller.GetValue("nomeFantasia").ToString();
+                            }
+
+                            String sRazaoSocial = this.getElement("razaoSocial");
+                            if (sRazaoSocial.Length != 0)
+                            {
+                                lojistaAdquirenteModelo.razaoSocial = itemSeller.GetValue("razaoSocial").ToString();
+                            }
+
+                            String sNomeLoja = this.getElement("nomeLoja");
+                            if (sNomeLoja.Length != 0)
+                            {
+                                lojistaAdquirenteModelo.nomeLoja = itemSeller.GetValue("nomeLoja").ToString();
+                            }
+
+                            String sNumeroDocumento = this.getElement("numeroDocumento");
+                            if (sNumeroDocumento.Length != 0)
+                            {
+                                lojistaAdquirenteModelo.numeroDocumento = itemSeller.GetValue("numeroDocumento").ToString();
+                            }
+
+                            String sNomeExibicao = this.getElement("nomeExibicao");
+                            if (sNomeExibicao.Length != 0)
+                            {
+                                lojistaAdquirenteModelo.nomeExibicao = itemSeller.GetValue("nomeExibicao").ToString();
+                            }
+
+                            String sSataModificacao = this.getElement("dataModificacao");
+                            if (sSataModificacao.Length != 0)
+                            {
+                                lojistaAdquirenteModelo.dataModificacao = ((DateTime)itemSeller.GetValue("dataModificacao"));
+                            }
+
+                            String s_transacaoVinculada = this.getElement("transacaoVinculada");
+                            if (s_transacaoVinculada.Length != 0)
+                            {
+                                lojistaAdquirenteModelo.transacaoVinculada = itemSeller.GetValue("transacaoVinculada").ToString();
+                            }
+
+                            String s_class = this.getElement("_class");
+                            if (s_class.Length != 0)
+                            {
+                                lojistaAdquirenteModelo._class = itemSeller.GetValue("_class").ToString();
+                            }
+
+                            
+
+
+                            //Pegando valores de Payload
+                            //var carteiras = itemSeller.AsBsonDocument.GetValue("carteiras"); //.GetElement("carteiras");
+
+                            this.listElements.Clear();
+                            this.setElement(itemSeller.AsBsonDocument.GetValue("carteiras").AsBsonArray);
+
+                            var contCarteira = itemSeller.GetValue("carteiras");// this.listElements.ToBsonDocument().Values;
+
+                            int cont = contCarteira.AsBsonArray.Count();
+                            int contadorIndiceCartei = 0;
+
+                            //Percorrer para identificar se tem Stone para retirar a quantidade de indice
+                            foreach (var itemCarteira in contCarteira.AsBsonArray)
+                            {
+                                if (itemCarteira["tipoCarteiraAdquirente"] == "STONE")
+                                {
+                                    cont = cont - 1;
+                                    //itemCarteira.AsBsonArray.Remove(itemCarteira["tipoCarteiraAdquirente"]);
+                                }
+                            }
+
+                            LojistaAdquirenteModelo.Carteira[] carteira = new LojistaAdquirenteModelo.Carteira[cont];
+
+                            //Daqui pra baixo ele retira o indice do Stone acima e percorre somente as carteiras das bandeiras 2,3,4
+                            foreach (var itemCarteira in contCarteira.AsBsonArray)
+                                //foreach (var itemCarteira in listElements)
+                                {
+
+                                this.listElements.Clear();
+                                this.setElement(itemCarteira);
+
+                                
+
+                                var sTTipoCarteiraAdquirente = this.getElement("tipoCarteiraAdquirente");
+                                
+                                if(itemCarteira["tipoCarteiraAdquirente"].ToString() != "STONE")
+                                {
+                                    LojistaAdquirenteModelo.Carteira Ccarteira = new LojistaAdquirenteModelo.Carteira();
+
+                                    if (sTTipoCarteiraAdquirente.Length != 0)
+                                    {
+                                        Ccarteira.tipoCarteiraAdquirente = itemCarteira["tipoCarteiraAdquirente"].ToString();
+                                    }
+
+                                    var _sIdCarteira = this.getElement("_id");
+                                    if (_sIdCarteira.Length != 0)
+                                    {
+                                        Ccarteira._id = itemCarteira["_id"].ToString();
+                                    }
+
+
+
+                                    var sSite = this.getElement("site");
+                                    if (sSite.Length != 0)
+                                    {
+                                        Ccarteira.site = itemCarteira["site"].ToInt32();
+                                    }
+
+                                    var sRepasseBloqueado = this.getElement("repasseBloqueado");
+                                    if (sRepasseBloqueado.Length != 0)
+                                    {
+                                        Ccarteira.repasseBloqueado = itemCarteira["repasseBloqueado"].ToBoolean();
+                                    }
+
+                                    var sAtivo = this.getElement("ativo");
+                                    if (sAtivo.Length != 0)
+                                    {
+                                        Ccarteira.ativo = itemCarteira["ativo"].ToBoolean();
+                                    }
+
+                                    var sStatus = this.getElement("status");
+                                    if (sStatus.Length != 0)
+                                    {
+                                        Ccarteira.status = itemCarteira["status"].ToString();
+                                    }
+
+                                    var sStatusGetnet = this.getElement("statusGetnet");
+                                    if (sStatusGetnet.Length != 0)
+                                    {
+                                        Ccarteira.statusGetnet = itemCarteira["statusGetnet"].ToString();
+                                    }
+
+                                    var sDataIntegracao = this.getElement("dataIntegracao");
+                                    if (sDataIntegracao.Length != 0)
+                                    {
+                                        Ccarteira.dataIntegracao = ((DateTime)itemCarteira["dataIntegracao"]);
+                                    }
+
+                                    var sIdPlanoPagamento = this.getElement("idPlanoPagamento");
+                                    if (sIdPlanoPagamento.Length != 0)
+                                    {
+                                        Ccarteira.idPlanoPagamento = itemCarteira["idPlanoPagamento"].ToString();
+                                    }
+
+                                    var sCapturaHabilitada = this.getElement("capturaHabilitada");
+                                    if (sCapturaHabilitada.Length != 0)
+                                    {
+                                        Ccarteira.capturaHabilitada = itemCarteira["capturaHabilitada"].ToBoolean();
+                                    }
+
+                                    carteira[contadorIndiceCartei] = Ccarteira;
+                                    lojistaAdquirenteModelo.setCarteiras(carteira);
+
+                                    contadorIndiceCartei++;
+
+                                }
+
+                            }
+
+                            listLojistaAdquirenteModelo.Add(lojistaAdquirenteModelo);
                         }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lojista não cadastrado no LojistaAdquirente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
+                    
+            }
+            catch (Exception  ex)
+            {
+                MessageBox.Show("Erro nas TAGs do cadastro do lojista" + ex.Message,"Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            lojistaAdquirenteModelo.dataModificacao = ((DateTime)doc.GetValue("dataModificacao"));
-            //lojistaAdquirenteModelo.transacaoVinculada = doc.GetValue("splitPagamento").ToString();
-            lojistaAdquirenteModelo._class = doc.GetValue("_class").ToString();
-
-            return lojistaAdquirenteModelo;
+            //return lojistaAdquirenteModelo;
+            return listLojistaAdquirenteModelo;
         }
     }
 }

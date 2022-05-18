@@ -18,6 +18,8 @@ namespace SIC
 
         //BLL
         ProdutosBLL produtosBLL;
+        TempBLL tempBLL;
+        
 
         //DataTable
         DataTable dtSKU;
@@ -81,6 +83,21 @@ namespace SIC
                 MessageBox.Show("Erro:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void btConsultarPrecoAlterado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tempBLL = new TempBLL();
+
+                this.gridSKUsAlterar.DataSource = tempBLL.ConsultarPrecoAlterado(this.txChamado.Text, loginModelo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -100,3 +100,5 @@ C:\ProjetoGit\sic\SIC\DAO\bin\Debug\System.ValueTuple.xml
 C:\ProjetoGit\sic\SIC\DAO\obj\Debug\DAO.csproj.CopyComplete
 C:\ProjetoGit\sic\SIC\DAO\obj\Debug\DAO.dll
 C:\ProjetoGit\sic\SIC\DAO\obj\Debug\DAO.pdb
+C:\ProjetoGit\sic\SIC\DAO\bin\Debug\Newtonsoft.Json.dll
+C:\ProjetoGit\sic\SIC\DAO\bin\Debug\Newtonsoft.Json.xml

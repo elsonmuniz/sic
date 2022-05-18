@@ -40,6 +40,7 @@
             this.lbQtdeLinhas = new System.Windows.Forms.Label();
             this.txQtdeSemSQKUID = new System.Windows.Forms.TextBox();
             this.lbQtdeSemSKUID = new System.Windows.Forms.Label();
+            this.btConsultarPrecoAlterado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridSKUsAlterar)).BeginInit();
             this.groupBoxSeller.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // groupBoxSeller
             // 
+            this.groupBoxSeller.Controls.Add(this.btConsultarPrecoAlterado);
             this.groupBoxSeller.Controls.Add(this.lbChamado);
             this.groupBoxSeller.Controls.Add(this.lbLocalPlanilha);
             this.groupBoxSeller.Controls.Add(this.txChamado);
@@ -163,6 +165,16 @@
             this.lbQtdeSemSKUID.TabIndex = 2;
             this.lbQtdeSemSKUID.Text = "Qtde sem SKU ID:";
             // 
+            // btConsultarPrecoAlterado
+            // 
+            this.btConsultarPrecoAlterado.Location = new System.Drawing.Point(229, 87);
+            this.btConsultarPrecoAlterado.Name = "btConsultarPrecoAlterado";
+            this.btConsultarPrecoAlterado.Size = new System.Drawing.Size(136, 29);
+            this.btConsultarPrecoAlterado.TabIndex = 3;
+            this.btConsultarPrecoAlterado.Text = "Consultar Chamado";
+            this.btConsultarPrecoAlterado.UseVisualStyleBackColor = true;
+            this.btConsultarPrecoAlterado.Click += new System.EventHandler(this.btConsultarPrecoAlterado_Click);
+            // 
             // ImportarPrecificacaoEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.Label lbQtdeLinhas;
         private System.Windows.Forms.TextBox txQtdeSemSQKUID;
         private System.Windows.Forms.Label lbQtdeSemSKUID;
+        private System.Windows.Forms.Button btConsultarPrecoAlterado;
     }
 }
