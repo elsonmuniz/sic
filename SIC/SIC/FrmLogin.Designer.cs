@@ -59,7 +59,6 @@
             this.txSenha.Name = "txSenha";
             this.txSenha.Size = new System.Drawing.Size(198, 22);
             this.txSenha.TabIndex = 2;
-            this.txSenha.Text = "Laureis!!050719";
             this.txSenha.UseSystemPasswordChar = true;
             // 
             // txUsuario
@@ -68,7 +67,6 @@
             this.txUsuario.Name = "txUsuario";
             this.txUsuario.Size = new System.Drawing.Size(198, 22);
             this.txUsuario.TabIndex = 2;
-            this.txUsuario.Text = "ELSON_JUNIOR";
             // 
             // lbSenha
             // 
