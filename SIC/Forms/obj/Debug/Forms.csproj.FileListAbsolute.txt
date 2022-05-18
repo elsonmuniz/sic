@@ -18,3 +18,13 @@ C:\ProjetoGit\sic\SIC\Forms\obj\Debug\Forms.csproj.GenerateResource.cache
 C:\ProjetoGit\sic\SIC\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
 C:\ProjetoGit\sic\SIC\Forms\obj\Debug\Forms.dll
 C:\ProjetoGit\sic\SIC\Forms\obj\Debug\Forms.pdb
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\bin\Debug\Forms.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\bin\Debug\Forms.pdb
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.AssemblyReference.cache
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.AppForm.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.AppLogin.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.FormEdit.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.GenerateResource.cache
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.pdb

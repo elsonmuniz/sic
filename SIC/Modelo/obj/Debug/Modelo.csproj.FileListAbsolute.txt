@@ -22,3 +22,15 @@ C:\ProjetoGit\sic\SIC\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 C:\ProjetoGit\sic\SIC\Modelo\obj\Debug\Modelo.csproj.CopyComplete
 C:\ProjetoGit\sic\SIC\Modelo\obj\Debug\Modelo.dll
 C:\ProjetoGit\sic\SIC\Modelo\obj\Debug\Modelo.pdb
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\Debug\Modelo.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\Debug\Modelo.pdb
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\Debug\MongoDB.Bson.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\Debug\MongoDB.Bson.xml
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.pdb
