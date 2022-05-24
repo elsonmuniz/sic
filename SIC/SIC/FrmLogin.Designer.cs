@@ -66,7 +66,7 @@
             this.txUsuario.Location = new System.Drawing.Point(125, 62);
             this.txUsuario.Name = "txUsuario";
             this.txUsuario.Size = new System.Drawing.Size(198, 22);
-            this.txUsuario.TabIndex = 2;
+            this.txUsuario.TabIndex = 1;
             // 
             // lbSenha
             // 
@@ -91,7 +91,7 @@
             this.btCancelar.Location = new System.Drawing.Point(220, 188);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(95, 32);
-            this.btCancelar.TabIndex = 0;
+            this.btCancelar.TabIndex = 4;
             this.btCancelar.Text = "CANCELAR";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
@@ -101,7 +101,7 @@
             this.btLogar.Location = new System.Drawing.Point(100, 188);
             this.btLogar.Name = "btLogar";
             this.btLogar.Size = new System.Drawing.Size(92, 32);
-            this.btLogar.TabIndex = 0;
+            this.btLogar.TabIndex = 3;
             this.btLogar.Text = "LOGAR";
             this.btLogar.UseVisualStyleBackColor = true;
             this.btLogar.Click += new System.EventHandler(this.btLogar_Click);
