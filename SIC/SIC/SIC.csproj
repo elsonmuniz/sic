@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Sic.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DnsClient, Version=1.4.0.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
       <HintPath>..\packages\DnsClient.1.4.0\lib\net471\DnsClient.dll</HintPath>
@@ -151,6 +154,12 @@
     </Compile>
     <Compile Include="ConsultarLojaGetNet.Designer.cs">
       <DependentUpon>ConsultarLojaGetNet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarLojaGetNetLote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarLojaGetNetLote.Designer.cs">
+      <DependentUpon>ConsultarLojaGetNetLote.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsultarOrderGetNet.cs">
       <SubType>Form</SubType>
@@ -255,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarLojaGetNet.resx">
       <DependentUpon>ConsultarLojaGetNet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarLojaGetNetLote.resx">
+      <DependentUpon>ConsultarLojaGetNetLote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarOrderGetNet.resx">
       <DependentUpon>ConsultarOrderGetNet.cs</DependentUpon>
@@ -364,6 +376,10 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="mongocrypt.dll" />
+    <Content Include="Sic.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="image\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MongoDB.Libmongocrypt.1.2.2\build\MongoDB.Libmongocrypt.targets" Condition="Exists('..\packages\MongoDB.Libmongocrypt.1.2.2\build\MongoDB.Libmongocrypt.targets')" />

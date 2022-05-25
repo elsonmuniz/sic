@@ -220,9 +220,11 @@ namespace SIC.DAO
                     contadorPedido = i;
                     orderIdAtual = orderId[i];
 
+                    //var pedido = orderIdAtual.ToString().Substring(0, 9);
+
                     // *************************** MP-Compra ***************************
                     var mpComprasCollection = dbMPCompras.GetCollection<BsonDocument>("compra");
-                    var filterMPCompras = Builders<BsonDocument>.Filter.Eq("id", orderId[i]);
+                    var filterMPCompras = Builders<BsonDocument>.Filter.Eq("id", Convert.ToInt64(orderId[i].ToString().Substring(0,9)+"01"));
                     var resultMPCompras = mpComprasCollection.Find(filterMPCompras).ToList();
 
                     // *************************** Pagamentos ***************************

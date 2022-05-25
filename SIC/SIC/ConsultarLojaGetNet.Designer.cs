@@ -38,13 +38,14 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ativarLojaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enviarEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxSeller = new System.Windows.Forms.GroupBox();
+            this.btImportarCNPJLote = new System.Windows.Forms.Button();
             this.rbIdLojista = new System.Windows.Forms.RadioButton();
             this.rbCNPJ = new System.Windows.Forms.RadioButton();
             this.txNomeLojista = new System.Windows.Forms.TextBox();
             this.txIdLojista = new System.Windows.Forms.TextBox();
             this.btPesquisarLojista = new System.Windows.Forms.Button();
-            this.enviarEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridLojistaAdquirente)).BeginInit();
             this.contextMenuStripConsultaLojistaGetnet.SuspendLayout();
             this.groupBoxSeller.SuspendLayout();
@@ -62,7 +63,7 @@
             this.gridLojistaAdquirente.RowHeadersVisible = false;
             this.gridLojistaAdquirente.RowHeadersWidth = 51;
             this.gridLojistaAdquirente.RowTemplate.Height = 24;
-            this.gridLojistaAdquirente.Size = new System.Drawing.Size(1234, 416);
+            this.gridLojistaAdquirente.Size = new System.Drawing.Size(1317, 467);
             this.gridLojistaAdquirente.TabIndex = 4;
             // 
             // contextMenuStripConsultaLojistaGetnet
@@ -78,7 +79,7 @@
             this.pesquisarToolStripMenuItem,
             this.enviarEmailToolStripMenuItem});
             this.contextMenuStripConsultaLojistaGetnet.Name = "contextMenuStripSeller";
-            this.contextMenuStripConsultaLojistaGetnet.Size = new System.Drawing.Size(279, 176);
+            this.contextMenuStripConsultaLojistaGetnet.Size = new System.Drawing.Size(279, 148);
             // 
             // toolStripSeparator1
             // 
@@ -121,8 +122,16 @@
             this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.pesquisarToolStripMenuItem.Text = "Pesquisar";
             // 
+            // enviarEmailToolStripMenuItem
+            // 
+            this.enviarEmailToolStripMenuItem.Name = "enviarEmailToolStripMenuItem";
+            this.enviarEmailToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.enviarEmailToolStripMenuItem.Text = "&Enviar e-mail";
+            this.enviarEmailToolStripMenuItem.Click += new System.EventHandler(this.enviarEmailToolStripMenuItem_Click);
+            // 
             // groupBoxSeller
             // 
+            this.groupBoxSeller.Controls.Add(this.btImportarCNPJLote);
             this.groupBoxSeller.Controls.Add(this.rbIdLojista);
             this.groupBoxSeller.Controls.Add(this.rbCNPJ);
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
@@ -130,10 +139,20 @@
             this.groupBoxSeller.Controls.Add(this.btPesquisarLojista);
             this.groupBoxSeller.Location = new System.Drawing.Point(39, 64);
             this.groupBoxSeller.Name = "groupBoxSeller";
-            this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
+            this.groupBoxSeller.Size = new System.Drawing.Size(1027, 119);
             this.groupBoxSeller.TabIndex = 3;
             this.groupBoxSeller.TabStop = false;
             this.groupBoxSeller.Text = "Pesquisar carteira do lojista na Getnet";
+            // 
+            // btImportarCNPJLote
+            // 
+            this.btImportarCNPJLote.Location = new System.Drawing.Point(860, 66);
+            this.btImportarCNPJLote.Name = "btImportarCNPJLote";
+            this.btImportarCNPJLote.Size = new System.Drawing.Size(149, 38);
+            this.btImportarCNPJLote.TabIndex = 4;
+            this.btImportarCNPJLote.Text = "Consutar em Lote";
+            this.btImportarCNPJLote.UseVisualStyleBackColor = true;
+            this.btImportarCNPJLote.Click += new System.EventHandler(this.btImportarCNPJLote_Click);
             // 
             // rbIdLojista
             // 
@@ -184,17 +203,10 @@
             this.btPesquisarLojista.UseVisualStyleBackColor = true;
             this.btPesquisarLojista.Click += new System.EventHandler(this.btPesquisarLojista_Click);
             // 
-            // enviarEmailToolStripMenuItem
-            // 
-            this.enviarEmailToolStripMenuItem.Name = "enviarEmailToolStripMenuItem";
-            this.enviarEmailToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.enviarEmailToolStripMenuItem.Text = "&Enviar e-mail";
-            this.enviarEmailToolStripMenuItem.Click += new System.EventHandler(this.enviarEmailToolStripMenuItem_Click);
-            // 
             // ConsultarLojaGetNet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1285, 678);
+            this.ClientSize = new System.Drawing.Size(1365, 678);
             this.Controls.Add(this.gridLojistaAdquirente);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "ConsultarLojaGetNet";
@@ -229,5 +241,6 @@
         private System.Windows.Forms.ToolStripMenuItem ativarLojaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enviarEmailToolStripMenuItem;
+        private System.Windows.Forms.Button btImportarCNPJLote;
     }
 }
