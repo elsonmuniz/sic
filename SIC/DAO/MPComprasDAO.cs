@@ -196,9 +196,10 @@ namespace SIC.DAO
             //DataColumn dcPlataformaTransacao = new DataColumn("Plataforma Transação", typeof(string));
             DataColumn dcStatusOperacaoGatilho = new DataColumn("Status Operação", typeof(string));
             DataColumn dcDataGatilhoGatilho = new DataColumn("Data Criação", typeof(string));
+            DataColumn dcMotivo = new DataColumn("Motivo", typeof(string));
 
             //Inserindo as colunas criadas acima na tabela de Gatilhos
-            dtOrderGatilho.Columns.AddRange(new DataColumn[] { dcNumeroGatilho, dcIdEntregaGatilho, dcStatusOperacaoGatilho, dcDataGatilhoGatilho });
+            dtOrderGatilho.Columns.AddRange(new DataColumn[] { dcNumeroGatilho, dcIdEntregaGatilho, dcStatusOperacaoGatilho, dcDataGatilhoGatilho, dcMotivo });
             
 
             try
@@ -303,14 +304,42 @@ namespace SIC.DAO
                                 gatilhoModelo.Processado = itemGatilho.GetValue("processado").ToBoolean();
                             }
 
+                            String sMotivos = this.getElement("motivos");
+                            if(sMotivos.Length != 0)
+                            {
+                                var gatilho = itemGatilho.AsBsonDocument.GetElement("motivos");
+
+                                GatilhoModelo.Motivos motivos = new GatilhoModelo.Motivos();
+                                motivos.zero = gatilho.Value.AsBsonArray[0].ToString();
+                                motivos.um = gatilho.Value.AsBsonArray[1].ToString();
+                                motivos.dois = gatilho.Value.AsBsonArray[2].ToString();
+                                motivos.tres = gatilho.Value.AsBsonArray[3].ToString();
+
+                                GatilhoModelo.Motivos[] motivosArray = new GatilhoModelo.Motivos[1];
+                                motivosArray[0] = motivos;
+
+                                gatilhoModelo.setMotivos(motivosArray);
+                            }
+                            
+
+                            //var tres = gatilho.Value.AsBsonArray[3].ToString();
+
                             String s_class = this.getElement("_class");
                             if (s_class.Length != 0)
                             {
                                 gatilhoModelo._class = itemGatilho.GetValue("_class").ToString();
                             }
 
-                            //Insere os dados lidos acima da tabela Gatilho para retorno em tela
-                            dtOrderGatilho.Rows.Add(contGatilho, gatilhoModelo.IdEntrega.ToString(), gatilhoModelo.StatusOperacao, gatilhoModelo.DataGatilho);
+                            if(gatilhoModelo.motivos != null)
+                            {
+                                //Insere os dados lidos acima da tabela Gatilho para retorno em tela
+                                dtOrderGatilho.Rows.Add(contGatilho, gatilhoModelo.IdEntrega.ToString(), gatilhoModelo.StatusOperacao, gatilhoModelo.DataGatilho, gatilhoModelo.motivos[0].tres);
+                            }
+                            else
+                            {
+                                dtOrderGatilho.Rows.Add(contGatilho, gatilhoModelo.IdEntrega.ToString(), gatilhoModelo.StatusOperacao, gatilhoModelo.DataGatilho, "");
+                            }
+                            
 
                             contGatilho++;
 

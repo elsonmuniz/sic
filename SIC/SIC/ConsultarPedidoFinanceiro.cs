@@ -66,6 +66,8 @@ namespace SIC
             this.gridOrderFinanceiro.Columns[1].Width = 80;
             this.gridOrderFinanceiro.Columns[3].Width = 60;
 
+            this.gridOrderGatilho.Columns[4].Width = 390;
+
         }
         
         public void ConsultaPedidoFinanceiro(List<Int64> orderId)
@@ -102,24 +104,8 @@ namespace SIC
                 gridOrderGatilho.Columns[1].Width = 100;
                 gridOrderGatilho.Columns[2].Width = 220;
                 gridOrderGatilho.Columns[3].Width = 120;
+                gridOrderGatilho.Columns[4].Width = 452;            
             }
-
-            //int countGrid = 0;
-            //int countSemTransacao = 0;
-
-            //for(countGrid = 0;countGrid < gridOrderGatilho.Rows.Count; countGrid++)
-            //{
-            //    if (gridOrderFinanceiro.Rows[countGrid].Cells["Valor Parcela"].Value.ToString().Length !=0)
-            //    {
-            //        countSemTransacao += int.Parse(gridOrderFinanceiro.Rows[countGrid].Cells["Valor Parcela"].Value.ToString());
-            //        countGrid++;
-
-
-            //    }
-            //}
-
-            //this.txQtdConfPagto.Text = countSemTransacao.ToString();
-            //this.txQtdConfPagto.Text = this.gridOrderFinanceiro.GetCellCount(DataGridViewElementStates.Selected) > 0;
 
         }
 
@@ -392,156 +378,6 @@ namespace SIC
             ImportarTransacaoLote importarTransacaoLote = new ImportarTransacaoLote(frmApp, this);
             importarTransacaoLote.Show();
         }
-        /*
-public async Task<string> PesquisarPedidoGetnet(DataTable dtOrder)
-{
-try
-{
-
-foreach (DataRow drOrder in dtOrder.Rows)
-{
-OrderResponseGetNetModelo orderResponseGetNetModelo = new OrderResponseGetNetModelo();
-
-string idSeller_Extra = "bcffabb4-71bd-4e5f-9f66-0617e2734874";
-string idSeller_CasasBahia = "f5619066-5eca-4048-aade-e8a7149dc55e";
-string idSeller_PontoFrio = "90fdcbdd-49ae-4b39-8b2b-fe7ced365e5d";
-
-//Variáveis utilizadas no laço abaixo
-string underline = "_";
-int valorInicial = 1;
-
-var urlParte1 = "http://mp-getnet.mktplace-prd.viavarejo.com.br/extratos?idSeller=";
-//var idSeller = this.txIdSeller.Text;
-var idCompra = "&idCompra=" + orderId.ToString().Substring(0, 9);
-string urlTotal = string.Empty;
-
-var client = new HttpClient();
-var formContent = new Dictionary<string, string>();
-
-switch (idBandeira)
-{
-case 2:
-urlTotal = urlParte1 + idSeller_Extra + idCompra + underline + valorInicial + underline;
-break;
-case 3:
-urlTotal = urlParte1 + idSeller_CasasBahia + idCompra + underline + valorInicial + underline;
-break;
-case 4:
-urlTotal = urlParte1 + idSeller_PontoFrio + idCompra + underline + valorInicial + underline;
-break;
-}
-
-//Va
-int valorFinal = 2;
-
-for (int i = 0; i <= 10; i++)
-{
-orderResponseGetNetModelo = new OrderResponseGetNetModelo();
-
-//Monta requisição
-HttpResponseMessage response = await client.GetAsync(String.Format(urlTotal.Trim() + i));
-//HttpResponseMessage responses = client.get client.GetAsync(String.Format(urlTotal.Trim() + i));
-
-//idSeller: f5619066-5eca-4048-aade-e8a7149dc55e
-//idCompra: 259860918_1_2
-
-if (response.StatusCode != HttpStatusCode.NotFound)
-{
-var responseJson = response.Content.ReadAsStringAsync();
-orderResponseGetNetModelo = JsonConvert.DeserializeObject<OrderResponseGetNetModelo>(responseJson.Result);
-
-if (orderResponseGetNetModelo.conteudo.transacoes != null)
-{
-for (int j = 0; j < orderResponseGetNetModelo.conteudo.transacoes.Length; j++)
-{
-//int cont = orderResponseGetNetModelo.conteudo.transacoes[0].detalhes[0].d;
-//DataRow dr = dtOrderGetNet.NewRow();
-//dr[0] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].idAgendamentoMarketplace;
-//dr[1] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].nomePlanoPagamento;
-//dr[2] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].valorParcela;
-//dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].numeroParcelas;
-//dr[4] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].dataTransacao;
-//dr[5] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].dataPagamento;
-//dr[6] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].statusLiberacao;
-
-statusLiberacao = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].statusLiberacao.ToString();
-
-return statusLiberacao; // orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].statusLiberacao.ToString();
-
-//dtOrderGetNet.Rows.Add(dr);
-
-}
-}
-
-//if (dtOrderGetNet.Rows.Count != 0)
-//{
-//    return;
-//}
-
-}
-
-}
-
-for (int i = 0; i <= 10; i++)
-{
-orderResponseGetNetModelo = new OrderResponseGetNetModelo();
-
-switch (idBandeira)
-{
-case 2:
-urlTotal = urlParte1 + idSeller_Extra + idCompra + underline + valorFinal + underline;
-break;
-case 3:
-urlTotal = urlParte1 + idSeller_CasasBahia + idCompra + underline + valorFinal + underline;
-break;
-case 4:
-urlTotal = urlParte1 + idSeller_PontoFrio + idCompra + underline + valorFinal + underline;
-break;
-}
-
-urlTotal += i;
-
-//Monta requisição
-HttpResponseMessage response2 = await client.GetAsync(String.Format(urlTotal.Trim() + i));
-
-if (response2.StatusCode != HttpStatusCode.NotFound)
-{
-var responseJson = response2.Content.ReadAsStringAsync();
-orderResponseGetNetModelo = JsonConvert.DeserializeObject<OrderResponseGetNetModelo>(responseJson.Result);
-
-if (orderResponseGetNetModelo.conteudo.transacoes != null)
-{
-for (int a = 0; a < orderResponseGetNetModelo.conteudo.transacoes.Length; a++)
-{
-//DataRow dr = dtOrderGetNet.NewRow();
-//dr[0] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].idItem;
-//dr[1] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].nomePlanoPagamento;
-//dr[2] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].valorParcela;
-//dr[3] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].numeroParcelas;
-//dr[4] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].dataTransacao;
-//dr[5] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].dataPagamento;
-//dr[6] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].statusLiberacao;
-
-statusLiberacao = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].statusLiberacao.ToString();
-
-return statusLiberacao; // orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].statusLiberacao.ToString();
-
-}
-}
-
-}
-}
-}
-}
-
-catch (Exception ex)
-{
-
-MessageBox.Show("Erro" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-}
-
-return statusLiberacao;
-}
-*/
+        
     }
 }

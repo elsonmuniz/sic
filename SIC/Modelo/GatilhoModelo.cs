@@ -21,6 +21,7 @@ namespace SIC.Modelo
             public int Retentativa { get; set; }
             public string StatusOperacao { get; set; }
             public bool Processado { get; set; }
+            public Motivos[] motivos { get; set; }
             public string _class { get; set; }
 
         public void setLiberacaoPagamentoDTO(Liberacaopagamentodto[] liberacaopagamentodto)
@@ -36,6 +37,11 @@ namespace SIC.Modelo
         public void setDadosParaPagamento(Dadosparapagamento[] dadosParaPagamento)
         {
             this.dadosParaPagamento = dadosParaPagamento;
+        }
+
+        public void setMotivos(Motivos[] motivos)
+        {
+            this.motivos = motivos;
         }
 
 
@@ -81,6 +87,14 @@ namespace SIC.Modelo
             public string _id { get; set; }
             public int valor { get; set; }
             public string tagItem { get; set; }
+        }
+
+        public class Motivos
+        {
+            public string zero { get; set; }
+            public string um { get; set; }
+            public string dois { get; set; }
+            public string tres { get; set; }            
         }
 
 
