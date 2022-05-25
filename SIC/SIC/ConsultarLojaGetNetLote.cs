@@ -40,7 +40,12 @@ namespace SIC
 
             foreach (var itemCNPJ in linhaCNPJ)
             {
-                if(itemCNPJ.Length == 13)
+                if (itemCNPJ.Length == 14)
+                {
+                    listCNPJ.Add(itemCNPJ);
+                }
+
+                if (itemCNPJ.Length == 13)
                 {
                     listCNPJ.Add("0"+itemCNPJ);
                 }

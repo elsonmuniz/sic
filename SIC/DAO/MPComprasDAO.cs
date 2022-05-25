@@ -167,15 +167,17 @@ namespace SIC.DAO
             DataColumn dcIdTransacaoGet         = new DataColumn("Id Getnet", typeof(string));
             DataColumn dcConfirmacaoPagamento   = new DataColumn("Confirmação de Pagamento", typeof(string));
             DataColumn dcDataPrevisaoPagamento  = new DataColumn("Previsão Pagto", typeof(string));
+            DataColumn dcInicioCiclo            = new DataColumn("Início Ciclo", typeof(string));
+            DataColumn dcFimCiclo               = new DataColumn("Fim Ciclo", typeof(string));
             DataColumn dcStatusGatilho          = new DataColumn("Tipo Transação", typeof(string));
-            DataColumn dcQtdeParcela            = new DataColumn("Qtd Parcela", typeof(string));
+            //DataColumn dcQtdeParcela            = new DataColumn("Qtd Parcela", typeof(string));
             DataColumn dcVarlorParcela          = new DataColumn("Valor Parcela", typeof(string));
             DataColumn dcValorPedido            = new DataColumn("Valor Pedido", typeof(string));
 
             //Inserindo as colunas criadas acima na tabela de Transação
             dtOrderFinanceiro.Columns.AddRange(new DataColumn[] {dcNumero, dcIdEntrega, dcBandeira, dcSite, dcIdTransacaoGet,
-                                                                    dcConfirmacaoPagamento, dcDataPrevisaoPagamento,
-                dcStatusGatilho, dcQtdeParcela, dcVarlorParcela,  dcValorPedido });
+                                                                    dcConfirmacaoPagamento, dcDataPrevisaoPagamento, dcInicioCiclo, dcFimCiclo,
+                dcStatusGatilho, dcVarlorParcela,  dcValorPedido });
 
 
             //Criação da DataTable PAGAMENTO para retorno
@@ -808,7 +810,19 @@ namespace SIC.DAO
                             transacoesModelo.valorFreteLojista = itemTransacao.GetElement("valorFreteLojista").Value.ToString();
                         }
 
-                        String plataformaTransacao = this.getElement("plataformaTransacao");
+                        String sDataInicioCiclo = this.getElement("dataInicioCiclo");
+                        if(sDataInicioCiclo.Length != 0)
+                         {
+                                transacoesModelo.dataInicioCiclo = Convert.ToDateTime(itemTransacao.GetElement("dataInicioCiclo").Value);
+                         }
+
+                            String sDataFimCiclo = this.getElement("dataFimCiclo");
+                            if (sDataFimCiclo.Length != 0)
+                            {
+                                transacoesModelo.dataFimCiclo = Convert.ToDateTime(itemTransacao.GetElement("dataFimCiclo").Value);
+                            }
+
+                            String plataformaTransacao = this.getElement("plataformaTransacao");
                         if (plataformaTransacao.Length != 0)
                         {
                             transacoesModelo.plataformaTransacao = itemTransacao.GetElement("plataformaTransacao").Value.ToString();
@@ -846,8 +860,8 @@ namespace SIC.DAO
 
                         //Inserindo na tabela de transação
                         dtOrderFinanceiro.Rows.Add(contadorPedido + 1, orderIdAtual, transacoesModelo.descricaoBandeiraCartao, idSite,
-                            transacoesModelo.idGetNet, transacoesModelo.dataConfirmacaoPagamento, transacoesModelo.dataPrevisaoPagamento,
-                            transacoesModelo.tipoTransacao,transacoesModelo.numeroParcelas, 
+                            transacoesModelo.idGetNet, transacoesModelo.dataConfirmacaoPagamento, transacoesModelo.dataPrevisaoPagamento, transacoesModelo.dataInicioCiclo, transacoesModelo.dataFimCiclo,
+                            transacoesModelo.tipoTransacao, 
                                             string.Format("{0:N}", transacoesModelo.valorTransacao), transacoesModelo.valorPedido);
 
                             
@@ -856,9 +870,8 @@ namespace SIC.DAO
                     else
                 {
                         //Se não tiver transação preenche a tabela de transação conforme abaixo
-                    dtOrderFinanceiro.Rows.Add(contadorPedido + 1, orderIdAtual, "Sem transação", "Sem transação", "Sem transação",
-                                                "Sem transação", "Sem transação", "Sem transação", "Sem transação",
-                                            "Sem transação");
+                    dtOrderFinanceiro.Rows.Add(contadorPedido + 1, orderIdAtual, "Sem transação", "Sem transação", "Sem transação", "Sem transação", "Sem transação",
+                                                "Sem transação", "Sem transação", "Sem transação", "Sem transação");
                     }
 
             }

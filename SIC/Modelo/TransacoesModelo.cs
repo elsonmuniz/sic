@@ -47,8 +47,10 @@ namespace SIC.Modelo
             public DateTime dataNotificacao { get; set; }
             public string valorFrete { get; set; }
             public string valorFreteVia { get; set; }
-        public string valorFreteLojista { get; set; }
-        public string plataformaTransacao { get; set; }
+            public string valorFreteLojista { get; set; }
+            public DateTime? dataInicioCiclo { get; set; }
+            public DateTime? dataFimCiclo { get; set; }
+            public string plataformaTransacao { get; set; }
             public string tipoFrete { get; set; }
             public string tipoPagamento { get; set; }
             public string tipoLiquidacao { get; set; }

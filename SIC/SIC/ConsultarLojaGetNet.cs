@@ -148,15 +148,40 @@ namespace SIC
                         drLojista[2] = lojistaAdquirenteModeloList[i].nomeFantasia;
                         drLojista[3] = lojistaAdquirenteModeloList[i].numeroDocumento;
                         drLojista[4] = lojistaAdquirenteModeloList[i].carteiras[0].site.ToString();
-                        drLojista[5] = lojistaAdquirenteModeloList[i].carteiras[0].status.ToString();
+                        if(lojistaAdquirenteModeloList[i].carteiras[0].status != null)
+                        {
+                            drLojista[5] = lojistaAdquirenteModeloList[i].carteiras[0].status.ToString();
+                        }
                         drLojista[6] = lojistaAdquirenteModeloList[i].carteiras[1].site.ToString();
-                        drLojista[7] = lojistaAdquirenteModeloList[i].carteiras[1].status.ToString();
-                        drLojista[8] = lojistaAdquirenteModeloList[i].carteiras[2].site.ToString();
-                        drLojista[9] = lojistaAdquirenteModeloList[i].carteiras[2].status.ToString();
 
-                        drLojista[10] =  lojistaAdquirenteModeloList[i].carteiras[0].statusGetnet.ToString();
-                        drLojista[11] = lojistaAdquirenteModeloList[i].carteiras[1].statusGetnet.ToString();
-                        drLojista[12] = lojistaAdquirenteModeloList[i].carteiras[2].statusGetnet.ToString();
+                        if (lojistaAdquirenteModeloList[i].carteiras[1].status != null)
+                        {
+                            drLojista[7] = lojistaAdquirenteModeloList[i].carteiras[1].status.ToString();
+                        }
+
+                        
+                        drLojista[8] = lojistaAdquirenteModeloList[i].carteiras[2].site.ToString();
+
+                        if (lojistaAdquirenteModeloList[i].carteiras[2].status != null)
+                        {
+                            drLojista[9] = lojistaAdquirenteModeloList[i].carteiras[2].status.ToString();
+                        }
+
+                        if (lojistaAdquirenteModeloList[i].carteiras[0].statusGetnet != null)
+                        {
+                            drLojista[10] = lojistaAdquirenteModeloList[i].carteiras[0].statusGetnet.ToString();
+                        }
+
+                        if (lojistaAdquirenteModeloList[i].carteiras[1].statusGetnet != null)
+                        {
+                            drLojista[11] = lojistaAdquirenteModeloList[i].carteiras[1].statusGetnet.ToString();
+                        }
+
+                        if (lojistaAdquirenteModeloList[i].carteiras[2].statusGetnet != null)
+                        {
+                            drLojista[12] = lojistaAdquirenteModeloList[i].carteiras[2].statusGetnet.ToString();
+                        }
+                        
                         drLojista[13] = lojistaAdquirenteModeloList[i].dataModificacao;
 
                         dtLojistaAdquirente.Rows.Add(drLojista);

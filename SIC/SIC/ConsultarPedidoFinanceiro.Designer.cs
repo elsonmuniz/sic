@@ -183,7 +183,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 148);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1358, 518);
+            this.tabControl1.Size = new System.Drawing.Size(1474, 518);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage1
@@ -192,7 +192,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1350, 489);
+            this.tabPage1.Size = new System.Drawing.Size(1466, 489);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Transação";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -209,7 +209,7 @@
             this.gridOrderFinanceiro.RowHeadersVisible = false;
             this.gridOrderFinanceiro.RowHeadersWidth = 51;
             this.gridOrderFinanceiro.RowTemplate.Height = 24;
-            this.gridOrderFinanceiro.Size = new System.Drawing.Size(1348, 470);
+            this.gridOrderFinanceiro.Size = new System.Drawing.Size(1474, 470);
             this.gridOrderFinanceiro.TabIndex = 8;
             // 
             // tabPage2
@@ -218,7 +218,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1350, 489);
+            this.tabPage2.Size = new System.Drawing.Size(1466, 489);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pagamento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -243,7 +243,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1350, 489);
+            this.tabPage3.Size = new System.Drawing.Size(1466, 489);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Gatilhos";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -338,7 +338,7 @@
             // ConsultarPedidoFinanceiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1382, 798);
+            this.ClientSize = new System.Drawing.Size(1498, 798);
             this.Controls.Add(this.progressBarImportarTransacao);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
