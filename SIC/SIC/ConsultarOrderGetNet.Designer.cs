@@ -30,6 +30,7 @@
         {
             this.gridSeller = new System.Windows.Forms.DataGridView();
             this.groupBoxSeller = new System.Windows.Forms.GroupBox();
+            this.btConsultarEmLote = new System.Windows.Forms.Button();
             this.cbBandeira = new System.Windows.Forms.ComboBox();
             this.lbBandeira = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,11 +52,12 @@
             this.gridSeller.RowHeadersWidth = 51;
             this.gridSeller.RowTemplate.Height = 24;
             this.gridSeller.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridSeller.Size = new System.Drawing.Size(1106, 477);
+            this.gridSeller.Size = new System.Drawing.Size(1142, 477);
             this.gridSeller.TabIndex = 8;
             // 
             // groupBoxSeller
             // 
+            this.groupBoxSeller.Controls.Add(this.btConsultarEmLote);
             this.groupBoxSeller.Controls.Add(this.cbBandeira);
             this.groupBoxSeller.Controls.Add(this.lbBandeira);
             this.groupBoxSeller.Controls.Add(this.label3);
@@ -63,10 +65,20 @@
             this.groupBoxSeller.Controls.Add(this.btPesquisarSKU);
             this.groupBoxSeller.Location = new System.Drawing.Point(18, 42);
             this.groupBoxSeller.Name = "groupBoxSeller";
-            this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
+            this.groupBoxSeller.Size = new System.Drawing.Size(1049, 119);
             this.groupBoxSeller.TabIndex = 7;
             this.groupBoxSeller.TabStop = false;
             this.groupBoxSeller.Text = "Consulta status de pedido na getnet";
+            // 
+            // btConsultarEmLote
+            // 
+            this.btConsultarEmLote.Location = new System.Drawing.Point(739, 45);
+            this.btConsultarEmLote.Name = "btConsultarEmLote";
+            this.btConsultarEmLote.Size = new System.Drawing.Size(112, 47);
+            this.btConsultarEmLote.TabIndex = 14;
+            this.btConsultarEmLote.Text = "Consultar em lote";
+            this.btConsultarEmLote.UseVisualStyleBackColor = true;
+            this.btConsultarEmLote.Click += new System.EventHandler(this.btConsultarEmLote_Click);
             // 
             // cbBandeira
             // 
@@ -80,6 +92,7 @@
             this.cbBandeira.Name = "cbBandeira";
             this.cbBandeira.Size = new System.Drawing.Size(345, 24);
             this.cbBandeira.TabIndex = 0;
+            this.cbBandeira.Visible = false;
             // 
             // lbBandeira
             // 
@@ -89,6 +102,7 @@
             this.lbBandeira.Size = new System.Drawing.Size(65, 16);
             this.lbBandeira.TabIndex = 13;
             this.lbBandeira.Text = "Bandeira:";
+            this.lbBandeira.Visible = false;
             // 
             // label3
             // 
@@ -108,7 +122,7 @@
             // 
             // btPesquisarSKU
             // 
-            this.btPesquisarSKU.Location = new System.Drawing.Point(678, 47);
+            this.btPesquisarSKU.Location = new System.Drawing.Point(583, 49);
             this.btPesquisarSKU.Name = "btPesquisarSKU";
             this.btPesquisarSKU.Size = new System.Drawing.Size(119, 38);
             this.btPesquisarSKU.TabIndex = 0;
@@ -119,7 +133,7 @@
             // ConsultarOrderGetNet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1133, 678);
+            this.ClientSize = new System.Drawing.Size(1169, 678);
             this.Controls.Add(this.gridSeller);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "ConsultarOrderGetNet";
@@ -143,5 +157,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbBandeira;
         private System.Windows.Forms.Label lbBandeira;
+        private System.Windows.Forms.Button btConsultarEmLote;
     }
 }

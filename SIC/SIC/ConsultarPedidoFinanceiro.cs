@@ -64,6 +64,7 @@ namespace SIC
 
             this.gridOrderFinanceiro.Columns[0].Width = 60;
             this.gridOrderFinanceiro.Columns[1].Width = 80;
+            this.gridOrderFinanceiro.Columns[2].Width = 80;
             this.gridOrderFinanceiro.Columns[3].Width = 60;
 
             this.gridOrderGatilho.Columns[4].Width = 390;
