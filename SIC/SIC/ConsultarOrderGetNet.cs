@@ -507,17 +507,22 @@ namespace SIC
 
                             if(i == 10)
                             {
-                                DataRow dr = dtOrderGetNet.NewRow();
+                                bool pedidoJaExiste = false;
 
-                                dr[0] = a + 1;
-                                dr[5] = listOrderBandeira[a].OrderId;
+                                pedidoJaExiste = await this.LocalizarPedidoExistente(dtOrderGetNet, listOrderBandeira[a].OrderId.ToString());
 
-                                dtOrderGetNet.Rows.Add(dr);
+                                if(!pedidoJaExiste)
+                                {
+                                    DataRow dr = dtOrderGetNet.NewRow();
+
+                                    dr[0] = a + 1;
+                                    dr[5] = listOrderBandeira[a].OrderId;
+
+                                    dtOrderGetNet.Rows.Add(dr);
+                                }
+                                
                             }
-                            //if (dtOrderGetNet.Rows.Count != 0)
-                            //{
-                            //    //return;
-                            //}
+                            
                         }
                     }
 
@@ -531,6 +536,26 @@ namespace SIC
             }
 
             return listOrderBandeira;
+        }
+
+        //Percorre a tabela de pedidos para verificar se já existe o pedido
+        //Se não existe insere só o pedido na linha do grid
+        public async Task<Boolean> LocalizarPedidoExistente(DataTable dtPedidos, string pedido)
+        {
+            Boolean pedidoJaExiste = false;
+
+             foreach(DataRow drItem in  dtPedidos.Rows)
+            {
+                 if(drItem[5].ToString() == pedido)
+                {
+                     pedidoJaExiste = true;
+
+                    return pedidoJaExiste;
+                }
+                
+            }
+
+            return await Task.FromResult<Boolean>(pedidoJaExiste);
         }
 
     }
