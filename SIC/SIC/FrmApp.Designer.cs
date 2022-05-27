@@ -62,6 +62,7 @@
             this.toolStripStatusData = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusVersao = new System.Windows.Forms.ToolStripStatusLabel();
+            this.consultarPedidoCanceladosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -227,7 +228,8 @@
             // 
             this.orderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mPCoprasToolStripMenuItem,
-            this.consultarOrderGetNetToolStripMenuItem});
+            this.consultarOrderGetNetToolStripMenuItem,
+            this.consultarPedidoCanceladosToolStripMenuItem});
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
             this.orderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.orderToolStripMenuItem.Text = "&Order";
@@ -235,15 +237,15 @@
             // mPCoprasToolStripMenuItem
             // 
             this.mPCoprasToolStripMenuItem.Name = "mPCoprasToolStripMenuItem";
-            this.mPCoprasToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.mPCoprasToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
             this.mPCoprasToolStripMenuItem.Text = "&MP-Compras";
             this.mPCoprasToolStripMenuItem.Click += new System.EventHandler(this.mPCoprasToolStripMenuItem_Click);
             // 
             // consultarOrderGetNetToolStripMenuItem
             // 
             this.consultarOrderGetNetToolStripMenuItem.Name = "consultarOrderGetNetToolStripMenuItem";
-            this.consultarOrderGetNetToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
-            this.consultarOrderGetNetToolStripMenuItem.Text = "&Consultar Order GetNet";
+            this.consultarOrderGetNetToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
+            this.consultarOrderGetNetToolStripMenuItem.Text = "&Consultar pagamento cancelado - Getnet";
             this.consultarOrderGetNetToolStripMenuItem.Click += new System.EventHandler(this.consultarOrderGetNetToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
@@ -262,7 +264,7 @@
             // consultarPedidoToolStripMenuItem
             // 
             this.consultarPedidoToolStripMenuItem.Name = "consultarPedidoToolStripMenuItem";
-            this.consultarPedidoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.consultarPedidoToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.consultarPedidoToolStripMenuItem.Text = "&Consultar pedido";
             this.consultarPedidoToolStripMenuItem.Click += new System.EventHandler(this.consultarPedidoToolStripMenuItem_Click);
             // 
@@ -334,6 +336,12 @@
             this.toolStripStatusVersao.Size = new System.Drawing.Size(51, 16);
             this.toolStripStatusVersao.Text = "Versão";
             // 
+            // consultarPedidoCanceladosToolStripMenuItem
+            // 
+            this.consultarPedidoCanceladosToolStripMenuItem.Name = "consultarPedidoCanceladosToolStripMenuItem";
+            this.consultarPedidoCanceladosToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
+            this.consultarPedidoCanceladosToolStripMenuItem.Text = "&Consultar item entregues - Getnet";
+            // 
             // FrmApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -392,5 +400,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarPedidoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarPedidoCanceladosToolStripMenuItem;
     }
 }

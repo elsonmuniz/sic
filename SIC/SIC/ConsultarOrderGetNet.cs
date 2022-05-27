@@ -366,9 +366,10 @@ namespace SIC
 
                                     dr[2] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.idPedido;
 
-                                    if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                    if (orderResponseGetNetModelo.conteudo.transacoes[j].resumo != null)
                                     {
-                                        dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].nomePlanoPagamento;
+                                        //dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].nomePlanoPagamento;
+                                        dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.mensagemMotivo;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
