@@ -52,7 +52,7 @@
             this.gridSeller.RowHeadersWidth = 51;
             this.gridSeller.RowTemplate.Height = 24;
             this.gridSeller.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridSeller.Size = new System.Drawing.Size(1142, 477);
+            this.gridSeller.Size = new System.Drawing.Size(1200, 477);
             this.gridSeller.TabIndex = 8;
             // 
             // groupBoxSeller
@@ -133,7 +133,7 @@
             // ConsultarOrderGetNet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1169, 678);
+            this.ClientSize = new System.Drawing.Size(1233, 678);
             this.Controls.Add(this.gridSeller);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "ConsultarOrderGetNet";
