@@ -50,6 +50,7 @@
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mPCoprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarOrderGetNetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarPedidoCanceladosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,6 @@
             this.toolStripStatusData = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusVersao = new System.Windows.Forms.ToolStripStatusLabel();
-            this.consultarPedidoCanceladosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -248,6 +248,13 @@
             this.consultarOrderGetNetToolStripMenuItem.Text = "&Consultar pagamento cancelado - Getnet";
             this.consultarOrderGetNetToolStripMenuItem.Click += new System.EventHandler(this.consultarOrderGetNetToolStripMenuItem_Click);
             // 
+            // consultarPedidoCanceladosToolStripMenuItem
+            // 
+            this.consultarPedidoCanceladosToolStripMenuItem.Name = "consultarPedidoCanceladosToolStripMenuItem";
+            this.consultarPedidoCanceladosToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
+            this.consultarPedidoCanceladosToolStripMenuItem.Text = "&Consultar item entregues - Getnet";
+            this.consultarPedidoCanceladosToolStripMenuItem.Click += new System.EventHandler(this.consultarPedidoCanceladosToolStripMenuItem_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -335,12 +342,6 @@
             this.toolStripStatusVersao.Name = "toolStripStatusVersao";
             this.toolStripStatusVersao.Size = new System.Drawing.Size(51, 16);
             this.toolStripStatusVersao.Text = "Versão";
-            // 
-            // consultarPedidoCanceladosToolStripMenuItem
-            // 
-            this.consultarPedidoCanceladosToolStripMenuItem.Name = "consultarPedidoCanceladosToolStripMenuItem";
-            this.consultarPedidoCanceladosToolStripMenuItem.Size = new System.Drawing.Size(332, 26);
-            this.consultarPedidoCanceladosToolStripMenuItem.Text = "&Consultar item entregues - Getnet";
             // 
             // FrmApp
             // 

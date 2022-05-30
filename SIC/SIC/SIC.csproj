@@ -173,6 +173,18 @@
     <Compile Include="ConsultarOrderGetNetLote.Designer.cs">
       <DependentUpon>ConsultarOrderGetNetLote.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarOrderItemGetnet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarOrderItemGetnet.Designer.cs">
+      <DependentUpon>ConsultarOrderItemGetnet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarOrderItemGetNetLote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarOrderItemGetNetLote.Designer.cs">
+      <DependentUpon>ConsultarOrderItemGetNetLote.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarPedidoFinanceiro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +291,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarOrderGetNetLote.resx">
       <DependentUpon>ConsultarOrderGetNetLote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarOrderItemGetnet.resx">
+      <DependentUpon>ConsultarOrderItemGetnet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarOrderItemGetNetLote.resx">
+      <DependentUpon>ConsultarOrderItemGetNetLote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarPedidoFinanceiro.resx">
       <DependentUpon>ConsultarPedidoFinanceiro.cs</DependentUpon>

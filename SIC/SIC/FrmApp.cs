@@ -136,5 +136,11 @@ namespace SIC
             ConsultarPedidoFinanceiro consultarPedidoFinanceiro = new ConsultarPedidoFinanceiro(this);
             consultarPedidoFinanceiro.Show();
         }
+
+        private void consultarPedidoCanceladosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarOrderItemGetnet consultarOrderItemGetnet = new ConsultarOrderItemGetnet(this);
+            consultarOrderItemGetnet.Show();
+        }
     }
 }

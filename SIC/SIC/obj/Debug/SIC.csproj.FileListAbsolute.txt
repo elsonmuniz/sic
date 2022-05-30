@@ -231,3 +231,5 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.exe
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.pdb
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.ConsultarLojaGetNetLote.resources
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.ConsultarOrderGetNetLote.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.ConsultarOrderItemGetnet.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.ConsultarOrderItemGetNetLote.resources

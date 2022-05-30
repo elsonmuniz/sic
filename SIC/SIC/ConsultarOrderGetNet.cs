@@ -359,9 +359,9 @@ namespace SIC
 
                                     dr[0] = a + 1;
 
-                                    if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                    if (orderResponseGetNetModelo.conteudo.transacoes[j].resumo != null)
                                     {
-                                        dr[1] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].idAgendamentoMarketplace;
+                                        dr[1] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.tipoRegistro;
                                     }
 
                                     dr[2] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.idPedido;
@@ -372,9 +372,9 @@ namespace SIC
                                         dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.mensagemMotivo;
                                     }
 
-                                    if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
+                                    if (orderResponseGetNetModelo.conteudo.transacoes[j].resumo != null)
                                     {
-                                        dr[4] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].valorParcela;
+                                        dr[4] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.valorTransacaoCartao;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
@@ -384,17 +384,17 @@ namespace SIC
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
                                     {
-                                        dr[6] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].dataTransacao;
+                                        dr[6] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.dataTransacao;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
                                     {
-                                        dr[7] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].dataPagamento;
+                                        dr[7] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.dataTransacao;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[j].detalhes != null)
                                     {
-                                        dr[8] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].statusLiberacao;
+                                        dr[8] = orderResponseGetNetModelo.conteudo.transacoes[j].resumo.idPagamento;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[j].resumo != null)
@@ -426,7 +426,7 @@ namespace SIC
                     {
                         orderResponseGetNetModelo = new OrderResponseGetNetModelo();
 
-                        switch (cbBandeira.SelectedIndex)
+                        switch (listOrderBandeira[a].IdBandeira)
                         {
                             case 0:
                                 urlTotal = urlParte1 + idSeller_Extra + idCompra + underline + valorFinal + underline;
@@ -456,41 +456,42 @@ namespace SIC
                                     DataRow dr = dtOrderGetNet.NewRow();
                                     dr[0] = a + 1;
 
-                                    if (orderResponseGetNetModelo.conteudo.transacoes[b].detalhes != null)
+                                    if (orderResponseGetNetModelo.conteudo.transacoes[b].resumo != null)
                                     {
-                                        dr[1] = orderResponseGetNetModelo.conteudo.transacoes[b].detalhes[b].idAgendamentoMarketplace;
+                                        dr[1] = orderResponseGetNetModelo.conteudo.transacoes[b].resumo.tipoRegistro;
                                     }
 
                                     dr[2] = orderResponseGetNetModelo.conteudo.transacoes[b].resumo.idPedido;
 
-                                    if (orderResponseGetNetModelo.conteudo.transacoes[b].detalhes != null)
+                                    if (orderResponseGetNetModelo.conteudo.transacoes[b].resumo != null)
                                     {
-                                        dr[3] = orderResponseGetNetModelo.conteudo.transacoes[b].detalhes[b].nomePlanoPagamento;
+                                        //dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].nomePlanoPagamento;
+                                        dr[3] = orderResponseGetNetModelo.conteudo.transacoes[b].resumo.mensagemMotivo;
+                                    }
+
+                                    if (orderResponseGetNetModelo.conteudo.transacoes[b].resumo != null)
+                                    {
+                                        dr[4] = orderResponseGetNetModelo.conteudo.transacoes[b].resumo.valorTransacaoCartao;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[b].detalhes != null)
                                     {
-                                        dr[4] = orderResponseGetNetModelo.conteudo.transacoes[b].detalhes[b].valorParcela;
+                                        dr[5] = listOrderBandeira[a].OrderId; //orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[j].numeroParcelas;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[b].detalhes != null)
                                     {
-                                        dr[5] = listOrderBandeira[a].OrderId;
+                                        dr[6] = orderResponseGetNetModelo.conteudo.transacoes[b].resumo.dataTransacao;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[b].detalhes != null)
                                     {
-                                        dr[6] = orderResponseGetNetModelo.conteudo.transacoes[b].detalhes[b].dataTransacao;
+                                        dr[7] = orderResponseGetNetModelo.conteudo.transacoes[b].resumo.dataTransacao;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[b].detalhes != null)
                                     {
-                                        dr[7] = orderResponseGetNetModelo.conteudo.transacoes[b].detalhes[b].dataPagamento;
-                                    }
-
-                                    if (orderResponseGetNetModelo.conteudo.transacoes[b].detalhes != null)
-                                    {
-                                        dr[8] = orderResponseGetNetModelo.conteudo.transacoes[b].detalhes[b].statusLiberacao;
+                                        dr[8] = orderResponseGetNetModelo.conteudo.transacoes[b].resumo.idPagamento;
                                     }
 
                                     if (orderResponseGetNetModelo.conteudo.transacoes[b].resumo != null)
