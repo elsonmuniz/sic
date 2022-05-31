@@ -63,6 +63,7 @@
     <Compile Include="SKUModelo.cs" />
     <Compile Include="TrackingComissionamentoModelo.cs" />
     <Compile Include="TransacoesModelo.cs" />
+    <Compile Include="UsuarioExternoModelo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

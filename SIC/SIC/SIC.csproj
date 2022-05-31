@@ -277,6 +277,12 @@
     <Compile Include="SKURelated.Designer.cs">
       <DependentUpon>SKURelated.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsuarioExterno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuarioExterno.Designer.cs">
+      <DependentUpon>UsuarioExterno.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CompararPlanilhaPreco.resx">
       <DependentUpon>CompararPlanilhaPreco.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SKURelated.resx">
       <DependentUpon>SKURelated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuarioExterno.resx">
+      <DependentUpon>UsuarioExterno.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="libmongocrypt.dylib" />
     <None Include="libmongocrypt.so" />

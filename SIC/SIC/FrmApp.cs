@@ -142,5 +142,16 @@ namespace SIC
             ConsultarOrderItemGetnet consultarOrderItemGetnet = new ConsultarOrderItemGetnet(this);
             consultarOrderItemGetnet.Show();
         }
+
+        private void onBoardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsuarioExterno usuarioExterno = new UsuarioExterno(this);
+            usuarioExterno.Show();
+        }
     }
 }

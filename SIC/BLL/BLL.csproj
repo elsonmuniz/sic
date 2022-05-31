@@ -82,6 +82,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SellerBLL.cs" />
     <Compile Include="TempBLL.cs" />
+    <Compile Include="UsuarioExternoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">

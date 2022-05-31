@@ -63,6 +63,7 @@
             this.toolStripStatusData = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusVersao = new System.Windows.Forms.ToolStripStatusLabel();
+            this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +103,8 @@
             this.consultarLojaFrontToolStripMenuItem,
             this.reprocessarLojaToolStripMenuItem,
             this.toolStripSeparator3,
-            this.getNetToolStripMenuItem});
+            this.getNetToolStripMenuItem,
+            this.usuáriosToolStripMenuItem});
             this.sellerToolStripMenuItem.Name = "sellerToolStripMenuItem";
             this.sellerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sellerToolStripMenuItem.Text = "&Seller";
@@ -343,6 +345,13 @@
             this.toolStripStatusVersao.Size = new System.Drawing.Size(51, 16);
             this.toolStripStatusVersao.Text = "Versão";
             // 
+            // usuáriosToolStripMenuItem
+            // 
+            this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.usuáriosToolStripMenuItem.Text = "&Usuários";
+            this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
+            // 
             // FrmApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -402,5 +411,6 @@
         private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarPedidoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarPedidoCanceladosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem;
     }
 }
