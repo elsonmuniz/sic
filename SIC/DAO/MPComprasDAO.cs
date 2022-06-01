@@ -913,6 +913,7 @@ namespace SIC.DAO
                 trackingComissionamentoModelo._class = "br.com.viavarejo.mpdinheiro.model.mongodb.TrackingComissionamentoEntity";
                 
                 colNew.InsertOne(trackingComissionamentoModelo);
+                //colNew.UpdateOneAsync(trackingComissionamentoModelo);
 
             }
             catch (Exception)

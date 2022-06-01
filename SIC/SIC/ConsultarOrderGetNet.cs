@@ -23,6 +23,9 @@ namespace SIC
         LoginModelo loginModelo;
         OrderResponseGetNetModelo orderResponseGetNetModelo;
 
+        //List
+        //List<OrderResponseGetNetModelo> listOrderResponseGetNetModelos = new List<OrderResponseGetNetModelo>();
+
         //DataTable
         DataTable dtOrderGetNet;
 
@@ -348,6 +351,8 @@ namespace SIC
                             orderResponseGetNetModelo = new OrderResponseGetNetModelo();
                             var responseJson = response.Content.ReadAsStringAsync();
                             orderResponseGetNetModelo = JsonConvert.DeserializeObject<OrderResponseGetNetModelo>(responseJson.Result);
+                            
+                            //listOrderResponseGetNetModelos.Add(JsonConvert.DeserializeObject<OrderResponseGetNetModelo>(responseJson.Result));
 
                             if ((orderResponseGetNetModelo.conteudo.pagamentos != null) || (orderResponseGetNetModelo.conteudo.transacoes != null))
                             {
@@ -428,18 +433,18 @@ namespace SIC
 
                         switch (listOrderBandeira[a].IdBandeira)
                         {
-                            case 0:
+                            case 2:
                                 urlTotal = urlParte1 + idSeller_Extra + idCompra + underline + valorFinal + underline;
                                 break;
-                            case 1:
+                            case 3:
                                 urlTotal = urlParte1 + idSeller_CasasBahia + idCompra + underline + valorFinal + underline;
                                 break;
-                            case 2:
+                            case 4:
                                 urlTotal = urlParte1 + idSeller_PontoFrio + idCompra + underline + valorFinal + underline;
                                 break;
                         }
 
-                        urlTotal += i;
+                        //urlTotal += i;
 
                         //Monta requisição
                         HttpResponseMessage response2 = await client.GetAsync(String.Format(urlTotal.Trim() + i));
@@ -449,7 +454,7 @@ namespace SIC
                             var responseJson = response2.Content.ReadAsStringAsync();
                             orderResponseGetNetModelo = JsonConvert.DeserializeObject<OrderResponseGetNetModelo>(responseJson.Result);
 
-                            if (orderResponseGetNetModelo.conteudo.transacoes != null)
+                            if (orderResponseGetNetModelo.conteudo.pagamentos != null)
                             {
                                 for (int b = 0; b < orderResponseGetNetModelo.conteudo.transacoes.Length; b++)
                                 {
