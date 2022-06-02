@@ -25,6 +25,11 @@ namespace SIC
 
         private void btLogar_Click(object sender, EventArgs e)
         {
+            this.Logar();
+        }
+
+        public void Logar()
+        {
             loginModelo = new LoginModelo();
             loginModelo.Usuario = this.txUsuario.Text;
             loginModelo.Senha = this.txSenha.Text;
@@ -33,7 +38,7 @@ namespace SIC
             logarBLL.Logar(loginModelo);
 
             //Se o resultado da conexão for o campo Logado == true, chama o formulário principal do sistema.
-            if(loginModelo.Logado == true)
+            if (loginModelo.Logado == true)
             {
                 this.Visible = false;
 
@@ -44,7 +49,6 @@ namespace SIC
             {
                 MessageBox.Show("Usuário ou senha inválido. Em três tentativas inválidas, bloqueará seu usuário do banco de dados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -52,6 +56,13 @@ namespace SIC
             Application.Exit();
             this.Close();
         }
-       
+
+        private void txSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                this.Logar();
+            }
+        }
     }
 }

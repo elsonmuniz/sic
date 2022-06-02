@@ -60,6 +60,7 @@
             this.txSenha.Size = new System.Drawing.Size(198, 22);
             this.txSenha.TabIndex = 2;
             this.txSenha.UseSystemPasswordChar = true;
+            this.txSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txSenha_KeyDown);
             // 
             // txUsuario
             // 

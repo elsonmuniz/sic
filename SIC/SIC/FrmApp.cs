@@ -153,5 +153,11 @@ namespace SIC
             UsuarioExterno usuarioExterno = new UsuarioExterno(this);
             usuarioExterno.Show();
         }
+
+        private void ajustesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ajustes ajustes = new Ajustes(this);
+            ajustes.Show();
+        }
     }
 }

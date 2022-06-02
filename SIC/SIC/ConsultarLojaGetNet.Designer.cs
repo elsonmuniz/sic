@@ -150,7 +150,7 @@
             this.btImportarCNPJLote.Name = "btImportarCNPJLote";
             this.btImportarCNPJLote.Size = new System.Drawing.Size(149, 38);
             this.btImportarCNPJLote.TabIndex = 4;
-            this.btImportarCNPJLote.Text = "Consutar em Lote";
+            this.btImportarCNPJLote.Text = "Consultar em Lote";
             this.btImportarCNPJLote.UseVisualStyleBackColor = true;
             this.btImportarCNPJLote.Click += new System.EventHandler(this.btImportarCNPJLote_Click);
             // 

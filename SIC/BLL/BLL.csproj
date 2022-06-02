@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjusteBLL.cs" />
     <Compile Include="JsonConversaoBLL.cs" />
     <Compile Include="LogarBLL.cs" />
     <Compile Include="LojistaAdquirenteBLL.cs" />

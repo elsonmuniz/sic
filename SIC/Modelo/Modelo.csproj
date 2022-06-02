@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjustesModelo.cs" />
     <Compile Include="ConsultarLojaGetnetModelo.cs" />
     <Compile Include="GatilhoModelo.cs" />
     <Compile Include="LoginModelo.cs" />
