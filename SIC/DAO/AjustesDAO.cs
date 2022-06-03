@@ -183,24 +183,24 @@ namespace SIC.DAO
                             ajustesModelo.dataCriacao = Convert.ToDateTime(itemAjuste.GetElement("dataCriacao").Value);
                         }
 
-
-                        
-
-                        var vMotivoRecusa = itemAjuste.AsBsonDocument.GetValue("motivoRecusa");
-
-                        foreach(var itemMotivoRecusa in vMotivoRecusa.AsBsonArray)
+                        String sMotivoRecusa = this.getElement("motivoRecusa");
+                        if (sMotivoRecusa.Length != 0)
                         {
-                            AjustesModelo.Motivorecusa motivoRecusa = new AjustesModelo.Motivorecusa();
+                            var vMotivoRecusa = itemAjuste.AsBsonDocument.GetValue("motivoRecusa");
 
-                            this.listElements.Clear();
+                            foreach (var itemMotivoRecusa in vMotivoRecusa.AsBsonArray)
+                            {
+                                AjustesModelo.Motivorecusa motivoRecusa = new AjustesModelo.Motivorecusa();
+
+                                this.listElements.Clear();
 
 
-                            motivoRecusa.statusNoMomentoDaRecusa = itemMotivoRecusa["statusNoMomentoDaRecusa"].ToString();
-                            motivoRecusa.dataDaRecusa = Convert.ToDateTime(itemMotivoRecusa["dataDaRecusa"]);
+                                motivoRecusa.statusNoMomentoDaRecusa = itemMotivoRecusa["statusNoMomentoDaRecusa"].ToString();
+                                motivoRecusa.dataDaRecusa = Convert.ToDateTime(itemMotivoRecusa["dataDaRecusa"]);
 
-                            motivorecusasArray[0] = motivoRecusa;
+                                motivorecusasArray[0] = motivoRecusa;
+                            }
                         }
-                        
 
                         ajustesModelo.setMotivoRecusa(motivorecusasArray);
 
