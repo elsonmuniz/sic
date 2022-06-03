@@ -178,7 +178,7 @@ namespace SIC.DAO
                         }
 
                         String sDataCriacao = this.getElement("dataCriacao");
-                        if (sCodigoRetorno.Length != 0)
+                        if (sDataCriacao.Length != 0)
                         {
                             ajustesModelo.dataCriacao = Convert.ToDateTime(itemAjuste.GetElement("dataCriacao").Value);
                         }
@@ -199,12 +199,11 @@ namespace SIC.DAO
                                 motivoRecusa.dataDaRecusa = Convert.ToDateTime(itemMotivoRecusa["dataDaRecusa"]);
 
                                 motivorecusasArray[0] = motivoRecusa;
+
+                                ajustesModelo.setMotivoRecusa(motivorecusasArray);
+
                             }
                         }
-
-                        ajustesModelo.setMotivoRecusa(motivorecusasArray);
-
-
 
                         this.listAjusteModelo.Add(ajustesModelo);
                     }
