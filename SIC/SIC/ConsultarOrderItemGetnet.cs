@@ -122,7 +122,7 @@ namespace SIC
                     //Va
                     int valorFinal = 2;
 
-                    for (int i = 0; i <= 10; i++)
+                    for (int i = 0; i < 10; i++)
                     {
 
                         //Monta requisição
@@ -201,24 +201,24 @@ namespace SIC
 
                     }
 
-                    for (int i = 0; i <= 10; i++)
+                    for (int i = 0; i < 10; i++)
                     {
                         orderResponseGetNetModelo = new OrderResponseGetNetModelo();
 
                         switch (listOrderBandeira[a].IdBandeira)
                         {
-                            case 0:
+                            case 2:
                                 urlTotal = urlParte1 + idSeller_Extra + idCompra + underline + valorFinal + underline;
                                 break;
-                            case 1:
+                            case 3:
                                 urlTotal = urlParte1 + idSeller_CasasBahia + idCompra + underline + valorFinal + underline;
                                 break;
-                            case 2:
+                            case 4:
                                 urlTotal = urlParte1 + idSeller_PontoFrio + idCompra + underline + valorFinal + underline;
                                 break;
                         }
 
-                        urlTotal += i;
+                        //urlTotal += i;
 
                         //Monta requisição
                         HttpResponseMessage response2 = await client.GetAsync(String.Format(urlTotal.Trim() + i));
