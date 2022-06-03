@@ -149,6 +149,12 @@
     <Compile Include="Ajustes.Designer.cs">
       <DependentUpon>Ajustes.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjustesLote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjustesLote.Designer.cs">
+      <DependentUpon>AjustesLote.cs</DependentUpon>
+    </Compile>
     <Compile Include="CompararPlanilhaPreco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +297,9 @@
     </Compile>
     <EmbeddedResource Include="Ajustes.resx">
       <DependentUpon>Ajustes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjustesLote.resx">
+      <DependentUpon>AjustesLote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompararPlanilhaPreco.resx">
       <DependentUpon>CompararPlanilhaPreco.cs</DependentUpon>

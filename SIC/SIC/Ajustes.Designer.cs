@@ -28,14 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gridOrder = new System.Windows.Forms.DataGridView();
             this.groupBoxSeller = new System.Windows.Forms.GroupBox();
             this.btImportarOrderLote = new System.Windows.Forms.Button();
             this.txNomeLojista = new System.Windows.Forms.TextBox();
             this.txOrderId = new System.Windows.Forms.TextBox();
             this.btPesquisarOrderId = new System.Windows.Forms.Button();
+            this.contextMenuStripConsultaPedidoGetnet = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recortarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ativarLojaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrder)).BeginInit();
             this.groupBoxSeller.SuspendLayout();
+            this.contextMenuStripConsultaPedidoGetnet.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridOrder
@@ -43,6 +52,7 @@
             this.gridOrder.AllowUserToAddRows = false;
             this.gridOrder.AllowUserToDeleteRows = false;
             this.gridOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridOrder.ContextMenuStrip = this.contextMenuStripConsultaPedidoGetnet;
             this.gridOrder.Location = new System.Drawing.Point(12, 185);
             this.gridOrder.Name = "gridOrder";
             this.gridOrder.ReadOnly = true;
@@ -73,6 +83,7 @@
             this.btImportarOrderLote.TabIndex = 4;
             this.btImportarOrderLote.Text = "Consultar em Lote";
             this.btImportarOrderLote.UseVisualStyleBackColor = true;
+            this.btImportarOrderLote.Click += new System.EventHandler(this.btImportarOrderLote_Click);
             // 
             // txNomeLojista
             // 
@@ -80,7 +91,7 @@
             this.txNomeLojista.Name = "txNomeLojista";
             this.txNomeLojista.ReadOnly = true;
             this.txNomeLojista.Size = new System.Drawing.Size(388, 22);
-            this.txNomeLojista.TabIndex = 1;
+            this.txNomeLojista.TabIndex = 2;
             // 
             // txOrderId
             // 
@@ -95,10 +106,57 @@
             this.btPesquisarOrderId.Location = new System.Drawing.Point(560, 66);
             this.btPesquisarOrderId.Name = "btPesquisarOrderId";
             this.btPesquisarOrderId.Size = new System.Drawing.Size(119, 38);
-            this.btPesquisarOrderId.TabIndex = 0;
+            this.btPesquisarOrderId.TabIndex = 3;
             this.btPesquisarOrderId.Text = "Pesquisar";
             this.btPesquisarOrderId.UseVisualStyleBackColor = true;
             this.btPesquisarOrderId.Click += new System.EventHandler(this.btPesquisarOrderId_Click);
+            // 
+            // contextMenuStripConsultaPedidoGetnet
+            // 
+            this.contextMenuStripConsultaPedidoGetnet.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripConsultaPedidoGetnet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.copiarToolStripMenuItem,
+            this.colarToolStripMenuItem,
+            this.recortarToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.ativarLojaToolStripMenuItem1});
+            this.contextMenuStripConsultaPedidoGetnet.Name = "contextMenuStripSeller";
+            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(193, 104);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(189, 6);
+            // 
+            // copiarToolStripMenuItem
+            // 
+            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.copiarToolStripMenuItem.Text = "Copiar";
+            // 
+            // colarToolStripMenuItem
+            // 
+            this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
+            this.colarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.colarToolStripMenuItem.Text = "Colar";
+            // 
+            // recortarToolStripMenuItem
+            // 
+            this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
+            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.recortarToolStripMenuItem.Text = "Recortar";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(189, 6);
+            // 
+            // ativarLojaToolStripMenuItem1
+            // 
+            this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
+            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.ativarLojaToolStripMenuItem1.Text = "&Reprocessar ajuste";
             // 
             // Ajustes
             // 
@@ -107,13 +165,14 @@
             this.Controls.Add(this.gridOrder);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "Ajustes";
-            this.Text = "Salvar ajustes";
+            this.Text = "Ajustes";
             this.Load += new System.EventHandler(this.Ajustes_Load);
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);
             this.Controls.SetChildIndex(this.gridOrder, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridOrder)).EndInit();
             this.groupBoxSeller.ResumeLayout(false);
             this.groupBoxSeller.PerformLayout();
+            this.contextMenuStripConsultaPedidoGetnet.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +186,12 @@
         private System.Windows.Forms.TextBox txNomeLojista;
         private System.Windows.Forms.TextBox txOrderId;
         private System.Windows.Forms.Button btPesquisarOrderId;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripConsultaPedidoGetnet;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem copiarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recortarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem ativarLojaToolStripMenuItem1;
     }
 }

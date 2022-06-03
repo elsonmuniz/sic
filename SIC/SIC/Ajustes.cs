@@ -57,17 +57,34 @@ namespace SIC
 
         private void btPesquisarOrderId_Click(object sender, EventArgs e)
         {
-            this.listOrderId.Add(Convert.ToInt64(this.txOrderId.Text));
-
-            this.PesquisarAjuste(listOrderId);
-
             //Limpa o liste depois da consulta
             this.listOrderId.Clear();
+
+            this.PesquisarAjuste(listOrderId);
         }
 
         private void Ajustes_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void PesquisarAjustes(List<Int64> listOrder)
+        {
+            ajusteBLL = new AjusteBLL();
+
+            if(this.txOrderId.Text.Length != 0)
+            {
+                listOrder.Add(Convert.ToInt64(this.txOrderId.Text));
+            }
+
+            ajusteBLL.PesquisarAjustes(listOrder);
+
+        }
+
+        private void btImportarOrderLote_Click(object sender, EventArgs e)
+        {
+            AjustesLote ajustesLote = new AjustesLote(frmApp, this);
+            ajustesLote.Show();
         }
     }
 }
