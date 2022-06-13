@@ -59,6 +59,7 @@ namespace SIC.DAO
             {
                 var collectionAjuste = dbMPDinheiro.GetCollection<BsonDocument>("ajustes");
                 var filterAjuste = Builders<BsonDocument>.Filter.Eq("numeroPedido", listOrderid[i]);
+                
                 var resultAjuste = collectionAjuste.Find(filterAjuste).ToList();
 
                 
@@ -183,27 +184,39 @@ namespace SIC.DAO
                             ajustesModelo.dataCriacao = Convert.ToDateTime(itemAjuste.GetElement("dataCriacao").Value);
                         }
 
-                        String sMotivoRecusa = this.getElement("motivoRecusa");
-                        if (sMotivoRecusa.Length != 0)
+                        String sDataPrevisaoPagamento = this.getElement("dataPrevisaoPagamento");
+                        if (sDataPrevisaoPagamento.Length != 0)
                         {
-                            var vMotivoRecusa = itemAjuste.AsBsonDocument.GetValue("motivoRecusa");
-
-                            foreach (var itemMotivoRecusa in vMotivoRecusa.AsBsonArray)
-                            {
-                                AjustesModelo.Motivorecusa motivoRecusa = new AjustesModelo.Motivorecusa();
-
-                                this.listElements.Clear();
-
-
-                                motivoRecusa.statusNoMomentoDaRecusa = itemMotivoRecusa["statusNoMomentoDaRecusa"].ToString();
-                                motivoRecusa.dataDaRecusa = Convert.ToDateTime(itemMotivoRecusa["dataDaRecusa"]);
-
-                                motivorecusasArray[0] = motivoRecusa;
-
-                                ajustesModelo.setMotivoRecusa(motivorecusasArray);
-
-                            }
+                            ajustesModelo.dataPrevisaoPagamento = Convert.ToDateTime(itemAjuste.GetElement("dataPrevisaoPagamento").Value.ToString());
                         }
+
+                        String sMotivoRecusa = this.getElement("motivoRecusa");
+                        if (sMotivoRecusa == "motivoRecusa")
+                        {
+                            var vMotivoRecusa = itemAjuste.GetValue("motivoRecusa");
+
+                            if(vMotivoRecusa.IsBsonNull != true)
+                            {
+                                foreach (var itemMotivoRecusa in vMotivoRecusa.AsBsonArray)
+                                {
+                                    AjustesModelo.Motivorecusa motivoRecusa = new AjustesModelo.Motivorecusa();
+
+                                    this.listElements.Clear();
+
+
+                                    motivoRecusa.statusNoMomentoDaRecusa = itemMotivoRecusa["statusNoMomentoDaRecusa"].ToString();
+                                    motivoRecusa.dataDaRecusa = Convert.ToDateTime(itemMotivoRecusa["dataDaRecusa"]);
+
+                                    motivorecusasArray[0] = motivoRecusa;
+
+                                    ajustesModelo.setMotivoRecusa(motivorecusasArray);
+
+                                }
+                            }
+                            
+                        }
+
+                        
 
                         this.listAjusteModelo.Add(ajustesModelo);
                     }

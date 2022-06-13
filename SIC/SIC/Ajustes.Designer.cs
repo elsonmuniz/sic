@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridOrder = new System.Windows.Forms.DataGridView();
-            this.groupBoxSeller = new System.Windows.Forms.GroupBox();
-            this.btImportarOrderLote = new System.Windows.Forms.Button();
-            this.txNomeLojista = new System.Windows.Forms.TextBox();
-            this.txOrderId = new System.Windows.Forms.TextBox();
-            this.btPesquisarOrderId = new System.Windows.Forms.Button();
             this.contextMenuStripConsultaPedidoGetnet = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,9 +37,14 @@
             this.recortarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ativarLojaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBoxSeller = new System.Windows.Forms.GroupBox();
+            this.btImportarOrderLote = new System.Windows.Forms.Button();
+            this.txNomeLojista = new System.Windows.Forms.TextBox();
+            this.txOrderId = new System.Windows.Forms.TextBox();
+            this.btPesquisarOrderId = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrder)).BeginInit();
-            this.groupBoxSeller.SuspendLayout();
             this.contextMenuStripConsultaPedidoGetnet.SuspendLayout();
+            this.groupBoxSeller.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridOrder
@@ -59,8 +59,55 @@
             this.gridOrder.RowHeadersVisible = false;
             this.gridOrder.RowHeadersWidth = 51;
             this.gridOrder.RowTemplate.Height = 24;
-            this.gridOrder.Size = new System.Drawing.Size(1283, 467);
+            this.gridOrder.Size = new System.Drawing.Size(1437, 467);
             this.gridOrder.TabIndex = 6;
+            // 
+            // contextMenuStripConsultaPedidoGetnet
+            // 
+            this.contextMenuStripConsultaPedidoGetnet.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripConsultaPedidoGetnet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.copiarToolStripMenuItem,
+            this.colarToolStripMenuItem,
+            this.recortarToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.ativarLojaToolStripMenuItem1});
+            this.contextMenuStripConsultaPedidoGetnet.Name = "contextMenuStripSeller";
+            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(193, 104);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(189, 6);
+            // 
+            // copiarToolStripMenuItem
+            // 
+            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.copiarToolStripMenuItem.Text = "Copiar";
+            // 
+            // colarToolStripMenuItem
+            // 
+            this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
+            this.colarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.colarToolStripMenuItem.Text = "Colar";
+            // 
+            // recortarToolStripMenuItem
+            // 
+            this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
+            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.recortarToolStripMenuItem.Text = "Recortar";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(189, 6);
+            // 
+            // ativarLojaToolStripMenuItem1
+            // 
+            this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
+            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.ativarLojaToolStripMenuItem1.Text = "&Reprocessar ajuste";
             // 
             // groupBoxSeller
             // 
@@ -111,57 +158,10 @@
             this.btPesquisarOrderId.UseVisualStyleBackColor = true;
             this.btPesquisarOrderId.Click += new System.EventHandler(this.btPesquisarOrderId_Click);
             // 
-            // contextMenuStripConsultaPedidoGetnet
-            // 
-            this.contextMenuStripConsultaPedidoGetnet.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStripConsultaPedidoGetnet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.copiarToolStripMenuItem,
-            this.colarToolStripMenuItem,
-            this.recortarToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.ativarLojaToolStripMenuItem1});
-            this.contextMenuStripConsultaPedidoGetnet.Name = "contextMenuStripSeller";
-            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(193, 104);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(189, 6);
-            // 
-            // copiarToolStripMenuItem
-            // 
-            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.copiarToolStripMenuItem.Text = "Copiar";
-            // 
-            // colarToolStripMenuItem
-            // 
-            this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
-            this.colarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.colarToolStripMenuItem.Text = "Colar";
-            // 
-            // recortarToolStripMenuItem
-            // 
-            this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
-            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.recortarToolStripMenuItem.Text = "Recortar";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(189, 6);
-            // 
-            // ativarLojaToolStripMenuItem1
-            // 
-            this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
-            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
-            this.ativarLojaToolStripMenuItem1.Text = "&Reprocessar ajuste";
-            // 
             // Ajustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1307, 678);
+            this.ClientSize = new System.Drawing.Size(1461, 678);
             this.Controls.Add(this.gridOrder);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "Ajustes";
@@ -170,9 +170,9 @@
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);
             this.Controls.SetChildIndex(this.gridOrder, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridOrder)).EndInit();
+            this.contextMenuStripConsultaPedidoGetnet.ResumeLayout(false);
             this.groupBoxSeller.ResumeLayout(false);
             this.groupBoxSeller.PerformLayout();
-            this.contextMenuStripConsultaPedidoGetnet.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

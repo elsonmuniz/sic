@@ -8,7 +8,14 @@ namespace SIC.Modelo
 {
     public class LoginModelo
     {
-        
+
+        private String id;
+        public String Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         private String usuario;        
         public String Usuario
         {

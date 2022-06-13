@@ -44,13 +44,15 @@ namespace SIC
             this.gridOrder.DataSource = dtOrder;
 
             this.gridOrder.Columns[0].Width = 60;
-            this.gridOrder.Columns[2].Width = 80;
-            this.gridOrder.Columns[3].Width = 115;
+            this.gridOrder.Columns[1].Width = 60;
+            this.gridOrder.Columns[3].Width = 70;
             this.gridOrder.Columns[4].Width = 115;
             this.gridOrder.Columns[5].Width = 115;
-            this.gridOrder.Columns[6].Width = 60;
-            this.gridOrder.Columns[7].Width = 230;
-            this.gridOrder.Columns[8].Width = 100;
+            this.gridOrder.Columns[6].Width = 115;
+            this.gridOrder.Columns[7].Width = 115;
+            this.gridOrder.Columns[8].Width = 60;
+            this.gridOrder.Columns[9].Width = 180;
+            this.gridOrder.Columns[10].Width = 80;
 
 
         }

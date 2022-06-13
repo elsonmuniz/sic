@@ -23,5 +23,7 @@ namespace SIC.Modelo
         public Int64 OrderId { get; set; }
         public string IdGetnet { get; set; }
         public Int32 IdBandeira { get; set; }
+        public string DataConfirmacaoPagamento { get; set; }
+        public string DataPrevisaoPagamento { get; set; }
     }
 }

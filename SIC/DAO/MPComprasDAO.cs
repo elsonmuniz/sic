@@ -310,12 +310,35 @@ namespace SIC.DAO
                             if(sMotivos.Length != 0)
                             {
                                 var gatilho = itemGatilho.AsBsonDocument.GetElement("motivos");
+                                //var payload = pagamento.AsBsonDocument.GetValue("payload");
+
+                               
 
                                 GatilhoModelo.Motivos motivos = new GatilhoModelo.Motivos();
+
+                                //String sZero = this.getElement("0");
+                                //if (sZero.Length != 0)
+                                //{
+                                //    motivos.zero = gatilho.Value.AsBsonArray[0].ToString();
+                                //}
+
                                 motivos.zero = gatilho.Value.AsBsonArray[0].ToString();
-                                motivos.um = gatilho.Value.AsBsonArray[1].ToString();
-                                motivos.dois = gatilho.Value.AsBsonArray[2].ToString();
-                                motivos.tres = gatilho.Value.AsBsonArray[3].ToString();
+                                //motivos.um = gatilho.Value.AsBsonArray[1].ToString();
+                                //motivos.dois = gatilho.Value.AsBsonArray[2].ToString();
+                                //motivos.tres = gatilho.Value.AsBsonArray[3].ToString();
+
+                                if (motivos.zero == "DENIED")
+                                {
+                                    motivos.zero = gatilho.Value.AsBsonArray[0].ToString();
+                                    motivos.um = gatilho.Value.AsBsonArray[1].ToString();
+                                    motivos.dois = gatilho.Value.AsBsonArray[2].ToString();
+                                    motivos.tres = gatilho.Value.AsBsonArray[3].ToString();
+                                }
+                                else
+                                {
+                                    motivos.tres = motivos.zero;
+                                }
+
 
                                 GatilhoModelo.Motivos[] motivosArray = new GatilhoModelo.Motivos[1];
                                 motivosArray[0] = motivos;
@@ -1103,6 +1126,7 @@ namespace SIC.DAO
                     OrderBandeiraModelo orderBandeiraModelo = new OrderBandeiraModelo();
                     orderBandeiraModelo.OrderId = itemOrder.GetElement("id").Value.ToInt64(); //resultCompra[i].GetElement("id").Value.ToInt64();
                     orderBandeiraModelo.IdBandeira = itemOrder.GetElement("idUnidadeNegocio").Value.ToInt32(); // resultCompra[i].GetElement("idUnidadeNegocio").Value.ToInt32();
+                    orderBandeiraModelo.IdGetnet = listOrderBandeira[i].IdGetnet;
                     listResultOrderBandeira.Add(orderBandeiraModelo);
                 }
                 

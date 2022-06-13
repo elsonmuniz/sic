@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using Oracle.ManagedDataAccess.Client;
 using SIC.Modelo;
 using System.Windows.Forms;
-
+using System.Data;
 
 namespace SIC.DAO
 {
@@ -30,15 +30,30 @@ namespace SIC.DAO
             {
                 OracleConnection conexao;
 
-
-                //String conn = "Data Source = ORA_ADPRD.dc.nova:1521/ADPRD; User ID="+loginModelo.Usuario+"; Password="+loginModelo.Senha+" ";
                 String conn = "Data Source = 10.128.122.32:1521/ADPRD; User ID=" + loginModelo.Usuario + "; Password=" + loginModelo.Senha + " ";
-                //Laureis##050719
+                
                 conexao = new OracleConnection(conn);
 
                 conexao.Open();
 
-                if(conexao.State == System.Data.ConnectionState.Open)
+                //SqlConnection conexaoSQLServer = ConectarSL();
+                //conexaoSQLServer.Open();
+
+                //SqlDataAdapter dr = new SqlDataAdapter();
+                //dr.SelectCommand = new SqlCommand();
+                //dr.SelectCommand.Connection = conexaoSQLServer;
+                //dr.SelectCommand.CommandText = "SELECT * FROM #SICLogin";
+                //DataTable dt = new DataTable();
+                //dr.Fill(dt);
+
+
+                //SqlCommand cmdLogin = new SqlCommand();
+                //cmdLogin.Connection = conexaoSQLServer;
+                //cmdLogin.CommandText = "INSERT INTO #SICLogin(Usuario, DataInicio, DataFim ) values('" + loginModelo.Usuario + "', '" + DateTime.Now + "', '" + DateTime.Now + "')";
+                //cmdLogin.ExecuteNonQuery();
+
+
+                if (conexao.State == System.Data.ConnectionState.Open)
                 {
                     loginModelo.Logado = true;
 

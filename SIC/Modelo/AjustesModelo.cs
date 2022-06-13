@@ -13,7 +13,8 @@ namespace SIC.Modelo
             public string nomeLojista { get; set; }
             public int idBandeira { get; set; }
             public DateTime dataLiberacao { get; set; }
-            public int tipoAjuste { get; set; }
+        public DateTime dataPrevisaoPagamento { get; set; }
+        public int tipoAjuste { get; set; }
             public string valorAjuste { get; set; }
             public int motivoAjustes { get; set; }
             public string motivoAjustesDescricao { get; set; }

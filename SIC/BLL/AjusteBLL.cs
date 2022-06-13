@@ -27,21 +27,50 @@ namespace SIC.BLL
 
             this.MontarTabela();
 
-            for(int i = 0; i < listOrder.Count; i++)
+            int cont = 1;
+            if(listOrder.Count > 0)
+            {
+                for (int i = 0; i < listOrder.Count; i++)
+                {
+                    DataRow dr = dtOrderAjuste.NewRow();
+
+                    dr[0] = cont;
+                    dr[1] = listOrder[i].idLojista;
+                    dr[2] = listOrder[i].nomeLojista;
+                    dr[3] = listOrder[i].valorAjuste;
+                    dr[4] = listOrder[i].motivoAjustesDescricao;
+                    dr[5] = listOrder[i].dataCriacao;
+                    dr[6] = listOrder[i].dataLiberacao;
+                    dr[7] = listOrder[i].dataPrevisaoPagamento;
+                    dr[8] = listOrder[i].idBandeira;
+                    dr[9] = listOrder[i].status;
+                    dr[10] = listOrder[i].numeroPedido;
+
+                    dtOrderAjuste.Rows.Add(dr);
+
+                    cont++;
+                }
+
+                
+            }
+            else
             {
                 DataRow dr = dtOrderAjuste.NewRow();
-
-                dr[0] = listOrder[i].idLojista;
-                dr[1] = listOrder[i].nomeLojista;
-                dr[2] = listOrder[i].valorAjuste;
-                dr[3] = listOrder[i].motivoAjustesDescricao;
-                dr[4] = listOrder[i].dataCriacao;
-                dr[5] = listOrder[i].dataLiberacao;
-                dr[6] = listOrder[i].idBandeira;
-                dr[7] = listOrder[i].status;
-                dr[8] = listOrder[i].numeroPedido;
+                dr[0] = cont;
+                dr[1] = "Não existe ajuste";
+                dr[2] = "Não existe ajuste";
+                dr[3] = "Não existe ajuste";
+                dr[4] = "Não existe ajuste";
+                dr[5] = "Não existe ajuste";
+                dr[6] = "Não existe ajuste";
+                dr[7] = "Não existe ajuste";
+                dr[8] = "Não existe ajuste";
+                dr[9] = "Não existe ajuste";
+                dr[10] = "Não existe ajuste";
 
                 dtOrderAjuste.Rows.Add(dr);
+
+                cont++;
             }
 
             return dtOrderAjuste;
@@ -50,17 +79,19 @@ namespace SIC.BLL
 
         public void MontarTabela()
         {
+            DataColumn dcNumero = new DataColumn("Número", typeof(string));
             DataColumn dcIdLojista = new DataColumn("IdLojista", typeof(string));
             DataColumn dcLojista = new DataColumn("Lojista", typeof(string));
             DataColumn dcValor = new DataColumn("Valor", typeof(string));
             DataColumn dcMotivo = new DataColumn("Motivo", typeof(string));
             DataColumn dcCriacao = new DataColumn("Criação", typeof(string));
             DataColumn dcLiberacao = new DataColumn("Liberação", typeof(string));
+            DataColumn dcPrevisaoPagamento = new DataColumn("Prev. Pagamento", typeof(string));
             DataColumn dcBandeira = new DataColumn("Bandeira", typeof(string));
             DataColumn dcStatus = new DataColumn("Status", typeof(string));
             DataColumn dcPedido = new DataColumn("Pedido", typeof(string));
 
-            dtOrderAjuste.Columns.AddRange(new DataColumn[] { dcIdLojista, dcLojista, dcValor, dcMotivo, dcCriacao, dcLiberacao, dcBandeira, dcStatus, dcPedido });
+            dtOrderAjuste.Columns.AddRange(new DataColumn[] { dcNumero, dcIdLojista, dcLojista, dcValor, dcMotivo, dcCriacao, dcLiberacao, dcPrevisaoPagamento, dcBandeira, dcStatus, dcPedido });
         }
     }
 }
