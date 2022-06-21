@@ -236,3 +236,7 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.ConsultarOrderItemGetNet
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.UsuarioExterno.resources
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.Ajustes.resources
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.AjustesLote.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\SIC.exe.manifest
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\SIC.application
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.exe.manifest
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.application

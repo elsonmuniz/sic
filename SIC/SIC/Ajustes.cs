@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using SIC.Modelo;
 using SIC.BLL;
+using SIC.DAO;
 
 namespace SIC
 {
@@ -87,6 +88,141 @@ namespace SIC
         {
             AjustesLote ajustesLote = new AjustesLote(frmApp, this);
             ajustesLote.Show();
+        }
+
+        private void incluirAjusteTesteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AjustesDAO ajustesDAO = new AjustesDAO();
+
+            AjustesModelo ajustesModelo1 = new AjustesModelo();
+
+            ajustesModelo1._id = "613b92213d056f18574edb26";
+            ajustesModelo1.idLojista = 26695;
+            ajustesModelo1.nomeLojista = "Moderna Mobília";
+            ajustesModelo1.idBandeira = 3;
+            ajustesModelo1.dataCriacao = Convert.ToDateTime("18/04/2022 22:25:59");
+            ajustesModelo1.dataLiberacao = Convert.ToDateTime("20/04/2022 03:00:00");
+            ajustesModelo1.tipoAjuste = 2;
+            ajustesModelo1.valorAjuste = "266.86";
+            ajustesModelo1.motivoAjustes = 18;
+            ajustesModelo1.motivoAjustesDescricao = "Cadastro de Comissão";
+            ajustesModelo1.numeroPedido = 28275505001;
+            ajustesModelo1.protocoloAtendimento = "210828-009116";
+            ajustesModelo1.status = "INTEGRADO_COM_O_ARRANJO";
+            ajustesModelo1.qtdTentativasEnvioGetNet = "0";
+            ajustesModelo1.codigoGetnet = "3112647";
+            //ajustesMode1lo.dataPrevisaoPagamento = Convert.ToDateTime("20/04/2022 00:00:00");
+            ajustesModelo1._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
+
+            listAjuste.Add(ajustesModelo1);
+
+
+            AjustesModelo ajustesModelo2 = new AjustesModelo();
+
+            ajustesModelo2._id = "619ec829d7e3f6344b0db4a7";
+            ajustesModelo2.idLojista = 26695;
+            ajustesModelo2.nomeLojista = "Moderna Mobília";
+            ajustesModelo2.idBandeira = 3;
+            ajustesModelo2.descricaoBandeira = "Casas Bahia";
+            ajustesModelo2.dataCriacao = Convert.ToDateTime("2021-11-24T23:18:01.047+0000");
+            ajustesModelo2.dataLiberacao = Convert.ToDateTime("2021-11-25T03:00:00.000+0000");
+            ajustesModelo2.tipoAjuste = 1;
+            ajustesModelo2.valorAjuste = "829.4";
+            ajustesModelo2.motivoAjustes = 20;
+            ajustesModelo2.motivoAjustesDescricao = "Erro do atendimento Cnova";
+            ajustesModelo2.numeroPedido = 28275505001;
+            ajustesModelo2.protocoloAtendimento = "";
+            ajustesModelo2.observacoes = "10.11 - Cancelamento indevido - Via ajuste valores (Repasse e Comissao) - VIA0202478";
+            ajustesModelo2.status = "RECUSADO_ARRANJO";
+            ajustesModelo2.qtdTentativasEnvioGetNet = "0";
+            ajustesModelo2.usuarioLogado = "2104045165";
+            ajustesModelo2._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
+            ajustesModelo2.codigoGetnet = null;
+            ajustesModelo2.codigoRetorno = null;
+
+            AjustesModelo.Motivorecusa motivorecusa = new AjustesModelo.Motivorecusa();
+            motivorecusa.statusNoMomentoDaRecusa = "NOVO";
+            motivorecusa.mensagem = "9 - DATE ADJUSTMENT IS INVALID";
+            motivorecusa.dataDaRecusa = Convert.ToDateTime( "2021-11-27T00:26:28.257+0000");
+
+            AjustesModelo.Motivorecusa[] arrayMotivorecusa = new AjustesModelo.Motivorecusa[1];
+
+            //arrayMotivorecusa[0].statusNoMomentoDaRecusa = motivorecusa.statusNoMomentoDaRecusa;
+            //arrayMotivorecusa[1].mensagem = motivorecusa.mensagem;
+            //arrayMotivorecusa[2].mensagem = motivorecusa.mensagem;
+
+            
+
+
+            //arrayMotivorecusa[0].statusNoMomentoDaRecusa = motivorecusa.statusNoMomentoDaRecusa;
+            //arrayMotivorecusa[1].mensagem = motivorecusa.mensagem;
+            //arrayMotivorecusa[2].dataDaRecusa = motivorecusa.dataDaRecusa;
+
+            ajustesModelo2.setMotivoRecusa(arrayMotivorecusa);
+
+
+            ajustesModelo2.setMotivoRecusa(arrayMotivorecusa);
+
+            listAjuste.Add(ajustesModelo2);
+            
+
+
+
+
+
+
+            //ajustesModelo._id = "613b92213d056f18574edb26";
+            //ajustesModelo.idLojista = 18368;
+            //ajustesModelo.valorAjuste = "266.86";
+            //ajustesModelo.motivoAjustesDescricao = "Cadastro de Comissão";
+            //ajustesModelo.dataCriacao = Convert.ToDateTime("18/04/2022 22:25:59");
+            //ajustesModelo.dataLiberacao = Convert.ToDateTime("20/04/2022 03:00:00");
+            //ajustesModelo.dataPrevisaoPagamento = Convert.ToDateTime("20/04/2022 00:00:00");
+            //ajustesModelo.idBandeira = 3;
+            //ajustesModelo.status = "INTEGRADO_COM_O_ARRANJO";
+            //ajustesModelo.numeroPedido = 31853962001;
+
+            //foreach (DataRow drOrder in dtOrder.Rows)
+            //{
+            //    ajustesModelo.idLojista = Convert.ToInt64(drOrder["IdLojista"]);
+            //    ajustesModelo.valorAjuste = drOrder["Valor"].ToString();
+            //    ajustesModelo.motivoAjustesDescricao = drOrder["Motivo"].ToString();
+            //    ajustesModelo.dataCriacao = Convert.ToDateTime(drOrder["Criação"]);
+            //    ajustesModelo.dataLiberacao = Convert.ToDateTime(drOrder["Liberação"]);
+            //    //ajustesModelo.dataPrevisaoPagamento = Convert.ToDateTime("");
+            //    ajustesModelo.idBandeira = Convert.ToInt32(drOrder["Bandeira"]);
+            //    ajustesModelo.status = drOrder["Status"].ToString();
+            //    ajustesModelo.numeroPedido = Convert.ToInt64(drOrder["Pedido"]);
+
+            //    listAjuste.Add(ajustesModelo);
+
+                
+            //}
+
+            ajustesDAO.IncluirAjusteTeste(listAjuste);
+        }
+
+        private void ativarLojaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            listAjuste = new List<AjustesModelo>();
+
+            foreach(DataRow drOrder in dtOrder.Rows)
+            {
+                AjustesModelo ajustesModelo = new AjustesModelo();
+                ajustesModelo.idLojista = Convert.ToInt32( drOrder["Idlojista"]);
+                ajustesModelo.valorAjuste = drOrder["Valor"].ToString();
+                ajustesModelo.motivoAjustesDescricao = drOrder["Motivo"].ToString();
+                ajustesModelo.dataCriacao = Convert.ToDateTime(drOrder["Criação"]);
+                ajustesModelo.dataLiberacao = Convert.ToDateTime(drOrder["Liberação"]);
+                ajustesModelo.idBandeira = Convert.ToInt32(drOrder["Bandeira"]);
+                ajustesModelo.status = drOrder["Status"].ToString();
+                ajustesModelo.numeroPedido = Convert.ToInt64(drOrder["Pedido"]);
+
+                listAjuste.Add(ajustesModelo);                
+            }
+
+            AjustesDAO dao = new AjustesDAO();
+            dao.UpdateAjusteTeste(listAjuste);
         }
     }
 }

@@ -39,6 +39,8 @@ namespace SIC
 
         public void ImportarOrder()
         {
+            this.listOrder.Clear();
+
             string order = rtbImportarLoteAjuste.Text;
             string[] listorder = order.Split('\n');
 

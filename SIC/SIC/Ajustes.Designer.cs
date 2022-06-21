@@ -42,6 +42,7 @@
             this.txNomeLojista = new System.Windows.Forms.TextBox();
             this.txOrderId = new System.Windows.Forms.TextBox();
             this.btPesquisarOrderId = new System.Windows.Forms.Button();
+            this.incluirAjusteTesteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrder)).BeginInit();
             this.contextMenuStripConsultaPedidoGetnet.SuspendLayout();
             this.groupBoxSeller.SuspendLayout();
@@ -71,9 +72,10 @@
             this.colarToolStripMenuItem,
             this.recortarToolStripMenuItem,
             this.toolStripSeparator2,
-            this.ativarLojaToolStripMenuItem1});
+            this.ativarLojaToolStripMenuItem1,
+            this.incluirAjusteTesteToolStripMenuItem});
             this.contextMenuStripConsultaPedidoGetnet.Name = "contextMenuStripSeller";
-            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(193, 104);
+            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(211, 154);
             // 
             // toolStripSeparator1
             // 
@@ -106,8 +108,9 @@
             // ativarLojaToolStripMenuItem1
             // 
             this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
-            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.ativarLojaToolStripMenuItem1.Text = "&Reprocessar ajuste";
+            this.ativarLojaToolStripMenuItem1.Click += new System.EventHandler(this.ativarLojaToolStripMenuItem1_Click);
             // 
             // groupBoxSeller
             // 
@@ -158,6 +161,13 @@
             this.btPesquisarOrderId.UseVisualStyleBackColor = true;
             this.btPesquisarOrderId.Click += new System.EventHandler(this.btPesquisarOrderId_Click);
             // 
+            // incluirAjusteTesteToolStripMenuItem
+            // 
+            this.incluirAjusteTesteToolStripMenuItem.Name = "incluirAjusteTesteToolStripMenuItem";
+            this.incluirAjusteTesteToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.incluirAjusteTesteToolStripMenuItem.Text = "&Incluir ajuste Teste";
+            this.incluirAjusteTesteToolStripMenuItem.Click += new System.EventHandler(this.incluirAjusteTesteToolStripMenuItem_Click);
+            // 
             // Ajustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -193,5 +203,6 @@
         private System.Windows.Forms.ToolStripMenuItem recortarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem ativarLojaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem incluirAjusteTesteToolStripMenuItem;
     }
 }

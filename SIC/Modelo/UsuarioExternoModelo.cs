@@ -27,6 +27,10 @@ namespace SIC.Modelo
             public string criadoPor { get; set; }
             public string modificadoPor { get; set; }
             public string _class { get; set; }
+
+        public void setLoja(Loja[] loja)
+        {
+            this.lojas = loja;
         }
 
         public class Loja
@@ -36,5 +40,7 @@ namespace SIC.Modelo
             public bool contaPrincipal { get; set; }
             public bool envvias { get; set; }
         }
+
+    }
     
 }

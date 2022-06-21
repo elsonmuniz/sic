@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SIC.Modelo;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace SIC.DAO
 {
@@ -50,12 +51,18 @@ namespace SIC.DAO
             listAjusteModelo.Clear();
 
             //*************************** Conexão  ***************************
+            //PRD
             var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
-            
+
+            //Homologação
+            //var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+
+
             //*************************** Collections MP-ADQUIRENTE ***************************
             IMongoDatabase dbMPDinheiro = dbClient.GetDatabase("mp-dinheiro");
+            //IMongoDatabase dbMPDinheiro = dbClient.GetDatabase("mp-adquirente");
 
-            for(int i = 0; i < listOrderid.Count; i++)
+            for (int i = 0; i < listOrderid.Count; i++)
             {
                 var collectionAjuste = dbMPDinheiro.GetCollection<BsonDocument>("ajustes");
                 var filterAjuste = Builders<BsonDocument>.Filter.Eq("numeroPedido", listOrderid[i]);
@@ -187,6 +194,8 @@ namespace SIC.DAO
                         String sDataPrevisaoPagamento = this.getElement("dataPrevisaoPagamento");
                         if (sDataPrevisaoPagamento.Length != 0)
                         {
+                            //if(itemAjuste.GetElement("dataPrevisaoPagamento").Value.ToString())
+
                             ajustesModelo.dataPrevisaoPagamento = Convert.ToDateTime(itemAjuste.GetElement("dataPrevisaoPagamento").Value.ToString());
                         }
 
@@ -225,6 +234,101 @@ namespace SIC.DAO
 
             return listAjusteModelo;
 
+        }
+
+        public void IncluirAjusteTeste(List<AjustesModelo> listAjustesModelo)
+        {
+            try
+            {
+                /*
+                 Teste Transação
+                 */
+                //var dbClientCompraTeste = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                //IMongoDatabase dataBaseGatilhoTeste = dbClientCompraTeste.GetDatabase("mp-adquirente");
+                //IMongoCollection<TransacoesModelo> colNew = dataBaseGatilhoTeste.GetCollection<TransacoesModelo>("transacoes");
+
+                //List<TransacoesModelo> listTransacaoModelo = new List<TransacoesModelo>();
+
+                //for (int i = 0; i < listAjustesModelo.Count; i++)
+                //{
+                //    var filtro = Builders<TransacoesModelo>.Filter.Eq(e => e.idEntrega, 29751187401);
+                //    listTransacaoModelo.AddRange(colNew.Find(filtro).ToList());
+                //}
+
+
+                var dbClientCompraTeste = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                IMongoDatabase dataBaseGatilhoTeste = dbClientCompraTeste.GetDatabase("mp-adquirente");
+                IMongoCollection<AjustesModelo> colNew = dataBaseGatilhoTeste.GetCollection<AjustesModelo>("ajustes");
+
+                for(int i = 0; i < listAjustesModelo.Count; i++)
+                {
+                    ajustesModelo = new AjustesModelo();
+
+                    ajustesModelo = listAjustesModelo[i];
+
+                    colNew.InsertOne(ajustesModelo);
+
+                }
+
+
+                //colNew.UpdateOne(ajustesModelo);
+                //colNew.InsertOne(ajustesModelo);
+                //colNew.UpdateOneAsync(trackingComissionamentoModelo);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void UpdateAjusteTeste(List<AjustesModelo> listAjustesModelo)
+        {
+            try
+            {
+               
+                var dbClientCompraTeste = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                IMongoDatabase dataBaseGatilhoTeste = dbClientCompraTeste.GetDatabase("mp-adquirente");
+                IMongoCollection<AjustesModelo> colNew = dataBaseGatilhoTeste.GetCollection<AjustesModelo>("ajustes");
+
+                for (int i = 0; i < listAjustesModelo.Count; i++)
+                {
+                    if (listAjustesModelo[i].status == "RECUSADO_ARRANJO")
+                    {
+                        listAjustesModelo[i].dataLiberacao = DateTime.Now;
+                        listAjustesModelo[i].status = "NOVO";
+
+                        var filter = Builders<AjustesModelo>.Filter.Eq("numeroPedido", listAjustesModelo[i].numeroPedido) & Builders<AjustesModelo>.Filter.Eq("status", "RECUSADO_ARRANJO");
+                        var updateDataLiberacao = Builders<AjustesModelo>.Update.Set("dataLiberacao", listAjustesModelo[i].dataLiberacao);
+
+                        var updateStatus = Builders<AjustesModelo>.Update.Set("status", "NOVO");
+
+                        //var filtro = Builders<AjustesModelo>.Filter.Eq(e => e.numeroPedido, listAjustesModelo[i].numeroPedido) & Builders<AjustesModelo>.Filter.Eq(e => e.status, listAjustesModelo[i].status);
+
+                        //var query = from e in colNew.AsQueryable<AjustesModelo>()
+                        //            where e.numeroPedido == listAjustesModelo[i].numeroPedido & listAjustesModelo[i].status != "INTEGRADO_COM_O_ARRANJO"
+                        //            select e;
+
+
+                        //var updateDataLiberacao = Builders<AjustesModelo>.Update.Set(e => e.dataLiberacao, listAjustesModelo[i].dataLiberacao);
+                        //var updateStatus = Builders<AjustesModelo>.Update.Set(e => e.status, listAjustesModelo[i].status);
+
+                        
+                        colNew.UpdateOne(filter, updateDataLiberacao);
+                        colNew.UpdateOne(filter, updateStatus);
+                    }
+
+
+                }
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
