@@ -7,6 +7,7 @@ using SIC.Modelo;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
+using System.Collections.ObjectModel;
 
 namespace SIC.DAO
 {
@@ -52,10 +53,10 @@ namespace SIC.DAO
 
             //*************************** Conexão  ***************************
             //PRD
-            var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+            //var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
             //Homologação
-            //var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+            var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
 
             //*************************** Collections MP-ADQUIRENTE ***************************
@@ -196,7 +197,11 @@ namespace SIC.DAO
                         {
                             //if(itemAjuste.GetElement("dataPrevisaoPagamento").Value.ToString())
 
-                            ajustesModelo.dataPrevisaoPagamento = Convert.ToDateTime(itemAjuste.GetElement("dataPrevisaoPagamento").Value.ToString());
+                            if(ajustesModelo.dataPrevisaoPagamento.HasValue)
+                            {
+                                ajustesModelo.dataPrevisaoPagamento = Convert.ToDateTime(itemAjuste.GetElement("dataPrevisaoPagamento").Value.ToString());
+                            }
+                            
                         }
 
                         String sMotivoRecusa = this.getElement("motivoRecusa");
@@ -204,7 +209,7 @@ namespace SIC.DAO
                         {
                             var vMotivoRecusa = itemAjuste.GetValue("motivoRecusa");
 
-                            if(vMotivoRecusa.IsBsonNull != true)
+                            if(vMotivoRecusa.IsBoolean == true)
                             {
                                 foreach (var itemMotivoRecusa in vMotivoRecusa.AsBsonArray)
                                 {
@@ -212,7 +217,7 @@ namespace SIC.DAO
 
                                     this.listElements.Clear();
 
-
+                                    //if(itemMotivoRecusa.)
                                     motivoRecusa.statusNoMomentoDaRecusa = itemMotivoRecusa["statusNoMomentoDaRecusa"].ToString();
                                     motivoRecusa.dataDaRecusa = Convert.ToDateTime(itemMotivoRecusa["dataDaRecusa"]);
 
@@ -283,45 +288,61 @@ namespace SIC.DAO
             }
         }
 
-        public void UpdateAjusteTeste(List<AjustesModelo> listAjustesModelo)
+        public async void UpdateAjusteTeste(List<AjustesModelo> listAjustesModelo)
         {
             try
             {
                
                 var dbClientCompraTeste = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
-                IMongoDatabase dataBaseGatilhoTeste = dbClientCompraTeste.GetDatabase("mp-adquirente");
-                IMongoCollection<AjustesModelo> colNew = dataBaseGatilhoTeste.GetCollection<AjustesModelo>("ajustes");
+                IMongoDatabase dataBaseGatilhoTeste = dbClientCompraTeste.GetDatabase("mp-dinheiro");
+                IMongoCollection<BsonDocument> colNew = dataBaseGatilhoTeste.GetCollection<BsonDocument>("ajustes");
+
+                /*
+                 var collectionAjuste = dbMPDinheiro.GetCollection<BsonDocument>("ajustes");
+                var filterAjuste = Builders<BsonDocument>.Filter.Eq("numeroPedido", listOrderid[i]);
+                
+                var resultAjuste = collectionAjuste.Find(filterAjuste).ToList();
+                 */
 
                 for (int i = 0; i < listAjustesModelo.Count; i++)
                 {
                     if (listAjustesModelo[i].status == "RECUSADO_ARRANJO")
                     {
-                        listAjustesModelo[i].dataLiberacao = DateTime.Now;
-                        listAjustesModelo[i].status = "NOVO";
-
-                        var filter = Builders<AjustesModelo>.Filter.Eq("numeroPedido", listAjustesModelo[i].numeroPedido) & Builders<AjustesModelo>.Filter.Eq("status", "RECUSADO_ARRANJO");
-                        var updateDataLiberacao = Builders<AjustesModelo>.Update.Set("dataLiberacao", listAjustesModelo[i].dataLiberacao);
-
-                        var updateStatus = Builders<AjustesModelo>.Update.Set("status", "NOVO");
-
-                        //var filtro = Builders<AjustesModelo>.Filter.Eq(e => e.numeroPedido, listAjustesModelo[i].numeroPedido) & Builders<AjustesModelo>.Filter.Eq(e => e.status, listAjustesModelo[i].status);
-
-                        //var query = from e in colNew.AsQueryable<AjustesModelo>()
-                        //            where e.numeroPedido == listAjustesModelo[i].numeroPedido & listAjustesModelo[i].status != "INTEGRADO_COM_O_ARRANJO"
-                        //            select e;
-
-
-                        //var updateDataLiberacao = Builders<AjustesModelo>.Update.Set(e => e.dataLiberacao, listAjustesModelo[i].dataLiberacao);
-                        //var updateStatus = Builders<AjustesModelo>.Update.Set(e => e.status, listAjustesModelo[i].status);
-
                         
-                        colNew.UpdateOne(filter, updateDataLiberacao);
-                        colNew.UpdateOne(filter, updateStatus);
+                        var filter = Builders<BsonDocument>.Filter.Eq("numeroPedido", listAjustesModelo[i].numeroPedido);
+
+                        var resultado = colNew.Find(filter).ToList();
+
+                        //foreach(var res in resultado)
+                        for(int j = 0; j < resultado.Count; j++)
+                        {
+                            if(resultado[j].GetElement("status").Value == "RECUSADO_ARRANJO")
+                            {
+
+                                string _id = resultado[j].GetElement("_id").Value.ToString();
+
+                                //below code will update multiple records of the data
+                                var updmanyresult = await colNew.UpdateManyAsync(
+                                                    Builders<BsonDocument>.Filter.Eq("_id", _id),
+                                                    Builders<BsonDocument>.Update.Set("dataLiberacao", listAjustesModelo[i].dataLiberacao));
+
+                                var updmanyresult1 = await colNew.UpdateManyAsync(
+                                                    Builders<BsonDocument>.Filter.Eq("_id", _id),
+                                                    Builders<BsonDocument>.Update.Set("status", "NOVO"));
+
+
+                                //var updateDataLiberacao = Builders<BsonDocument>.Update.Set("dataLiberacao", listAjustesModelo[i].dataLiberacao);
+                                //var updateStatus = Builders<BsonDocument>.Update.Set("status", "NOVO");
+
+                                //await colNew.UpdateManyAsync(resultado[i], updateStatus);
+                                //await colNew.UpdateManyAsync(resultado[i], updateDataLiberacao);
+
+                            }
+                        }
+                        
                     }
 
-
                 }
-
 
             }
             catch (Exception)

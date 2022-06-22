@@ -28,6 +28,9 @@ namespace SIC
         //DataTable
         DataTable dtOrder;
 
+        //Variável Local
+        DateTime dataLiberacao;
+
         public Ajustes(FrmApp frmApp)
         {
             InitializeComponent();
@@ -209,11 +212,14 @@ namespace SIC
             foreach(DataRow drOrder in dtOrder.Rows)
             {
                 AjustesModelo ajustesModelo = new AjustesModelo();
+
+                ajustesModelo.dataLiberacao = this.ProcessarDataLiberacao();
+
                 ajustesModelo.idLojista = Convert.ToInt32( drOrder["Idlojista"]);
                 ajustesModelo.valorAjuste = drOrder["Valor"].ToString();
                 ajustesModelo.motivoAjustesDescricao = drOrder["Motivo"].ToString();
                 ajustesModelo.dataCriacao = Convert.ToDateTime(drOrder["Criação"]);
-                ajustesModelo.dataLiberacao = Convert.ToDateTime(drOrder["Liberação"]);
+                //ajustesModelo.dataLiberacao = Convert.ToDateTime(drOrder["Liberação"]);
                 ajustesModelo.idBandeira = Convert.ToInt32(drOrder["Bandeira"]);
                 ajustesModelo.status = drOrder["Status"].ToString();
                 ajustesModelo.numeroPedido = Convert.ToInt64(drOrder["Pedido"]);
@@ -223,6 +229,57 @@ namespace SIC
 
             AjustesDAO dao = new AjustesDAO();
             dao.UpdateAjusteTeste(listAjuste);
+        }
+
+        //Calcula o pagamento nas datas do dia 10 ou 20 do mês sequinte
+        //Se a data > 10 o próximo pagamento será dia 20 caso contrário dia 10
+        //Se a data do pagamento for sábado ou domingo joga pro próximo dia últil
+        public DateTime ProcessarDataLiberacao()
+        {
+            int mesAtual = Convert.ToInt32(DateTime.Now.Month);
+            int proximoMes = 0;
+            int anoAtual = Convert.ToInt32(DateTime.Now.Year);
+
+            DateTime dateTime = DateTime.Now;
+
+            if (dateTime.Day > 20)
+            {
+
+                proximoMes = mesAtual + 1;
+
+                dataLiberacao = new DateTime(anoAtual, proximoMes, 10);
+
+                if (dataLiberacao.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    dataLiberacao = dataLiberacao.AddDays(2);                   
+
+                }
+                if(dataLiberacao.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    dataLiberacao = dataLiberacao.AddDays(1);
+                }
+            }
+
+            if((dateTime.Day > 10) && dateTime.Day < 20)
+            {
+                proximoMes = mesAtual + 1;
+                
+                dataLiberacao = new DateTime(anoAtual, proximoMes, 20);
+
+                if (dataLiberacao.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    dataLiberacao = dataLiberacao.AddDays(2);
+
+                }
+                if (dataLiberacao.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    dataLiberacao = dataLiberacao.AddDays(1);
+                }
+
+            }
+
+            return dataLiberacao;
+
         }
     }
 }

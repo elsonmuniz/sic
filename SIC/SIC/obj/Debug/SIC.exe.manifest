@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAO.dll" size="62464">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAO.dll" size="63488">
       <assemblyIdentity name="DAO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5OldluAMIIWDzMtQle55LM9w2UxI1ij+dw9q5Tl1d/M=</dsig:DigestValue>
+        <dsig:DigestValue>W54I4QbVPlWu8zGRq/FN8KegvVXKWvMmFpOOb6SIFOc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -211,14 +211,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIC.exe" size="412088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIC.exe" size="412600">
       <assemblyIdentity name="SIC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>StPiMI1+v058Um+um12VArqbkLv1WmgDAHxjUqtCRgc=</dsig:DigestValue>
+        <dsig:DigestValue>C1BmmuYuO2iJfrARxdbKYxNQSe51oqQNK9/ut/UNKh0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
