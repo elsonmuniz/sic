@@ -38,7 +38,13 @@ namespace SIC.BLL
                     dr[1] = listOrder[i].idLojista;
                     dr[2] = listOrder[i].nomeLojista;
                     dr[3] = listOrder[i].valorAjuste;
-                    dr[4] = listOrder[i].motivoAjustesDescricao;
+
+                    if(listOrder[i].motivoRecusa != null)
+                    {
+                        dr[4] = listOrder[i].motivoRecusa[0].mensagem;
+                    }
+
+                    
                     dr[5] = listOrder[i].dataCriacao;
                     dr[6] = listOrder[i].dataLiberacao;
                     dr[7] = listOrder[i].dataPrevisaoPagamento;

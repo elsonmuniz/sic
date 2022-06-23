@@ -97,56 +97,56 @@ namespace SIC
         {
             AjustesDAO ajustesDAO = new AjustesDAO();
 
-            AjustesModelo ajustesModelo1 = new AjustesModelo();
+            //AjustesModelo ajustesModelo1 = new AjustesModelo();
 
-            ajustesModelo1._id = "613b92213d056f18574edb26";
-            ajustesModelo1.idLojista = 26695;
-            ajustesModelo1.nomeLojista = "Moderna Mobília";
-            ajustesModelo1.idBandeira = 3;
-            ajustesModelo1.dataCriacao = Convert.ToDateTime("18/04/2022 22:25:59");
-            ajustesModelo1.dataLiberacao = Convert.ToDateTime("20/04/2022 03:00:00");
-            ajustesModelo1.tipoAjuste = 2;
-            ajustesModelo1.valorAjuste = "266.86";
-            ajustesModelo1.motivoAjustes = 18;
-            ajustesModelo1.motivoAjustesDescricao = "Cadastro de Comissão";
-            ajustesModelo1.numeroPedido = 28275505001;
-            ajustesModelo1.protocoloAtendimento = "210828-009116";
-            ajustesModelo1.status = "INTEGRADO_COM_O_ARRANJO";
-            ajustesModelo1.qtdTentativasEnvioGetNet = "0";
-            ajustesModelo1.codigoGetnet = "3112647";
-            //ajustesMode1lo.dataPrevisaoPagamento = Convert.ToDateTime("20/04/2022 00:00:00");
-            ajustesModelo1._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
+            //ajustesModelo1._id = "613b92213d056f18574edb26";
+            //ajustesModelo1.idLojista = 26695;
+            //ajustesModelo1.nomeLojista = "Moderna Mobília";
+            //ajustesModelo1.idBandeira = 3;
+            //ajustesModelo1.dataCriacao = Convert.ToDateTime("18/04/2022 22:25:59");
+            //ajustesModelo1.dataLiberacao = Convert.ToDateTime("20/04/2022 03:00:00");
+            //ajustesModelo1.tipoAjuste = 2;
+            //ajustesModelo1.valorAjuste = "266.86";
+            //ajustesModelo1.motivoAjustes = 18;
+            //ajustesModelo1.motivoAjustesDescricao = "Cadastro de Comissão";
+            //ajustesModelo1.numeroPedido = 28275505001;
+            //ajustesModelo1.protocoloAtendimento = "210828-009116";
+            //ajustesModelo1.status = "INTEGRADO_COM_O_ARRANJO";
+            //ajustesModelo1.qtdTentativasEnvioGetNet = "0";
+            //ajustesModelo1.codigoGetnet = "3112647";
+            ////ajustesMode1lo.dataPrevisaoPagamento = Convert.ToDateTime("20/04/2022 00:00:00");
+            //ajustesModelo1._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
 
-            listAjuste.Add(ajustesModelo1);
+            //listAjuste.Add(ajustesModelo1);
 
 
             AjustesModelo ajustesModelo2 = new AjustesModelo();
 
-            ajustesModelo2._id = "619ec829d7e3f6344b0db4a7";
-            ajustesModelo2.idLojista = 26695;
-            ajustesModelo2.nomeLojista = "Moderna Mobília";
+            ajustesModelo2._id = "61d32cac060e271b3e908e62";
+            ajustesModelo2.idLojista = 41754;
+            ajustesModelo2.nomeLojista = "VX";
             ajustesModelo2.idBandeira = 3;
             ajustesModelo2.descricaoBandeira = "Casas Bahia";
-            ajustesModelo2.dataCriacao = Convert.ToDateTime("2021-11-24T23:18:01.047+0000");
-            ajustesModelo2.dataLiberacao = Convert.ToDateTime("2021-11-25T03:00:00.000+0000");
-            ajustesModelo2.tipoAjuste = 1;
-            ajustesModelo2.valorAjuste = "829.4";
-            ajustesModelo2.motivoAjustes = 20;
-            ajustesModelo2.motivoAjustesDescricao = "Erro do atendimento Cnova";
-            ajustesModelo2.numeroPedido = 28275505001;
-            ajustesModelo2.protocoloAtendimento = "";
-            ajustesModelo2.observacoes = "10.11 - Cancelamento indevido - Via ajuste valores (Repasse e Comissao) - VIA0202478";
+            ajustesModelo2.dataCriacao = Convert.ToDateTime("2022-01-03T17:04:44.355+0000");
+            ajustesModelo2.dataLiberacao = Convert.ToDateTime("2022-01-10T03:00:00.000+0000");
+            ajustesModelo2.tipoAjuste = 2;
+            ajustesModelo2.valorAjuste = "87.3";
+            ajustesModelo2.motivoAjustes = 18;
+            ajustesModelo2.motivoAjustesDescricao = "Cancelamento do Lojista";
+            ajustesModelo2.numeroPedido = 29961391601;
+            ajustesModelo2.protocoloAtendimento = "211229-003783";
+            //ajustesModelo2.observacoes = "10.11 - Cancelamento indevido - Via ajuste valores (Repasse e Comissao) - VIA0202478";
             ajustesModelo2.status = "RECUSADO_ARRANJO";
             ajustesModelo2.qtdTentativasEnvioGetNet = "0";
-            ajustesModelo2.usuarioLogado = "2104045165";
+            ajustesModelo2.usuarioLogado = "AUTOMATICO";
             ajustesModelo2._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
             ajustesModelo2.codigoGetnet = null;
             ajustesModelo2.codigoRetorno = null;
 
             AjustesModelo.Motivorecusa motivorecusa = new AjustesModelo.Motivorecusa();
             motivorecusa.statusNoMomentoDaRecusa = "NOVO";
-            motivorecusa.mensagem = "9 - DATE ADJUSTMENT IS INVALID";
-            motivorecusa.dataDaRecusa = Convert.ToDateTime( "2021-11-27T00:26:28.257+0000");
+            motivorecusa.mensagem = "DATE ADJUSTMENT IS INVALID";
+            motivorecusa.dataDaRecusa = Convert.ToDateTime("2022-06-22T13:08:39.062+0000");
 
             AjustesModelo.Motivorecusa[] arrayMotivorecusa = new AjustesModelo.Motivorecusa[1];
 

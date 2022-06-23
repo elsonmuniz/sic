@@ -37,12 +37,12 @@
             this.recortarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ativarLojaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.incluirAjusteTesteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxSeller = new System.Windows.Forms.GroupBox();
             this.btImportarOrderLote = new System.Windows.Forms.Button();
             this.txNomeLojista = new System.Windows.Forms.TextBox();
             this.txOrderId = new System.Windows.Forms.TextBox();
             this.btPesquisarOrderId = new System.Windows.Forms.Button();
-            this.incluirAjusteTesteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrder)).BeginInit();
             this.contextMenuStripConsultaPedidoGetnet.SuspendLayout();
             this.groupBoxSeller.SuspendLayout();
@@ -52,6 +52,7 @@
             // 
             this.gridOrder.AllowUserToAddRows = false;
             this.gridOrder.AllowUserToDeleteRows = false;
+            this.gridOrder.AllowUserToOrderColumns = true;
             this.gridOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrder.ContextMenuStrip = this.contextMenuStripConsultaPedidoGetnet;
             this.gridOrder.Location = new System.Drawing.Point(12, 185);
@@ -75,7 +76,7 @@
             this.ativarLojaToolStripMenuItem1,
             this.incluirAjusteTesteToolStripMenuItem});
             this.contextMenuStripConsultaPedidoGetnet.Name = "contextMenuStripSeller";
-            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(211, 154);
+            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(193, 126);
             // 
             // toolStripSeparator1
             // 
@@ -108,9 +109,16 @@
             // ativarLojaToolStripMenuItem1
             // 
             this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
-            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
+            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
             this.ativarLojaToolStripMenuItem1.Text = "&Reprocessar ajuste";
             this.ativarLojaToolStripMenuItem1.Click += new System.EventHandler(this.ativarLojaToolStripMenuItem1_Click);
+            // 
+            // incluirAjusteTesteToolStripMenuItem
+            // 
+            this.incluirAjusteTesteToolStripMenuItem.Name = "incluirAjusteTesteToolStripMenuItem";
+            this.incluirAjusteTesteToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.incluirAjusteTesteToolStripMenuItem.Text = "&Incluir ajuste Teste";
+            this.incluirAjusteTesteToolStripMenuItem.Click += new System.EventHandler(this.incluirAjusteTesteToolStripMenuItem_Click);
             // 
             // groupBoxSeller
             // 
@@ -160,13 +168,6 @@
             this.btPesquisarOrderId.Text = "Pesquisar";
             this.btPesquisarOrderId.UseVisualStyleBackColor = true;
             this.btPesquisarOrderId.Click += new System.EventHandler(this.btPesquisarOrderId_Click);
-            // 
-            // incluirAjusteTesteToolStripMenuItem
-            // 
-            this.incluirAjusteTesteToolStripMenuItem.Name = "incluirAjusteTesteToolStripMenuItem";
-            this.incluirAjusteTesteToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.incluirAjusteTesteToolStripMenuItem.Text = "&Incluir ajuste Teste";
-            this.incluirAjusteTesteToolStripMenuItem.Click += new System.EventHandler(this.incluirAjusteTesteToolStripMenuItem_Click);
             // 
             // Ajustes
             // 

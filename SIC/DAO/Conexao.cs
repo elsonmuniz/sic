@@ -8,11 +8,13 @@ using Oracle.ManagedDataAccess.Client;
 using SIC.Modelo;
 using System.Windows.Forms;
 using System.Data;
+using System.Configuration;
 
 namespace SIC.DAO
 {
     public class Conexao
     {
+        
         public static SqlConnection ConectarSL()
         {
             SqlConnection conexao;
@@ -24,7 +26,22 @@ namespace SIC.DAO
             return conexao;
         }
 
-        public static OracleConnection ConectarAD(LoginModelo loginModelo)
+        public static string ConexaoMongoDBMPDinheiro
+            {
+            get
+            {
+                //var conf = ConfigurationManager.ConnectionStrings..Get("MPDinheiro");
+
+                Configuration cf;
+
+                cf = ConfigurationManager.ConnectionStrings["MPDinheiro"].CurrentConfiguration;
+                //var appSettings = ConfigurationManager.ConnectionStrings.["MPDinheiro"].ConnectionString;
+
+                return ConfigurationManager.AppSettings["MPDinheiro"];
+            }
+            }
+
+    public static OracleConnection ConectarAD(LoginModelo loginModelo)
         {
             try
             {
