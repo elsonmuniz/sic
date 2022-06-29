@@ -46,6 +46,7 @@
             this.txNomeLojista = new System.Windows.Forms.TextBox();
             this.txIdLojista = new System.Windows.Forms.TextBox();
             this.btPesquisarLojista = new System.Windows.Forms.Button();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridLojistaAdquirente)).BeginInit();
             this.contextMenuStripConsultaLojistaGetnet.SuspendLayout();
             this.groupBoxSeller.SuspendLayout();
@@ -76,10 +77,11 @@
             this.recortarToolStripMenuItem,
             this.toolStripSeparator2,
             this.ativarLojaToolStripMenuItem1,
+            this.toolStripMenuItem1,
             this.pesquisarToolStripMenuItem,
             this.enviarEmailToolStripMenuItem});
             this.contextMenuStripConsultaLojistaGetnet.Name = "contextMenuStripSeller";
-            this.contextMenuStripConsultaLojistaGetnet.Size = new System.Drawing.Size(279, 148);
+            this.contextMenuStripConsultaLojistaGetnet.Size = new System.Drawing.Size(279, 198);
             // 
             // toolStripSeparator1
             // 
@@ -203,6 +205,13 @@
             this.btPesquisarLojista.UseVisualStyleBackColor = true;
             this.btPesquisarLojista.Click += new System.EventHandler(this.btPesquisarLojista_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(278, 22);
+            this.toolStripMenuItem1.Text = "&Reenviar Cadastro";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // ConsultarLojaGetNet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -242,5 +251,6 @@
         private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enviarEmailToolStripMenuItem;
         private System.Windows.Forms.Button btImportarCNPJLote;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

@@ -21,6 +21,9 @@ namespace SIC.DAO
         //List
         List<AjustesModelo> listAjusteModelo = new List<AjustesModelo>();
 
+        //Variável Privada
+        Boolean ajusteAlterado = false;
+
         //*********** Elements ******************
         List<BsonValue> listElements = new List<BsonValue>();
         public void setElement(BsonValue listElement)
@@ -54,15 +57,18 @@ namespace SIC.DAO
 
             //*************************** Conexão  ***************************
 
-            //ESCRITA PRODUÇÃO
-            //Anterior var dbClient = new MongoClient("mongodb://mp-dinheiro-admin:ef335051a290f0b2dba497f2d52b7874@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-dinheiro?readPreference=nearest&connectTimeoutMS=10000&authSource=mp-dinheiro&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+prd+-+imported+on+10+de+fev+de+2021&3t.defaultColor=231,52,70&3t.databases=mp-dinheiro&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
-            var dbClient = new MongoClient("mongodb://svc_sic:wIYOSE%254uXDA@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-dinheiro?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+MP-Adquirente+-+ESCRITA&3t.defaultColor=231,52,70&3t.databases=mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+            //HOMOLOGAÇÃO
+            //var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+
+            //ESCRITA PRODUÇÃO            
+            var dbClient = new MongoClient("mongodb://svc_sic:wIYOSE%254uXDA@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-adquirente?readPreference=nearest&connectTimeoutMS=10000&authSource=mp-adquirente&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+MP-Adquirente+-+ESCRITA&3t.defaultColor=231,52,70&3t.databases=mp-adquirente&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
             //LEITURA - PRD
             //var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
             //Homologação
             //var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+
 
 
             //*************************** Collections MP-ADQUIRENTE ***************************
@@ -75,7 +81,6 @@ namespace SIC.DAO
                 var filterAjuste = Builders<BsonDocument>.Filter.Eq("numeroPedido", listOrderid[i]);
                 
                 var resultAjuste = collectionAjuste.Find(filterAjuste).ToList();
-
                 
 
                 if(resultAjuste.Count > 0)
@@ -228,7 +233,7 @@ namespace SIC.DAO
                                     motivoRecusa.dataDaRecusa = Convert.ToDateTime(itemMotivoRecusa["dataDaRecusa"]);
                                     motivoRecusa.mensagem = itemMotivoRecusa["mensagem"].ToString();
 
-                                motivorecusasArray[0] = motivoRecusa;
+                                    motivorecusasArray[0] = motivoRecusa;
 
                                     ajustesModelo.setMotivoRecusa(motivorecusasArray);
 
@@ -269,8 +274,8 @@ namespace SIC.DAO
 
 
                 var dbClientCompraTeste = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
-                IMongoDatabase dataBaseGatilhoTeste = dbClientCompraTeste.GetDatabase("mp-dinheiro");
-                IMongoCollection<AjustesModelo> colNew = dataBaseGatilhoTeste.GetCollection<AjustesModelo>("ajustes");
+                IMongoDatabase dataBaseGatilhoTeste = dbClientCompraTeste.GetDatabase("mp-adquirente");
+                IMongoCollection<AjustesModelo> colNew = dataBaseGatilhoTeste.GetCollection<AjustesModelo>("ajusteAdquirente");
 
                 for(int i = 0; i < listAjustesModelo.Count; i++)
                 {
@@ -295,17 +300,16 @@ namespace SIC.DAO
             }
         }
 
-        public async void UpdateAjusteTeste(List<AjustesModelo> listAjustesModelo)
+        public async Task<Boolean> ReprocessarAjuste(List<AjustesModelo> listAjustesModelo)
         {
             try
             {
 
                 //HOMOLOGAÇÃO
-                //var dbClientCompraTeste = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
-                //ESCRITA PRODUÇÃO
-                //Anterior var dbClient = new MongoClient("mongodb://mp-dinheiro-admin:ef335051a290f0b2dba497f2d52b7874@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-dinheiro?readPreference=nearest&connectTimeoutMS=10000&authSource=mp-dinheiro&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+prd+-+imported+on+10+de+fev+de+2021&3t.defaultColor=231,52,70&3t.databases=mp-dinheiro&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
-                var dbClient = new MongoClient("mongodb://svc_sic:wIYOSE%254uXDA@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-dinheiro?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+MP-Adquirente+-+ESCRITA&3t.defaultColor=231,52,70&3t.databases=mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                //ESCRITA PRODUÇÃO                
+                //var dbClient = new MongoClient("mongodb://svc_sic:wIYOSE%254uXDA@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-adquirente?readPreference=primary&connectTimeoutMS=10000&authSource=mp-adquirente&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+MP-Adquirente+-+ESCRITA&3t.defaultColor=231,52,70&3t.databases=mp-adquirente&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
                 //LEITURA - PRD
                 //var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
@@ -315,8 +319,8 @@ namespace SIC.DAO
 
 
 
-                IMongoDatabase dataBaseGatilhoTeste = dbClient.GetDatabase("mp-dinheiro");
-                IMongoCollection<BsonDocument> colNew = dataBaseGatilhoTeste.GetCollection<BsonDocument>("ajustes");
+                IMongoDatabase dataBaseGatilhoTeste = dbClient.GetDatabase("mp-adquirente");
+                IMongoCollection<BsonDocument> colNew = dataBaseGatilhoTeste.GetCollection<BsonDocument>("ajusteAdquirente");
 
                 /*
                  var collectionAjuste = dbMPDinheiro.GetCollection<BsonDocument>("ajustes");
@@ -327,36 +331,49 @@ namespace SIC.DAO
 
                 for (int i = 0; i < listAjustesModelo.Count; i++)
                 {
-                    if (listAjustesModelo[i].status == "RECUSADO_ARRANJO")
+                    if ((listAjustesModelo[i].status == "RECUSADO_ARRANJO") || (listAjustesModelo[i].status == "ERRO_AJUSTE"))
                     {
-                        
+
                         var filter = Builders<BsonDocument>.Filter.Eq("numeroPedido", listAjustesModelo[i].numeroPedido);
 
                         var resultado = colNew.Find(filter).ToList();
-
+                        
                         //foreach(var res in resultado)
                         for(int j = 0; j < resultado.Count; j++)
                         {
-                            if(resultado[j].GetElement("status").Value == "RECUSADO_ARRANJO")
+                            if((resultado[j].GetElement("status").Value == "RECUSADO_ARRANJO") || (resultado[j].GetElement("status").Value == "ERRO_AJUSTE"))
                             {
 
                                 string _id = resultado[j].GetElement("_id").Value.ToString();
 
+                                //DateTime date = Convert.ToDateTime(listAjustesModelo[j].dataLiberacao.Value);
+
+                                //string date = "2022-07-11:00:00:00";
+
                                 //below code will update multiple records of the data
                                 var updmanyresult = await colNew.UpdateManyAsync(
-                                                    Builders<BsonDocument>.Filter.Eq("_id", _id),
+                                                    Builders<BsonDocument>.Filter.Eq("_id", resultado[j].AsBsonDocument.GetElement("_id").Value),
                                                     Builders<BsonDocument>.Update.Set("dataLiberacao", listAjustesModelo[i].dataLiberacao));
 
                                 var updmanyresult1 = await colNew.UpdateManyAsync(
-                                                    Builders<BsonDocument>.Filter.Eq("_id", _id),
+                                                    Builders<BsonDocument>.Filter.Eq("_id", resultado[j].AsBsonDocument.GetElement("_id").Value),
                                                     Builders<BsonDocument>.Update.Set("status", "NOVO"));
 
+                                if(updmanyresult.ModifiedCount > 0 )
+                                {
+                                    ajusteAlterado = true;
+                                }
+
+                                
+                                //listAjustesModelo[j].ajusteR
 
                                 //var updateDataLiberacao = Builders<BsonDocument>.Update.Set("dataLiberacao", listAjustesModelo[i].dataLiberacao);
                                 //var updateStatus = Builders<BsonDocument>.Update.Set("status", "NOVO");
 
                                 //await colNew.UpdateManyAsync(resultado[i], updateStatus);
                                 //await colNew.UpdateManyAsync(resultado[i], updateDataLiberacao);
+
+                                //
 
                             }
                         }
@@ -371,6 +388,8 @@ namespace SIC.DAO
 
                 throw;
             }
+
+            return ajusteAlterado;
         }
     }
 }

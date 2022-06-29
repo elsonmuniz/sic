@@ -43,7 +43,6 @@ namespace SIC.BLL
                     {
                         dr[4] = listOrder[i].motivoRecusa[0].mensagem;
                     }
-
                     
                     dr[5] = listOrder[i].dataCriacao;
                     dr[6] = listOrder[i].dataLiberacao;
@@ -56,7 +55,6 @@ namespace SIC.BLL
 
                     cont++;
                 }
-
                 
             }
             else
@@ -98,6 +96,35 @@ namespace SIC.BLL
             DataColumn dcPedido = new DataColumn("Pedido", typeof(string));
 
             dtOrderAjuste.Columns.AddRange(new DataColumn[] { dcNumero, dcIdLojista, dcLojista, dcValor, dcMotivo, dcCriacao, dcLiberacao, dcPrevisaoPagamento, dcBandeira, dcStatus, dcPedido });
+        }
+
+        public async Task<Boolean> ReprocessarAjusteAsync(List<AjustesModelo> listAjuste)
+        {
+            Boolean processado = false;
+
+            try
+            {
+                if(listAjuste.Count >= 0)
+                {
+                    ajustesDAO = new AjustesDAO();
+                    processado = await ajustesDAO.ReprocessarAjuste(listAjuste);
+
+                }
+
+                if(processado == false)
+                {
+                    
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return processado;
+
         }
     }
 }

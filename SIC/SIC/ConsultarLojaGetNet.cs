@@ -65,10 +65,12 @@ namespace SIC
 
             //DataColumn dcStatus = new DataColumn("Carteira P. Frio", typeof(string));
             DataColumn dcCarteiraDataModificacao = new DataColumn("Data Modificação", typeof(string));
-            
+            DataColumn dcCadastroReenviado = new DataColumn("Cad.Reenviado", typeof(Boolean));
+
             dtLojistaAdquirente.Columns.AddRange(new DataColumn[] {dcNro,dcIdLogista, dcNomeFantasia, dcCNPJ, dcSsiteExtra
                                                     , dcStatusCarteiraExtra, dcSsiteCB, dcStatusCarteiraCB,dcSsitePontoFrio,dcStatusCarteiraPonto
-                                                    , dcStatusCarteiraGetNetExtra, dcStatusCarteiraGetNetCB, dcStatusCarteiraGetNetPonto, dcCarteiraDataModificacao}
+                                                    , dcStatusCarteiraGetNetExtra, dcStatusCarteiraGetNetCB, dcStatusCarteiraGetNetPonto, dcCarteiraDataModificacao
+                                                    , dcCadastroReenviado}
                                                     );
 
             this.gridLojistaAdquirente.DataSource = dtLojistaAdquirente;
@@ -87,6 +89,7 @@ namespace SIC
             this.gridLojistaAdquirente.Columns[11].Width = 60;
             this.gridLojistaAdquirente.Columns[12].Width = 60;
             this.gridLojistaAdquirente.Columns[13].Width = 115;
+            this.gridLojistaAdquirente.Columns[14].Width = 60;
 
         }
 
@@ -184,6 +187,8 @@ namespace SIC
                         
                         drLojista[13] = lojistaAdquirenteModeloList[i].dataModificacao;
 
+                        //drLojista[14] = true;
+
                         dtLojistaAdquirente.Rows.Add(drLojista);
                     }
                 }
@@ -255,6 +260,52 @@ namespace SIC
 
         }
 
+        public async void ReenviarCadastroAlteradoGetNet()
+        {
+            try
+            {
+                this.listCNPJ.Clear();
+
+                foreach (DataRow dr in dtLojistaAdquirente.Rows)
+                //for(int i = 0; i < this.gridLojistaAdquirente.Rows.Count; i++)
+                {
+                    string url = "http://mp-adquirente.mktplace-prd.viavarejo.com.br:80/callback/getnet/retentativa/lojista/198663?atualizarBaseLojistaAntes=true";
+                    string urlSemFila = "http://mp-adquirente.mktplace-prd.viavarejo.com.br:80/callback/getnet/sincronizador/semfila";
+
+                    HttpClient client = new HttpClient();
+                    StringContent content = new StringContent($"[" + dr[1].ToString() + "]," + "?atualizarBaseLojistaAntes=true");
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                    var result = await client.PostAsync(url, content);
+
+                    //Sem Fila
+                    HttpClient clientSemFila = new HttpClient();
+                    StringContent contentSemFila = new StringContent($"[" + dr[1].ToString() + "]");
+                    contentSemFila.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                    var resultSemFila = await clientSemFila.PostAsync(urlSemFila, contentSemFila);
+
+                    dr[14] = true;
+
+                    dr.BeginEdit();
+
+                    this.gridLojistaAdquirente.DataSource = dtLojistaAdquirente;
+                    this.gridLojistaAdquirente.Refresh();
+
+
+                    this.listCNPJ.Add(dr[3].ToString());
+
+                }
+
+                MessageBox.Show("Reenvio do cadastro para Getnet com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.PesquisarLojista(this.listCNPJ);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro na consulta com a Getnet." + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void EnviarEmailGetnet()
         {
             //Cria Mensagem
@@ -284,6 +335,11 @@ namespace SIC
         {
             ConsultarLojaGetNetLote consultarLojaGetNetLote = new ConsultarLojaGetNetLote(frmApp, this);
             consultarLojaGetNetLote.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.ReenviarCadastroAlteradoGetNet();
         }
     }
 }

@@ -23,16 +23,24 @@ namespace SIC.Modelo
             public string protocoloAtendimento { get; set; }
             public string observacoes { get; set; }
             public string status { get; set; }
+            public string plataformaTransacao { get; set; }
             public string qtdTentativasEnvioGetNet { get; set; }
             public string usuarioLogado { get; set; }
             public bool deveGerarGatilho { get; set; }
             public bool visivelApenasAnalistas { get; set; }
             public string _class { get; set; }
+            public DateTime? dataTentativa { get; set; }
+            public string identificadorOrigem { get; set; }
+            public bool processado { get; set; }
+            public int? ajustesEncontrados { get; set; }        
+            public string idDinheiro { get; set; }
+            public string idAnterior { get; set; }
             public string codigoGetnet { get; set; }
             public string codigoRetorno { get; set; }
             public Motivorecusa[] motivoRecusa { get; set; }
             public DateTime? dataCriacao { get; set; }
-        
+            public DateTime? dataAgendamento { get; set; }
+
 
         public class Motivorecusa
         {

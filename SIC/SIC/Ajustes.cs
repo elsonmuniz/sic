@@ -96,8 +96,48 @@ namespace SIC
         private void incluirAjusteTesteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AjustesDAO ajustesDAO = new AjustesDAO();
+/*
+            AjustesModelo ajustesModelo1 = new AjustesModelo();
 
-            //AjustesModelo ajustesModelo1 = new AjustesModelo();
+            ajustesModelo1._id = "61b4b14e954270191a593028";
+            ajustesModelo1.idLojista = 35823;
+            ajustesModelo1.nomeLojista = "TAQI OFICIAL";
+            ajustesModelo1.idBandeira = 3;
+            ajustesModelo1.descricaoBandeira = "Casas Bahia";
+            ajustesModelo1.dataCriacao = Convert.ToDateTime("2021-12-13T12:43:28.108+0000");
+            ajustesModelo1.dataLiberacao = Convert.ToDateTime("2022-01-10T03:00:00.000+0000");
+            ajustesModelo1.tipoAjuste = 1;
+            ajustesModelo1.valorAjuste = "52.36";
+            ajustesModelo1.motivoAjustes = 16;
+            ajustesModelo1.motivoAjustesDescricao = "Credito de Campanha";
+            ajustesModelo1.numeroPedido = 30308615501;
+            //ajustesModelo1.protocoloAtendimento = "220104-007078";
+            //ajustesModelo2.observacoes = "10.11 - Cancelamento indevido - Via ajuste valores (Repasse e Comissao) - VIA0202478";
+            ajustesModelo1.status = "INTEGRADO";
+            ajustesModelo1.plataformaTransacao = "GETNET";
+            ajustesModelo1.qtdTentativasEnvioGetNet = "0";
+            ajustesModelo1.codigoRetorno = "4572237";
+            ajustesModelo1.usuarioLogado = "AUTOMATICO";
+            ajustesModelo1._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
+            ajustesModelo1.dataTentativa = Convert.ToDateTime( "2022-01-06T12:59:12.624+0000");
+            ajustesModelo1.processado = true;
+            ajustesModelo1.ajustesEncontrados = 1;
+            ajustesModelo1.idDinheiro = "61b4b14e954270191a593028";
+            ajustesModelo1.idAnterior = "61b73ff050d1805ca9931f94";
+
+            ajustesModelo1.codigoGetnet = null;
+
+
+            //AjustesModelo.Motivorecusa motivorecusa1 = new AjustesModelo.Motivorecusa();
+            //motivorecusa1.statusNoMomentoDaRecusa = "AGENDADO";
+            //motivorecusa1.mensagem = "";
+            //motivorecusa1.dataDaRecusa = Convert.ToDateTime("2022-03-28T23:23:16.174+0000");
+
+            //AjustesModelo.Motivorecusa[] arrayMotivorecusa1 = new AjustesModelo.Motivorecusa[1];
+
+            //ajustesModelo1.setMotivoRecusa(arrayMotivorecusa1);
+
+            //ajustesModelo1.setMotivoRecusa(arrayMotivorecusa1);
 
             //ajustesModelo1._id = "613b92213d056f18574edb26";
             //ajustesModelo1.idLojista = 26695;
@@ -117,26 +157,27 @@ namespace SIC
             ////ajustesMode1lo.dataPrevisaoPagamento = Convert.ToDateTime("20/04/2022 00:00:00");
             //ajustesModelo1._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
 
-            //listAjuste.Add(ajustesModelo1);
+            listAjuste.Add(ajustesModelo1);
 
 
             AjustesModelo ajustesModelo2 = new AjustesModelo();
 
-            ajustesModelo2._id = "61d32cac060e271b3e908e62";
-            ajustesModelo2.idLojista = 41754;
-            ajustesModelo2.nomeLojista = "VX";
+            ajustesModelo2._id = "61d6e16c060e271b3e927148";
+            ajustesModelo2.idLojista = 35823;
+            ajustesModelo2.nomeLojista = "TAQI OFICIAL";
             ajustesModelo2.idBandeira = 3;
             ajustesModelo2.descricaoBandeira = "Casas Bahia";
-            ajustesModelo2.dataCriacao = Convert.ToDateTime("2022-01-03T17:04:44.355+0000");
+            ajustesModelo2.dataCriacao = Convert.ToDateTime("2022-01-06T12:32:44.065+0000");
             ajustesModelo2.dataLiberacao = Convert.ToDateTime("2022-01-10T03:00:00.000+0000");
             ajustesModelo2.tipoAjuste = 2;
-            ajustesModelo2.valorAjuste = "87.3";
+            ajustesModelo2.valorAjuste = "94.3";
             ajustesModelo2.motivoAjustes = 18;
             ajustesModelo2.motivoAjustesDescricao = "Cancelamento do Lojista";
-            ajustesModelo2.numeroPedido = 29961391601;
-            ajustesModelo2.protocoloAtendimento = "211229-003783";
+            ajustesModelo2.numeroPedido = 30308615501;
+            ajustesModelo2.protocoloAtendimento = "220104-007078";
             //ajustesModelo2.observacoes = "10.11 - Cancelamento indevido - Via ajuste valores (Repasse e Comissao) - VIA0202478";
-            ajustesModelo2.status = "RECUSADO_ARRANJO";
+            ajustesModelo2.status = "ERRO_AJUSTE";
+            //ajustesModelo2
             ajustesModelo2.qtdTentativasEnvioGetNet = "0";
             ajustesModelo2.usuarioLogado = "AUTOMATICO";
             ajustesModelo2._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
@@ -144,68 +185,120 @@ namespace SIC
             ajustesModelo2.codigoRetorno = null;
 
             AjustesModelo.Motivorecusa motivorecusa = new AjustesModelo.Motivorecusa();
-            motivorecusa.statusNoMomentoDaRecusa = "NOVO";
-            motivorecusa.mensagem = "DATE ADJUSTMENT IS INVALID";
-            motivorecusa.dataDaRecusa = Convert.ToDateTime("2022-06-22T13:08:39.062+0000");
+            motivorecusa.statusNoMomentoDaRecusa = "AGENDADO";
+            motivorecusa.mensagem = "";
+            motivorecusa.dataDaRecusa = Convert.ToDateTime("2022-03-28T23:23:16.174+0000");
 
             AjustesModelo.Motivorecusa[] arrayMotivorecusa = new AjustesModelo.Motivorecusa[1];
 
-            //arrayMotivorecusa[0].statusNoMomentoDaRecusa = motivorecusa.statusNoMomentoDaRecusa;
-            //arrayMotivorecusa[1].mensagem = motivorecusa.mensagem;
-            //arrayMotivorecusa[2].mensagem = motivorecusa.mensagem;
-
-            
-
-
-            //arrayMotivorecusa[0].statusNoMomentoDaRecusa = motivorecusa.statusNoMomentoDaRecusa;
-            //arrayMotivorecusa[1].mensagem = motivorecusa.mensagem;
-            //arrayMotivorecusa[2].dataDaRecusa = motivorecusa.dataDaRecusa;
-
             ajustesModelo2.setMotivoRecusa(arrayMotivorecusa);
-
 
             ajustesModelo2.setMotivoRecusa(arrayMotivorecusa);
 
             listAjuste.Add(ajustesModelo2);
+
+
+            //************* 3
+
+            AjustesModelo ajustesModelo3 = new AjustesModelo();
+
+            ajustesModelo3._id = "61d6e16c060e271b3e92714a";
+            ajustesModelo3.idLojista = 35823;
+            ajustesModelo3.nomeLojista = "TAQI OFICIAL";
+            ajustesModelo3.idBandeira = 3;
+            //ajustesModelo3.descricaoBandeira = "Casas Bahia";
+            ajustesModelo3.dataCriacao = Convert.ToDateTime("2022-01-06T12:44:26.059+0000");
+            ajustesModelo3.dataLiberacao = Convert.ToDateTime("2022-01-20T03:00:00.000+0000");
+            ajustesModelo3.tipoAjuste = 2;
+            ajustesModelo3.valorAjuste = "52.36";
+            ajustesModelo3.motivoAjustes = 17;
+            ajustesModelo3.motivoAjustesDescricao = "Estorno de Campanha";
+            ajustesModelo3.numeroPedido = 30308615501;
+            ajustesModelo3.protocoloAtendimento = "220104-007078";
+            //ajustesModelo2.observacoes = "10.11 - Cancelamento indevido - Via ajuste valores (Repasse e Comissao) - VIA0202478";
+            ajustesModelo3.status = "INTEGRADO";
+            ajustesModelo3.plataformaTransacao = "GETNET";
+            //ajustesModelo2
+            ajustesModelo3.qtdTentativasEnvioGetNet = "0";
+            ajustesModelo3.codigoRetorno = "4666233";
+            ajustesModelo3.usuarioLogado = "AUTOMATICO";
+            ajustesModelo3._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
+            ajustesModelo3.dataTentativa = Convert.ToDateTime( "2022-01-17T23:41:57.421+0000");
+            ajustesModelo3.identificadorOrigem = "marketplace.financeiro.adquirente.ajuste_1_626882";
+            ajustesModelo3.ajustesEncontrados = 1;
+            ajustesModelo3.idDinheiro = "61d6e16c060e271b3e92714a";
+            ajustesModelo3.idAnterior = "61d6e42a40356552b0cb17d4";
+            //ajustesModelo3.codigoGetnet = null;
             
 
+            AjustesModelo.Motivorecusa motivorecusa3 = new AjustesModelo.Motivorecusa();
+            motivorecusa3.statusNoMomentoDaRecusa = "AGENDADO";
+            motivorecusa3.mensagem = "";
+            motivorecusa3.dataDaRecusa = Convert.ToDateTime("2022-03-28T23:23:16.174+0000");
+
+            AjustesModelo.Motivorecusa[] arrayMotivorecusa3 = new AjustesModelo.Motivorecusa[1];
+
+            ajustesModelo3.setMotivoRecusa(arrayMotivorecusa3);
+
+            ajustesModelo3.setMotivoRecusa(arrayMotivorecusa3);
+
+            listAjuste.Add(ajustesModelo3);
+
+            */
+
+            //************* 4
+
+            AjustesModelo ajustesModelo4 = new AjustesModelo();
+
+            ajustesModelo4._id = "61c4c330a57cf8714cd7e8f4";
+            ajustesModelo4.idLojista = 35823;
+            ajustesModelo4.nomeLojista = "TAQI OFICIAL";
+            ajustesModelo4.idBandeira = 4;
+            ajustesModelo4.descricaoBandeira = "Ponto Frio";
+            ajustesModelo4.dataCriacao = Convert.ToDateTime("2021-12-23T18:42:56.891+0000");
+            ajustesModelo4.dataLiberacao = Convert.ToDateTime("2022-01-10T03:00:00.000+0000");
+            ajustesModelo4.tipoAjuste = 2;
+            ajustesModelo4.valorAjuste = "465.19";
+            ajustesModelo4.motivoAjustes = 18;
+            ajustesModelo4.motivoAjustesDescricao = "Cancelamento do Lojista";
+            ajustesModelo4.numeroPedido = 29545893201;
+            ajustesModelo4.protocoloAtendimento = "211218-004077";
+            //ajustesModelo2.observacoes = "10.11 - Cancelamento indevido - Via ajuste valores (Repasse e Comissao) - VIA0202478";
+            ajustesModelo4.status = "ERRO_AJUSTE";
+            ajustesModelo4.plataformaTransacao = "GETNET";
+            ajustesModelo4.qtdTentativasEnvioGetNet = "0";
+            ajustesModelo4.codigoRetorno = null;
+            ajustesModelo4.usuarioLogado = "AUTOMATICO";
+            ajustesModelo4.identificadorOrigem = "marketplace.financeiro.adquirente.ajuste_1_602329";
+            ajustesModelo4._class = "br.com.viavarejo.mpdinheiro.model.mongodb.AjusteEntity";
+            ajustesModelo4.dataAgendamento = Convert.ToDateTime("2022-01-10T03:00:00.000+0000");
+            ajustesModelo4.dataTentativa = Convert.ToDateTime("2022-03-28T21:14:46.979+0000");
+            
+            //ajustesModelo4.ajustesEncontrados = 1;
+            //ajustesModelo4.idDinheiro = "61d6e16c060e271b3e92714a";
+            //ajustesModelo4.idAnterior = "61d6e42a40356552b0cb17d4";
+            //ajustesModelo3.codigoGetnet = null;
 
 
+            AjustesModelo.Motivorecusa motivorecusa4 = new AjustesModelo.Motivorecusa();
+            motivorecusa4.statusNoMomentoDaRecusa = "AGENDADO";
+            motivorecusa4.mensagem = "";
+            motivorecusa4.dataDaRecusa = Convert.ToDateTime("2022-03-28T23:23:17.062+0000");
+
+            AjustesModelo.Motivorecusa[] arrayMotivorecusa4 = new AjustesModelo.Motivorecusa[1];
+
+            ajustesModelo4.setMotivoRecusa(arrayMotivorecusa4);
+
+            ajustesModelo4.setMotivoRecusa(arrayMotivorecusa4);
+
+            listAjuste.Add(ajustesModelo4);
 
 
-
-            //ajustesModelo._id = "613b92213d056f18574edb26";
-            //ajustesModelo.idLojista = 18368;
-            //ajustesModelo.valorAjuste = "266.86";
-            //ajustesModelo.motivoAjustesDescricao = "Cadastro de Comissão";
-            //ajustesModelo.dataCriacao = Convert.ToDateTime("18/04/2022 22:25:59");
-            //ajustesModelo.dataLiberacao = Convert.ToDateTime("20/04/2022 03:00:00");
-            //ajustesModelo.dataPrevisaoPagamento = Convert.ToDateTime("20/04/2022 00:00:00");
-            //ajustesModelo.idBandeira = 3;
-            //ajustesModelo.status = "INTEGRADO_COM_O_ARRANJO";
-            //ajustesModelo.numeroPedido = 31853962001;
-
-            //foreach (DataRow drOrder in dtOrder.Rows)
-            //{
-            //    ajustesModelo.idLojista = Convert.ToInt64(drOrder["IdLojista"]);
-            //    ajustesModelo.valorAjuste = drOrder["Valor"].ToString();
-            //    ajustesModelo.motivoAjustesDescricao = drOrder["Motivo"].ToString();
-            //    ajustesModelo.dataCriacao = Convert.ToDateTime(drOrder["Criação"]);
-            //    ajustesModelo.dataLiberacao = Convert.ToDateTime(drOrder["Liberação"]);
-            //    //ajustesModelo.dataPrevisaoPagamento = Convert.ToDateTime("");
-            //    ajustesModelo.idBandeira = Convert.ToInt32(drOrder["Bandeira"]);
-            //    ajustesModelo.status = drOrder["Status"].ToString();
-            //    ajustesModelo.numeroPedido = Convert.ToInt64(drOrder["Pedido"]);
-
-            //    listAjuste.Add(ajustesModelo);
-
-                
-            //}
 
             ajustesDAO.IncluirAjusteTeste(listAjuste);
         }
 
-        private void ativarLojaToolStripMenuItem1_Click(object sender, EventArgs e)
+        private async void ativarLojaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             listAjuste = new List<AjustesModelo>();
 
@@ -219,7 +312,7 @@ namespace SIC
                 ajustesModelo.valorAjuste = drOrder["Valor"].ToString();
                 ajustesModelo.motivoAjustesDescricao = drOrder["Motivo"].ToString();
                 ajustesModelo.dataCriacao = Convert.ToDateTime(drOrder["Criação"]);
-                //ajustesModelo.dataLiberacao = Convert.ToDateTime(drOrder["Liberação"]);
+                ajustesModelo.dataLiberacao = this.ProcessarDataLiberacao();// Convert.ToDateTime(drOrder["Liberação"]);
                 ajustesModelo.idBandeira = Convert.ToInt32(drOrder["Bandeira"]);
                 ajustesModelo.status = drOrder["Status"].ToString();
                 ajustesModelo.numeroPedido = Convert.ToInt64(drOrder["Pedido"]);
@@ -227,8 +320,23 @@ namespace SIC
                 listAjuste.Add(ajustesModelo);                
             }
 
-            AjustesDAO dao = new AjustesDAO();
-            dao.UpdateAjusteTeste(listAjuste);
+            bool reprocessado = false;
+
+            ajusteBLL = new AjusteBLL();
+            reprocessado = await ajusteBLL.ReprocessarAjusteAsync(listAjuste);
+
+            if(reprocessado == true)
+            {
+                MessageBox.Show("Pedido reprocessado com sucesso!","Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                {
+                    MessageBox.Show("Não foi possível efetuar alteração no ajuste. Verifique permissão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            //this.PesquisarAjuste(listOrderId);
         }
 
         //Calcula o pagamento nas datas do dia 10 ou 20 do mês sequinte
