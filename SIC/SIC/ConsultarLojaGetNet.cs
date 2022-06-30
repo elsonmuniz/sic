@@ -65,12 +65,13 @@ namespace SIC
 
             //DataColumn dcStatus = new DataColumn("Carteira P. Frio", typeof(string));
             DataColumn dcCarteiraDataModificacao = new DataColumn("Data Modificação", typeof(string));
-            DataColumn dcCadastroReenviado = new DataColumn("Cad.Reenviado", typeof(Boolean));
+            //DataColumn dcCadastroReenviado = new DataColumn("Cad.Reenviado", typeof(Boolean));
+            DataColumn dcEmail = new DataColumn("E-mail", typeof(string));
 
             dtLojistaAdquirente.Columns.AddRange(new DataColumn[] {dcNro,dcIdLogista, dcNomeFantasia, dcCNPJ, dcSsiteExtra
                                                     , dcStatusCarteiraExtra, dcSsiteCB, dcStatusCarteiraCB,dcSsitePontoFrio,dcStatusCarteiraPonto
                                                     , dcStatusCarteiraGetNetExtra, dcStatusCarteiraGetNetCB, dcStatusCarteiraGetNetPonto, dcCarteiraDataModificacao
-                                                    , dcCadastroReenviado}
+                                                    , dcEmail}
                                                     );
 
             this.gridLojistaAdquirente.DataSource = dtLojistaAdquirente;
@@ -89,7 +90,8 @@ namespace SIC
             this.gridLojistaAdquirente.Columns[11].Width = 60;
             this.gridLojistaAdquirente.Columns[12].Width = 60;
             this.gridLojistaAdquirente.Columns[13].Width = 115;
-            this.gridLojistaAdquirente.Columns[14].Width = 60;
+            //this.gridLojistaAdquirente.Columns[14].Width = 60;
+            this.gridLojistaAdquirente.Columns[14].Width = 150;
 
         }
 
@@ -187,7 +189,12 @@ namespace SIC
                         
                         drLojista[13] = lojistaAdquirenteModeloList[i].dataModificacao;
 
-                        //drLojista[14] = true;
+                        //drLojista[14] = false;
+
+                        //E-mail
+                        drLojista[14] = lojistaAdquirenteModeloList[i].email;
+
+                        
 
                         dtLojistaAdquirente.Rows.Add(drLojista);
                     }
@@ -283,12 +290,12 @@ namespace SIC
                     contentSemFila.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
                     var resultSemFila = await clientSemFila.PostAsync(urlSemFila, contentSemFila);
 
-                    dr[14] = true;
+                    //dr[14] = true;
 
-                    dr.BeginEdit();
+                    //dr.BeginEdit();
 
-                    this.gridLojistaAdquirente.DataSource = dtLojistaAdquirente;
-                    this.gridLojistaAdquirente.Refresh();
+                    //this.gridLojistaAdquirente.DataSource = dtLojistaAdquirente;
+                    //this.gridLojistaAdquirente.Refresh();
 
 
                     this.listCNPJ.Add(dr[3].ToString());

@@ -25,8 +25,10 @@ namespace SIC.Modelo
             public DateTime dataModificacao { get; set; }
             public string transacaoVinculada { get; set; }
             public string _class { get; set; }
+            //Não tem na TAG original    
+            public string email { get; set; }
 
-        
+
         public void setCarteiras(Carteira[] carteira)
         {
             this.carteiras = carteira;

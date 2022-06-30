@@ -56,6 +56,7 @@
     <Compile Include="GatilhoModelo.cs" />
     <Compile Include="LoginModelo.cs" />
     <Compile Include="LojistaAdquirenteModelo.cs" />
+    <Compile Include="LojistaModelo.cs" />
     <Compile Include="MPComprasModelo.cs" />
     <Compile Include="OrderBandeiraModelo.cs" />
     <Compile Include="OrderResponseGetNetModelo.cs" />

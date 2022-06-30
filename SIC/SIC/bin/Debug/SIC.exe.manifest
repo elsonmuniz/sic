@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BLL.dll" size="14336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BLL.dll" size="15360">
       <assemblyIdentity name="BLL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2X8/rSIdhpzSh/O8FVSkFssLsM8F8iTmA4CKxijNYZM=</dsig:DigestValue>
+        <dsig:DigestValue>E7CH8Tpa/y//bXXoKOqjV90mct4VtL119KmudyZ6Ay0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAO.dll" size="66560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAO.dll" size="69120">
       <assemblyIdentity name="DAO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>fg/2pldIxBvHqeybZyECa33W3bumggTjTx+QUPuI9ws=</dsig:DigestValue>
+        <dsig:DigestValue>eymzw/YOwBCW6gUoNtgC3khWX9PZFYOkH9giUxrn0rc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -86,7 +86,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HMAjBY8p3JIP8vst5TQ4KcUId7BOBasJXdnls5JwfUU=</dsig:DigestValue>
+        <dsig:DigestValue>VxGdliziQwCJwnaXcKx8LYsi5R8fe+9QeqTKAVJSheg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Modelo.dll" size="82432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Modelo.dll" size="100864">
       <assemblyIdentity name="Modelo" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>pfjYroXM9ROr7SkO5h9QYVmHgtgU+8SXZV5xeREOw+U=</dsig:DigestValue>
+        <dsig:DigestValue>iBuwqPtSKgQbCusFPZrgvVSNeSKYyTTDrZSzD1cZanM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -211,14 +211,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIC.exe" size="415672">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIC.exe" size="417720">
       <assemblyIdentity name="SIC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>esN20jsGRR1lN7wfSLh9KNvsIRREuGq8Hp0a3s5tefA=</dsig:DigestValue>
+        <dsig:DigestValue>FYsEC7FrxZKM+4/6sMsYhskrYFKN6DBLCW6yzEuXvHU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

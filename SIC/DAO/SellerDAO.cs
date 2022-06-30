@@ -315,14 +315,25 @@ namespace SIC.DAO
 
             try
             {
+                //Conexão
                 var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                var dbClientLojista = new MongoClient("mongodb://suporte:suporte@mp-lojista-mongo-prd001.dc.nova:27017,mp-lojista-mongo-prd002.dc.nova:27017,mp-lojista-mongo-prd003.dc.nova:27017/mp-lojista?replicaSet=rsMpLojista&readPreference=secondary&connectTimeoutMS=10000&authSource=mp-lojista&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MP-Lojista+-+imported+on+10+de+fev+de+2021&3t.databases=mp-lojista&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
+                
+                //Base de Dados
                 IMongoDatabase db = dbClient.GetDatabase("mp-adquirente");
+                IMongoDatabase dbLojista = dbClientLojista.GetDatabase("mp-lojista");
 
                 for (int i = 0; i < idSeller.Count; i++)
                 {
+                    //Consulta do cadastro do lojista no MP-Dinheiro / MP-Adquirente
                     var carros = db.GetCollection<BsonDocument>("lojistaAdquirente");
                     var filter = Builders<BsonDocument>.Filter.Eq("numeroDocumento", idSeller[i]);
                     var resultSeller = carros.Find(filter).ToList();
+
+                    //Consulta do cadastro do lojista no MP-Lojista / lojista
+                    var collectionLojista = dbLojista.GetCollection<BsonDocument>("lojistas");
+                    var filterLojista = Builders<BsonDocument>.Filter.Eq("numeroDocumento", idSeller[i]);
+                    var resultLojista = collectionLojista.Find(filterLojista).ToList();
 
 
                     if (resultSeller != null)
@@ -368,6 +379,10 @@ namespace SIC.DAO
                             {
                                 lojistaAdquirenteModelo.numeroDocumento = itemSeller.GetValue("numeroDocumento").ToString();
                             }
+
+
+                            lojistaAdquirenteModelo.email = resultLojista[0].GetElement("email").Value.ToString();
+                            
 
                             String sNomeExibicao = this.getElement("nomeExibicao");
                             if (sNomeExibicao.Length != 0)

@@ -57,5 +57,30 @@ namespace SIC.BLL
             
         }
 
+        public async void IncluirUsuarioExternoTeste(UsuarioExternoModelo listUsuarioExternoModelo)
+        {
+            Boolean incluido = false;
+
+            usuarioExternoDAO = new UsuarioExternoDAO();
+
+            //string _id = (string)listUsuarioExternoModelo._id;
+
+            if (listUsuarioExternoModelo._id.ToString() == null)
+            {
+                incluido = usuarioExternoDAO.IncluirUsuarioExternoTeste(listUsuarioExternoModelo);
+            }
+            else
+            {
+                incluido = await usuarioExternoDAO.AlterarDadosUsuarioExterno(listUsuarioExternoModelo);
+            }
+
+            if (incluido == true)
+            {
+                MessageBox.Show("Cadastro do usuário " + listUsuarioExternoModelo.usuario + " alterado com sucesso! ", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+        }
+
     }
 }

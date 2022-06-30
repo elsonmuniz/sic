@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace SIC.Modelo
 {
     public class UsuarioExternoModelo
     {
-            public string _id { get; set; }
+            public ObjectId _id { get; set; }
             public string usuario { get; set; }
             public string cpf { get; set; }
             public string email { get; set; }

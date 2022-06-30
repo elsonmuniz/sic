@@ -16,5 +16,15 @@ namespace Forms
         {
             InitializeComponent();
         }
+
+        public virtual void Salvar()
+        {
+
+        }
+
+        private void salvarToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.Salvar();
+        }
     }
 }
