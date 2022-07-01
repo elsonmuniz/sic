@@ -61,7 +61,7 @@
             this.gridOrder.RowHeadersVisible = false;
             this.gridOrder.RowHeadersWidth = 51;
             this.gridOrder.RowTemplate.Height = 24;
-            this.gridOrder.Size = new System.Drawing.Size(1437, 467);
+            this.gridOrder.Size = new System.Drawing.Size(1507, 467);
             this.gridOrder.TabIndex = 6;
             // 
             // contextMenuStripConsultaPedidoGetnet
@@ -135,7 +135,7 @@
             // 
             // btImportarOrderLote
             // 
-            this.btImportarOrderLote.Location = new System.Drawing.Point(710, 66);
+            this.btImportarOrderLote.Location = new System.Drawing.Point(700, 47);
             this.btImportarOrderLote.Name = "btImportarOrderLote";
             this.btImportarOrderLote.Size = new System.Drawing.Size(149, 38);
             this.btImportarOrderLote.TabIndex = 4;
@@ -145,7 +145,7 @@
             // 
             // txNomeLojista
             // 
-            this.txNomeLojista.Location = new System.Drawing.Point(137, 74);
+            this.txNomeLojista.Location = new System.Drawing.Point(127, 55);
             this.txNomeLojista.Name = "txNomeLojista";
             this.txNomeLojista.ReadOnly = true;
             this.txNomeLojista.Size = new System.Drawing.Size(388, 22);
@@ -153,7 +153,7 @@
             // 
             // txOrderId
             // 
-            this.txOrderId.Location = new System.Drawing.Point(29, 74);
+            this.txOrderId.Location = new System.Drawing.Point(19, 55);
             this.txOrderId.MaxLength = 15;
             this.txOrderId.Name = "txOrderId";
             this.txOrderId.Size = new System.Drawing.Size(102, 22);
@@ -161,7 +161,7 @@
             // 
             // btPesquisarOrderId
             // 
-            this.btPesquisarOrderId.Location = new System.Drawing.Point(560, 66);
+            this.btPesquisarOrderId.Location = new System.Drawing.Point(550, 47);
             this.btPesquisarOrderId.Name = "btPesquisarOrderId";
             this.btPesquisarOrderId.Size = new System.Drawing.Size(119, 38);
             this.btPesquisarOrderId.TabIndex = 3;
@@ -172,7 +172,7 @@
             // Ajustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1461, 678);
+            this.ClientSize = new System.Drawing.Size(1543, 678);
             this.Controls.Add(this.gridOrder);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "Ajustes";

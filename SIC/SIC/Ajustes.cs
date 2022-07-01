@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using SIC.Modelo;
 using SIC.BLL;
 using SIC.DAO;
+using MongoDB.Bson;
 
 namespace SIC
 {
@@ -18,7 +19,7 @@ namespace SIC
 
         //List
         List<AjustesModelo> listAjuste = new List<AjustesModelo>();
-        List<Int64> listOrderId = new List<long>();
+        List<Int64> listOrderId = new List<Int64>();
 
         //Modelo
 
@@ -40,6 +41,7 @@ namespace SIC
 
         public void PesquisarAjuste(List<Int64> listOrderId)
         {
+            this.listOrderId = listOrderId;
             ajusteBLL = new AjusteBLL();
             dtOrder = new DataTable();
 
@@ -49,14 +51,14 @@ namespace SIC
 
             this.gridOrder.Columns[0].Width = 60;
             this.gridOrder.Columns[1].Width = 60;
-            this.gridOrder.Columns[3].Width = 70;
-            this.gridOrder.Columns[4].Width = 115;
+            this.gridOrder.Columns[4].Width = 70;
             this.gridOrder.Columns[5].Width = 115;
             this.gridOrder.Columns[6].Width = 115;
             this.gridOrder.Columns[7].Width = 115;
-            this.gridOrder.Columns[8].Width = 60;
-            this.gridOrder.Columns[9].Width = 180;
-            this.gridOrder.Columns[10].Width = 80;
+            this.gridOrder.Columns[8].Width = 115;
+            this.gridOrder.Columns[9].Width = 60;
+            this.gridOrder.Columns[10].Width = 120;
+            this.gridOrder.Columns[11].Width = 80;
 
 
         }
@@ -96,10 +98,10 @@ namespace SIC
         private void incluirAjusteTesteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AjustesDAO ajustesDAO = new AjustesDAO();
-/*
+
             AjustesModelo ajustesModelo1 = new AjustesModelo();
 
-            ajustesModelo1._id = "61b4b14e954270191a593028";
+            ajustesModelo1._id = ObjectId.Parse("61b4b14e954270191a593028");
             ajustesModelo1.idLojista = 35823;
             ajustesModelo1.nomeLojista = "TAQI OFICIAL";
             ajustesModelo1.idBandeira = 3;
@@ -162,7 +164,7 @@ namespace SIC
 
             AjustesModelo ajustesModelo2 = new AjustesModelo();
 
-            ajustesModelo2._id = "61d6e16c060e271b3e927148";
+            ajustesModelo2._id = ObjectId.Parse("61d6e16c060e271b3e927148");
             ajustesModelo2.idLojista = 35823;
             ajustesModelo2.nomeLojista = "TAQI OFICIAL";
             ajustesModelo2.idBandeira = 3;
@@ -202,7 +204,7 @@ namespace SIC
 
             AjustesModelo ajustesModelo3 = new AjustesModelo();
 
-            ajustesModelo3._id = "61d6e16c060e271b3e92714a";
+            ajustesModelo3._id = ObjectId.Parse("61d6e16c060e271b3e92714a");
             ajustesModelo3.idLojista = 35823;
             ajustesModelo3.nomeLojista = "TAQI OFICIAL";
             ajustesModelo3.idBandeira = 3;
@@ -244,13 +246,13 @@ namespace SIC
 
             listAjuste.Add(ajustesModelo3);
 
-            */
+            
 
             //************* 4
 
             AjustesModelo ajustesModelo4 = new AjustesModelo();
 
-            ajustesModelo4._id = "61c4c330a57cf8714cd7e8f4";
+            ajustesModelo4._id = ObjectId.Parse("61c4c330a57cf8714cd7e8f4");
             ajustesModelo4.idLojista = 35823;
             ajustesModelo4.nomeLojista = "TAQI OFICIAL";
             ajustesModelo4.idBandeira = 4;
@@ -293,8 +295,6 @@ namespace SIC
 
             listAjuste.Add(ajustesModelo4);
 
-
-
             ajustesDAO.IncluirAjusteTeste(listAjuste);
         }
 
@@ -309,10 +309,11 @@ namespace SIC
                 ajustesModelo.dataLiberacao = this.ProcessarDataLiberacao();
 
                 ajustesModelo.idLojista = Convert.ToInt32( drOrder["Idlojista"]);
+                ajustesModelo._id = ObjectId.Parse(drOrder["Id"].ToString());
                 ajustesModelo.valorAjuste = drOrder["Valor"].ToString();
                 ajustesModelo.motivoAjustesDescricao = drOrder["Motivo"].ToString();
                 ajustesModelo.dataCriacao = Convert.ToDateTime(drOrder["Criação"]);
-                ajustesModelo.dataLiberacao = this.ProcessarDataLiberacao();// Convert.ToDateTime(drOrder["Liberação"]);
+                //ajustesModelo.dataLiberacao = this.ProcessarDataLiberacao();// Convert.ToDateTime(drOrder["Liberação"]);
                 ajustesModelo.idBandeira = Convert.ToInt32(drOrder["Bandeira"]);
                 ajustesModelo.status = drOrder["Status"].ToString();
                 ajustesModelo.numeroPedido = Convert.ToInt64(drOrder["Pedido"]);
@@ -328,6 +329,10 @@ namespace SIC
             if(reprocessado == true)
             {
                 MessageBox.Show("Pedido reprocessado com sucesso!","Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.PesquisarAjuste(this.listOrderId);
+
+                this.listOrderId.Clear();
             }
             else
             {
@@ -368,11 +373,27 @@ namespace SIC
                 }
             }
 
-            if((dateTime.Day > 10) && dateTime.Day < 20)
-            {
-                proximoMes = mesAtual + 1;
+            if((dateTime.Day <= 10) && dateTime.Day >= 1)
+            {                
                 
-                dataLiberacao = new DateTime(anoAtual, proximoMes, 20);
+                dataLiberacao = new DateTime(anoAtual, mesAtual, 10);
+
+                if (dataLiberacao.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    dataLiberacao = dataLiberacao.AddDays(2);
+
+                }
+                if (dataLiberacao.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    dataLiberacao = dataLiberacao.AddDays(1);
+                }
+
+            }
+
+            if ((dateTime.Day > 10) && dateTime.Day <= 20)
+            {
+
+                dataLiberacao = new DateTime(anoAtual, mesAtual, 20);
 
                 if (dataLiberacao.DayOfWeek == DayOfWeek.Saturday)
                 {

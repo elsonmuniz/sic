@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace SIC.Modelo
 {
     public class AjustesModelo
     {
-            public string _id { get; set; }
+            public ObjectId _id { get; set; }
             public Int64 idLojista { get; set; }
             public string nomeLojista { get; set; }
             public Int32? idBandeira { get; set; }

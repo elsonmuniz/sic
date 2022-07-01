@@ -21,6 +21,8 @@ namespace SIC
         public FrmLogin()
         {
             InitializeComponent();
+
+            this.lbVersao.Text = this.GetVersion();
         }
 
         private void btLogar_Click(object sender, EventArgs e)
@@ -63,6 +65,19 @@ namespace SIC
             {
                 this.Logar();
             }
+        }
+
+        public string GetVersion()
+        {
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+            {
+                Version ver;
+                ver = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                return String.Format("{0}.{1}.{2}.{3}", ver.Major, ver.Minor, ver.Build, ver.Revision);
+            }
+            else
+                return "Not Published";
+
         }
     }
 }

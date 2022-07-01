@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
 [assembly: AssemblyTitle("SIC")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Sistema Interno de Correção")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Via Varejo")]
 [assembly: AssemblyProduct("SIC")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]

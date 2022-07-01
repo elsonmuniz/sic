@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txSenha = new System.Windows.Forms.TextBox();
             this.txUsuario = new System.Windows.Forms.TextBox();
             this.lbSenha = new System.Windows.Forms.Label();
             this.kbUsuario = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btLogar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbVersao = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbVersao);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txSenha);
             this.groupBox1.Controls.Add(this.txUsuario);
@@ -55,6 +57,16 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Entre com os dados do login";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SIC.Properties.Resources.Sic;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(118, 188);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // txSenha
             // 
@@ -92,7 +104,7 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(328, 173);
+            this.btCancelar.Location = new System.Drawing.Point(327, 158);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(95, 32);
             this.btCancelar.TabIndex = 4;
@@ -102,7 +114,7 @@
             // 
             // btLogar
             // 
-            this.btLogar.Location = new System.Drawing.Point(208, 173);
+            this.btLogar.Location = new System.Drawing.Point(207, 158);
             this.btLogar.Name = "btLogar";
             this.btLogar.Size = new System.Drawing.Size(92, 32);
             this.btLogar.TabIndex = 3;
@@ -110,15 +122,13 @@
             this.btLogar.UseVisualStyleBackColor = true;
             this.btLogar.Click += new System.EventHandler(this.btLogar_Click);
             // 
-            // pictureBox1
+            // lbVersao
             // 
-            this.pictureBox1.Image = global::SIC.Properties.Resources.Sic;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(118, 188);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.lbVersao.AutoSize = true;
+            this.lbVersao.Location = new System.Drawing.Point(387, 209);
+            this.lbVersao.Name = "lbVersao";
+            this.lbVersao.Size = new System.Drawing.Size(0, 16);
+            this.lbVersao.TabIndex = 6;
             // 
             // FrmLogin
             // 
@@ -145,5 +155,6 @@
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Button btLogar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbVersao;
     }
 }
