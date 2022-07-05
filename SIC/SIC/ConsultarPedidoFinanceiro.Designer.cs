@@ -131,7 +131,7 @@
             this.ativarLojaToolStripMenuItem1,
             this.pesquisarToolStripMenuItem});
             this.contextMenuStripConsultaPedidoGetnet.Name = "contextMenuStripSeller";
-            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(276, 126);
+            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(276, 154);
             // 
             // toolStripSeparator1
             // 
@@ -163,6 +163,7 @@
             // 
             // ativarLojaToolStripMenuItem1
             // 
+            this.ativarLojaToolStripMenuItem1.Enabled = false;
             this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
             this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(275, 22);
             this.ativarLojaToolStripMenuItem1.Text = "&Incluir Tracking Comissionamento";
