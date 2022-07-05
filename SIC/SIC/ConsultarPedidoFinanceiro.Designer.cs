@@ -75,18 +75,18 @@
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
             this.groupBoxSeller.Controls.Add(this.txOrderId);
             this.groupBoxSeller.Controls.Add(this.btPesquisarOrder);
-            this.groupBoxSeller.Location = new System.Drawing.Point(12, 39);
+            this.groupBoxSeller.Location = new System.Drawing.Point(12, 83);
             this.groupBoxSeller.Name = "groupBoxSeller";
-            this.groupBoxSeller.Size = new System.Drawing.Size(1089, 103);
+            this.groupBoxSeller.Size = new System.Drawing.Size(1081, 79);
             this.groupBoxSeller.TabIndex = 6;
             this.groupBoxSeller.TabStop = false;
             this.groupBoxSeller.Text = "Consulta no processo de pagamento do financeiro";
             // 
             // btImportarLote
             // 
-            this.btImportarLote.Location = new System.Drawing.Point(884, 33);
+            this.btImportarLote.Location = new System.Drawing.Point(903, 31);
             this.btImportarLote.Name = "btImportarLote";
-            this.btImportarLote.Size = new System.Drawing.Size(102, 47);
+            this.btImportarLote.Size = new System.Drawing.Size(130, 38);
             this.btImportarLote.TabIndex = 2;
             this.btImportarLote.Text = "Importar em Lote";
             this.btImportarLote.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             // 
             // txNomeLojista
             // 
-            this.txNomeLojista.Location = new System.Drawing.Point(146, 50);
+            this.txNomeLojista.Location = new System.Drawing.Point(146, 39);
             this.txNomeLojista.Name = "txNomeLojista";
             this.txNomeLojista.ReadOnly = true;
             this.txNomeLojista.Size = new System.Drawing.Size(547, 22);
@@ -102,7 +102,7 @@
             // 
             // txOrderId
             // 
-            this.txOrderId.Location = new System.Drawing.Point(38, 50);
+            this.txOrderId.Location = new System.Drawing.Point(38, 39);
             this.txOrderId.MaxLength = 15;
             this.txOrderId.Name = "txOrderId";
             this.txOrderId.Size = new System.Drawing.Size(102, 22);
@@ -111,7 +111,7 @@
             // 
             // btPesquisarOrder
             // 
-            this.btPesquisarOrder.Location = new System.Drawing.Point(719, 42);
+            this.btPesquisarOrder.Location = new System.Drawing.Point(749, 31);
             this.btPesquisarOrder.Name = "btPesquisarOrder";
             this.btPesquisarOrder.Size = new System.Drawing.Size(119, 38);
             this.btPesquisarOrder.TabIndex = 0;
@@ -180,7 +180,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 148);
+            this.tabControl1.Location = new System.Drawing.Point(12, 168);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1474, 518);
@@ -201,9 +201,10 @@
             // 
             this.gridOrderFinanceiro.AllowUserToAddRows = false;
             this.gridOrderFinanceiro.AllowUserToDeleteRows = false;
+            this.gridOrderFinanceiro.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridOrderFinanceiro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrderFinanceiro.ContextMenuStrip = this.contextMenuStripConsultaPedidoGetnet;
-            this.gridOrderFinanceiro.Location = new System.Drawing.Point(-4, 9);
+            this.gridOrderFinanceiro.Location = new System.Drawing.Point(-4, 14);
             this.gridOrderFinanceiro.Name = "gridOrderFinanceiro";
             this.gridOrderFinanceiro.ReadOnly = true;
             this.gridOrderFinanceiro.RowHeadersVisible = false;
@@ -227,6 +228,7 @@
             // 
             this.gridOrderPagamento.AllowUserToAddRows = false;
             this.gridOrderPagamento.AllowUserToDeleteRows = false;
+            this.gridOrderPagamento.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridOrderPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrderPagamento.Location = new System.Drawing.Point(-4, 9);
             this.gridOrderPagamento.Name = "gridOrderPagamento";
@@ -252,6 +254,7 @@
             // 
             this.gridOrderGatilho.AllowUserToAddRows = false;
             this.gridOrderGatilho.AllowUserToDeleteRows = false;
+            this.gridOrderGatilho.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridOrderGatilho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrderGatilho.Location = new System.Drawing.Point(-4, 9);
             this.gridOrderGatilho.Name = "gridOrderGatilho";
@@ -269,10 +272,9 @@
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txQtdConfPagto);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 686);
+            this.groupBox1.Location = new System.Drawing.Point(16, 701);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(913, 100);
+            this.groupBox1.Size = new System.Drawing.Size(913, 77);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resumo das transações";
@@ -305,7 +307,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 38);
+            this.label2.Location = new System.Drawing.Point(384, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 16);
             this.label2.TabIndex = 0;
@@ -330,7 +332,7 @@
             // 
             // progressBarImportarTransacao
             // 
-            this.progressBarImportarTransacao.Location = new System.Drawing.Point(958, 718);
+            this.progressBarImportarTransacao.Location = new System.Drawing.Point(998, 732);
             this.progressBarImportarTransacao.Name = "progressBarImportarTransacao";
             this.progressBarImportarTransacao.Size = new System.Drawing.Size(380, 23);
             this.progressBarImportarTransacao.TabIndex = 10;

@@ -45,7 +45,7 @@
             // lbQtdeLinhas
             // 
             this.lbQtdeLinhas.AutoSize = true;
-            this.lbQtdeLinhas.Location = new System.Drawing.Point(24, 617);
+            this.lbQtdeLinhas.Location = new System.Drawing.Point(24, 667);
             this.lbQtdeLinhas.Name = "lbQtdeLinhas";
             this.lbQtdeLinhas.Size = new System.Drawing.Size(77, 16);
             this.lbQtdeLinhas.TabIndex = 10;
@@ -55,8 +55,9 @@
             // 
             this.gridSKUsAlterar.AllowUserToAddRows = false;
             this.gridSKUsAlterar.AllowUserToDeleteRows = false;
+            this.gridSKUsAlterar.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSKUsAlterar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSKUsAlterar.Location = new System.Drawing.Point(22, 178);
+            this.gridSKUsAlterar.Location = new System.Drawing.Point(22, 228);
             this.gridSKUsAlterar.Name = "gridSKUsAlterar";
             this.gridSKUsAlterar.ReadOnly = true;
             this.gridSKUsAlterar.RowHeadersVisible = false;
@@ -73,7 +74,7 @@
             this.groupBoxSeller.Controls.Add(this.txEnderecoPlanilha);
             this.groupBoxSeller.Controls.Add(this.button1);
             this.groupBoxSeller.Controls.Add(this.btPesquisarPlanilha);
-            this.groupBoxSeller.Location = new System.Drawing.Point(22, 43);
+            this.groupBoxSeller.Location = new System.Drawing.Point(22, 93);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(1168, 119);
             this.groupBoxSeller.TabIndex = 11;
@@ -134,7 +135,7 @@
             // 
             // txQtdeLinhas
             // 
-            this.txQtdeLinhas.Location = new System.Drawing.Point(118, 614);
+            this.txQtdeLinhas.Location = new System.Drawing.Point(118, 664);
             this.txQtdeLinhas.MaxLength = 12;
             this.txQtdeLinhas.Name = "txQtdeLinhas";
             this.txQtdeLinhas.ReadOnly = true;
@@ -144,13 +145,14 @@
             // CompararPlanilhaPreco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1479, 655);
+            this.ClientSize = new System.Drawing.Size(1479, 700);
             this.Controls.Add(this.lbQtdeLinhas);
             this.Controls.Add(this.gridSKUsAlterar);
             this.Controls.Add(this.groupBoxSeller);
             this.Controls.Add(this.txQtdeLinhas);
             this.Name = "CompararPlanilhaPreco";
             this.Text = "Comparar preços";
+            this.Load += new System.EventHandler(this.CompararPlanilhaPreco_Load);
             this.Controls.SetChildIndex(this.txQtdeLinhas, 0);
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);
             this.Controls.SetChildIndex(this.gridSKUsAlterar, 0);

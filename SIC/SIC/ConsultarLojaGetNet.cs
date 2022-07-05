@@ -97,6 +97,7 @@ namespace SIC
 
         private void ConsultarLojaGetNet_Load(object sender, EventArgs e)
         {
+            this.NomeDaJanela("Consultar carteira Getnet");
             this.ListarGrid();
         }
 

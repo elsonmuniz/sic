@@ -41,8 +41,9 @@
             // 
             this.gridSellerFront.AllowUserToAddRows = false;
             this.gridSellerFront.AllowUserToDeleteRows = false;
+            this.gridSellerFront.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSellerFront.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSellerFront.Location = new System.Drawing.Point(39, 199);
+            this.gridSellerFront.Location = new System.Drawing.Point(39, 220);
             this.gridSellerFront.Name = "gridSellerFront";
             this.gridSellerFront.ReadOnly = true;
             this.gridSellerFront.RowHeadersVisible = false;
@@ -56,7 +57,7 @@
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
             this.groupBoxSeller.Controls.Add(this.txIdLojista);
             this.groupBoxSeller.Controls.Add(this.btPesquisarLojista);
-            this.groupBoxSeller.Location = new System.Drawing.Point(39, 64);
+            this.groupBoxSeller.Location = new System.Drawing.Point(39, 85);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
             this.groupBoxSeller.TabIndex = 5;
@@ -97,6 +98,7 @@
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "SKUNaoExiteFront";
             this.Text = "Produtos com ficha não integradas";
+            this.Load += new System.EventHandler(this.SKUNaoExiteFront_Load);
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);
             this.Controls.SetChildIndex(this.gridSellerFront, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridSellerFront)).EndInit();

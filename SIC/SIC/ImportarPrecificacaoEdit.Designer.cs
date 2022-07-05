@@ -30,6 +30,7 @@
         {
             this.gridSKUsAlterar = new System.Windows.Forms.DataGridView();
             this.groupBoxSeller = new System.Windows.Forms.GroupBox();
+            this.btConsultarPrecoAlterado = new System.Windows.Forms.Button();
             this.lbChamado = new System.Windows.Forms.Label();
             this.lbLocalPlanilha = new System.Windows.Forms.Label();
             this.txChamado = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.lbQtdeLinhas = new System.Windows.Forms.Label();
             this.txQtdeSemSQKUID = new System.Windows.Forms.TextBox();
             this.lbQtdeSemSKUID = new System.Windows.Forms.Label();
-            this.btConsultarPrecoAlterado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridSKUsAlterar)).BeginInit();
             this.groupBoxSeller.SuspendLayout();
             this.SuspendLayout();
@@ -49,8 +49,9 @@
             // 
             this.gridSKUsAlterar.AllowUserToAddRows = false;
             this.gridSKUsAlterar.AllowUserToDeleteRows = false;
+            this.gridSKUsAlterar.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSKUsAlterar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSKUsAlterar.Location = new System.Drawing.Point(39, 199);
+            this.gridSKUsAlterar.Location = new System.Drawing.Point(39, 225);
             this.gridSKUsAlterar.Name = "gridSKUsAlterar";
             this.gridSKUsAlterar.ReadOnly = true;
             this.gridSKUsAlterar.RowHeadersVisible = false;
@@ -69,12 +70,22 @@
             this.groupBoxSeller.Controls.Add(this.txEnderecoPlanilha);
             this.groupBoxSeller.Controls.Add(this.button1);
             this.groupBoxSeller.Controls.Add(this.btPesquisarPlanilha);
-            this.groupBoxSeller.Location = new System.Drawing.Point(39, 64);
+            this.groupBoxSeller.Location = new System.Drawing.Point(39, 90);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(1168, 119);
             this.groupBoxSeller.TabIndex = 7;
             this.groupBoxSeller.TabStop = false;
             this.groupBoxSeller.Text = "Importação de planilha para alteração de preços";
+            // 
+            // btConsultarPrecoAlterado
+            // 
+            this.btConsultarPrecoAlterado.Location = new System.Drawing.Point(229, 87);
+            this.btConsultarPrecoAlterado.Name = "btConsultarPrecoAlterado";
+            this.btConsultarPrecoAlterado.Size = new System.Drawing.Size(136, 29);
+            this.btConsultarPrecoAlterado.TabIndex = 3;
+            this.btConsultarPrecoAlterado.Text = "Consultar Chamado";
+            this.btConsultarPrecoAlterado.UseVisualStyleBackColor = true;
+            this.btConsultarPrecoAlterado.Click += new System.EventHandler(this.btConsultarPrecoAlterado_Click);
             // 
             // lbChamado
             // 
@@ -131,7 +142,7 @@
             // 
             // txQtdeLinhas
             // 
-            this.txQtdeLinhas.Location = new System.Drawing.Point(135, 635);
+            this.txQtdeLinhas.Location = new System.Drawing.Point(135, 661);
             this.txQtdeLinhas.MaxLength = 12;
             this.txQtdeLinhas.Name = "txQtdeLinhas";
             this.txQtdeLinhas.ReadOnly = true;
@@ -141,7 +152,7 @@
             // lbQtdeLinhas
             // 
             this.lbQtdeLinhas.AutoSize = true;
-            this.lbQtdeLinhas.Location = new System.Drawing.Point(41, 638);
+            this.lbQtdeLinhas.Location = new System.Drawing.Point(41, 664);
             this.lbQtdeLinhas.Name = "lbQtdeLinhas";
             this.lbQtdeLinhas.Size = new System.Drawing.Size(77, 16);
             this.lbQtdeLinhas.TabIndex = 2;
@@ -149,7 +160,7 @@
             // 
             // txQtdeSemSQKUID
             // 
-            this.txQtdeSemSQKUID.Location = new System.Drawing.Point(396, 635);
+            this.txQtdeSemSQKUID.Location = new System.Drawing.Point(396, 661);
             this.txQtdeSemSQKUID.MaxLength = 12;
             this.txQtdeSemSQKUID.Name = "txQtdeSemSQKUID";
             this.txQtdeSemSQKUID.ReadOnly = true;
@@ -159,26 +170,16 @@
             // lbQtdeSemSKUID
             // 
             this.lbQtdeSemSKUID.AutoSize = true;
-            this.lbQtdeSemSKUID.Location = new System.Drawing.Point(276, 638);
+            this.lbQtdeSemSKUID.Location = new System.Drawing.Point(276, 664);
             this.lbQtdeSemSKUID.Name = "lbQtdeSemSKUID";
             this.lbQtdeSemSKUID.Size = new System.Drawing.Size(114, 16);
             this.lbQtdeSemSKUID.TabIndex = 2;
             this.lbQtdeSemSKUID.Text = "Qtde sem SKU ID:";
             // 
-            // btConsultarPrecoAlterado
-            // 
-            this.btConsultarPrecoAlterado.Location = new System.Drawing.Point(229, 87);
-            this.btConsultarPrecoAlterado.Name = "btConsultarPrecoAlterado";
-            this.btConsultarPrecoAlterado.Size = new System.Drawing.Size(136, 29);
-            this.btConsultarPrecoAlterado.TabIndex = 3;
-            this.btConsultarPrecoAlterado.Text = "Consultar Chamado";
-            this.btConsultarPrecoAlterado.UseVisualStyleBackColor = true;
-            this.btConsultarPrecoAlterado.Click += new System.EventHandler(this.btConsultarPrecoAlterado_Click);
-            // 
             // ImportarPrecificacaoEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1493, 678);
+            this.ClientSize = new System.Drawing.Size(1493, 713);
             this.Controls.Add(this.lbQtdeSemSKUID);
             this.Controls.Add(this.lbQtdeLinhas);
             this.Controls.Add(this.gridSKUsAlterar);
@@ -187,6 +188,7 @@
             this.Controls.Add(this.txQtdeLinhas);
             this.Name = "ImportarPrecificacaoEdit";
             this.Text = "Importar planilha de preços do seller";
+            this.Load += new System.EventHandler(this.ImportarPrecificacaoEdit_Load);
             this.Controls.SetChildIndex(this.txQtdeLinhas, 0);
             this.Controls.SetChildIndex(this.txQtdeSemSQKUID, 0);
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);

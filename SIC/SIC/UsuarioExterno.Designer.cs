@@ -87,7 +87,7 @@
             // 
             this.groupBox1.Controls.Add(this.rbUsuario);
             this.groupBox1.Controls.Add(this.rbEmail);
-            this.groupBox1.Location = new System.Drawing.Point(36, 64);
+            this.groupBox1.Location = new System.Drawing.Point(36, 84);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(907, 81);
             this.groupBox1.TabIndex = 2;
@@ -128,7 +128,7 @@
             this.groupBox2.Controls.Add(this.txNomeUsuario);
             this.groupBox2.Controls.Add(this.tx_Id);
             this.groupBox2.Controls.Add(this.txNomePesquisa);
-            this.groupBox2.Location = new System.Drawing.Point(36, 151);
+            this.groupBox2.Location = new System.Drawing.Point(36, 171);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(907, 355);
             this.groupBox2.TabIndex = 5;
@@ -139,9 +139,9 @@
             this.cbkSituacaoCadastral.AutoSize = true;
             this.cbkSituacaoCadastral.Location = new System.Drawing.Point(575, 35);
             this.cbkSituacaoCadastral.Name = "cbkSituacaoCadastral";
-            this.cbkSituacaoCadastral.Size = new System.Drawing.Size(146, 20);
+            this.cbkSituacaoCadastral.Size = new System.Drawing.Size(129, 20);
             this.cbkSituacaoCadastral.TabIndex = 8;
-            this.cbkSituacaoCadastral.Text = "Situação Cadastral:";
+            this.cbkSituacaoCadastral.Text = "Cadastro Inativo:";
             this.cbkSituacaoCadastral.UseVisualStyleBackColor = true;
             // 
             // lb_Id

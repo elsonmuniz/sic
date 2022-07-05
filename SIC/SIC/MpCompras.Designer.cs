@@ -42,8 +42,9 @@
             // 
             this.gridSeller.AllowUserToAddRows = false;
             this.gridSeller.AllowUserToDeleteRows = false;
+            this.gridSeller.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSeller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSeller.Location = new System.Drawing.Point(39, 199);
+            this.gridSeller.Location = new System.Drawing.Point(39, 241);
             this.gridSeller.Name = "gridSeller";
             this.gridSeller.ReadOnly = true;
             this.gridSeller.RowHeadersVisible = false;
@@ -58,7 +59,7 @@
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
             this.groupBoxSeller.Controls.Add(this.txIdLojista);
             this.groupBoxSeller.Controls.Add(this.btPesquisarLojista);
-            this.groupBoxSeller.Location = new System.Drawing.Point(39, 42);
+            this.groupBoxSeller.Location = new System.Drawing.Point(39, 84);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(880, 103);
             this.groupBoxSeller.TabIndex = 3;
@@ -95,7 +96,7 @@
             // 
             this.lstbDados.FormattingEnabled = true;
             this.lstbDados.ItemHeight = 16;
-            this.lstbDados.Location = new System.Drawing.Point(39, 329);
+            this.lstbDados.Location = new System.Drawing.Point(39, 371);
             this.lstbDados.Margin = new System.Windows.Forms.Padding(4);
             this.lstbDados.Name = "lstbDados";
             this.lstbDados.Size = new System.Drawing.Size(453, 148);

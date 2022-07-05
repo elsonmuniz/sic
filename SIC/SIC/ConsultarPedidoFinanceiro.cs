@@ -42,12 +42,11 @@ namespace SIC
             this.frmApp = frmApp;
             this.MdiParent = frmApp;
         }
-
         
 
         private void ConsultarPedidoFinanceiro_Load(object sender, EventArgs e)
         {
-            //this.ListarTabela();
+            this.NomeDaJanela("Consultar pagamento financeiro");
         }
 
         public void ListarTabela()

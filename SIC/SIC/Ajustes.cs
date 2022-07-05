@@ -37,7 +37,7 @@ namespace SIC
             InitializeComponent();
             this.frmApp = frmApp;
             this.MdiParent = frmApp;
-        }
+        }        
 
         public void PesquisarAjuste(List<Int64> listOrderId)
         {
@@ -73,7 +73,7 @@ namespace SIC
 
         private void Ajustes_Load(object sender, EventArgs e)
         {
-
+            this.NomeDaJanela("Ajustes");
         }
 
         public void PesquisarAjustes(List<Int64> listOrder)

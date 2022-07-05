@@ -60,56 +60,57 @@
             this.ativarLojaToolStripMenuItem1,
             this.pesquisarToolStripMenuItem});
             this.contextMenuStripSeller.Name = "contextMenuStripSeller";
-            this.contextMenuStripSeller.Size = new System.Drawing.Size(191, 136);
+            this.contextMenuStripSeller.Size = new System.Drawing.Size(183, 126);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(187, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
             // 
             // copiarToolStripMenuItem
             // 
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.copiarToolStripMenuItem.Text = "Copiar";
             // 
             // colarToolStripMenuItem
             // 
             this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
-            this.colarToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.colarToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.colarToolStripMenuItem.Text = "Colar";
             // 
             // recortarToolStripMenuItem
             // 
             this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
-            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.recortarToolStripMenuItem.Text = "Recortar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(179, 6);
             // 
             // ativarLojaToolStripMenuItem1
             // 
             this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
-            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(190, 24);
+            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.ativarLojaToolStripMenuItem1.Text = "&Reprocessar Loja";
             this.ativarLojaToolStripMenuItem1.Click += new System.EventHandler(this.ativarLojaToolStripMenuItem1_Click);
             // 
             // pesquisarToolStripMenuItem
             // 
             this.pesquisarToolStripMenuItem.Name = "pesquisarToolStripMenuItem";
-            this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.pesquisarToolStripMenuItem.Text = "Pesquisar";
             // 
             // gridSeller
             // 
             this.gridSeller.AllowUserToAddRows = false;
             this.gridSeller.AllowUserToDeleteRows = false;
+            this.gridSeller.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSeller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSeller.ContextMenuStrip = this.contextMenuStripSeller;
-            this.gridSeller.Location = new System.Drawing.Point(39, 199);
+            this.gridSeller.Location = new System.Drawing.Point(39, 220);
             this.gridSeller.Name = "gridSeller";
             this.gridSeller.ReadOnly = true;
             this.gridSeller.RowHeadersVisible = false;
@@ -124,7 +125,7 @@
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
             this.groupBoxSeller.Controls.Add(this.txIdLojista);
             this.groupBoxSeller.Controls.Add(this.btPesquisarLojista);
-            this.groupBoxSeller.Location = new System.Drawing.Point(39, 64);
+            this.groupBoxSeller.Location = new System.Drawing.Point(39, 85);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
             this.groupBoxSeller.TabIndex = 3;
@@ -162,7 +163,7 @@
             this.lbMessage.AutoSize = true;
             this.lbMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMessage.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lbMessage.Location = new System.Drawing.Point(1000, 86);
+            this.lbMessage.Location = new System.Drawing.Point(1000, 107);
             this.lbMessage.Name = "lbMessage";
             this.lbMessage.Size = new System.Drawing.Size(212, 50);
             this.lbMessage.TabIndex = 5;

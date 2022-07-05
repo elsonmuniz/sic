@@ -37,7 +37,7 @@ namespace SIC
 
         private void SKURelated_Load(object sender, EventArgs e)
         {
-
+            this.NomeDaJanela("Consultas de SKUs");
         }
 
         private void btPesquisarSKU_Click(object sender, EventArgs e)

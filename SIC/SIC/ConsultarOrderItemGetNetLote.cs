@@ -26,7 +26,7 @@ namespace SIC
 
         private void ConsultarOrderItemGetNetLote_Load(object sender, EventArgs e)
         {
-
+            this.NomeDaJanela("Importar liberação de item em lote");
         }
 
         private void btConsultar_Click(object sender, EventArgs e)
@@ -46,6 +46,16 @@ namespace SIC
             consultarOrderItemGetnet.ConsultarPedidoBandeira(listOrderBandeira);
 
             this.Close();
+        }
+
+        public override void FecharJanela()
+        {
+            base.FecharJanela();
+        }
+
+        private void btFechar_Click(object sender, EventArgs e)
+        {
+            this.FecharJanela();
         }
     }
 }

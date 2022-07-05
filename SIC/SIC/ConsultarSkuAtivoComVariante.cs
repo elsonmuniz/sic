@@ -39,7 +39,7 @@ namespace SIC
 
         private void ConsultarSkuAtivoComVariante_Load(object sender, EventArgs e)
         {
-            
+            this.NomeDaJanela("Consultar SKU com variante");
         }
 
         public void PesquisarSKU(int idLogista, LoginModelo loginModelo)

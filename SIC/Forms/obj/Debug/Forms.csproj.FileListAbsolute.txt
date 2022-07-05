@@ -23,7 +23,10 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\bin\Debug\Forms.pdb
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.AssemblyReference.cache
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.AppForm.resources
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.AppLogin.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.DialogViewer.resources
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.FormEdit.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.FormViewer.resources
+C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.Properties.Resources.resources
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.GenerateResource.cache
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.dll

@@ -74,6 +74,11 @@
       <DependentUpon>FormViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppForm.resx">
@@ -82,9 +87,28 @@
     <EmbeddedResource Include="AppLogin.resx">
       <DependentUpon>AppLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DialogViewer.resx">
+      <DependentUpon>DialogViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEdit.resx">
       <DependentUpon>FormEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormViewer.resx">
+      <DependentUpon>FormViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fechar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximizar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

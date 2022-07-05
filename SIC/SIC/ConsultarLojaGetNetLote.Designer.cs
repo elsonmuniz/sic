@@ -45,7 +45,7 @@
             // 
             this.btImportar.Location = new System.Drawing.Point(119, 550);
             this.btImportar.Name = "btImportar";
-            this.btImportar.Size = new System.Drawing.Size(75, 23);
+            this.btImportar.Size = new System.Drawing.Size(98, 36);
             this.btImportar.TabIndex = 1;
             this.btImportar.Text = "Importar";
             this.btImportar.UseVisualStyleBackColor = true;
@@ -55,7 +55,7 @@
             // 
             this.btFechar.Location = new System.Drawing.Point(347, 550);
             this.btFechar.Name = "btFechar";
-            this.btFechar.Size = new System.Drawing.Size(75, 23);
+            this.btFechar.Size = new System.Drawing.Size(98, 36);
             this.btFechar.TabIndex = 2;
             this.btFechar.Text = "Fechar";
             this.btFechar.UseVisualStyleBackColor = true;

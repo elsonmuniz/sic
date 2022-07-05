@@ -51,31 +51,7 @@ namespace SIC
 
         private void MpCompras_Load(object sender, EventArgs e)
         {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            this.NomeDaJanela("Consultar pedido");
         }
     }
 }

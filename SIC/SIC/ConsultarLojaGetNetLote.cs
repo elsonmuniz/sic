@@ -28,7 +28,7 @@ namespace SIC
 
         private void ConsultarLojaGetNetLote_Load(object sender, EventArgs e)
         {
-
+            this.NomeDaJanela("Importar CNPJs em lote");
         }
 
         private void btImportar_Click(object sender, EventArgs e)

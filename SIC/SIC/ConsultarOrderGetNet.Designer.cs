@@ -44,8 +44,9 @@
             // 
             this.gridSeller.AllowUserToAddRows = false;
             this.gridSeller.AllowUserToDeleteRows = false;
+            this.gridSeller.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSeller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSeller.Location = new System.Drawing.Point(15, 177);
+            this.gridSeller.Location = new System.Drawing.Point(15, 213);
             this.gridSeller.Name = "gridSeller";
             this.gridSeller.ReadOnly = true;
             this.gridSeller.RowHeadersVisible = false;
@@ -63,7 +64,7 @@
             this.groupBoxSeller.Controls.Add(this.label3);
             this.groupBoxSeller.Controls.Add(this.txIdCompra);
             this.groupBoxSeller.Controls.Add(this.btPesquisarSKU);
-            this.groupBoxSeller.Location = new System.Drawing.Point(18, 42);
+            this.groupBoxSeller.Location = new System.Drawing.Point(18, 78);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(1049, 119);
             this.groupBoxSeller.TabIndex = 7;
@@ -72,9 +73,9 @@
             // 
             // btConsultarEmLote
             // 
-            this.btConsultarEmLote.Location = new System.Drawing.Point(739, 45);
+            this.btConsultarEmLote.Location = new System.Drawing.Point(752, 49);
             this.btConsultarEmLote.Name = "btConsultarEmLote";
-            this.btConsultarEmLote.Size = new System.Drawing.Size(112, 47);
+            this.btConsultarEmLote.Size = new System.Drawing.Size(164, 38);
             this.btConsultarEmLote.TabIndex = 14;
             this.btConsultarEmLote.Text = "Consultar em lote";
             this.btConsultarEmLote.UseVisualStyleBackColor = true;
@@ -133,7 +134,7 @@
             // ConsultarOrderGetNet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1233, 678);
+            this.ClientSize = new System.Drawing.Size(1233, 718);
             this.Controls.Add(this.gridSeller);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "ConsultarOrderGetNet";

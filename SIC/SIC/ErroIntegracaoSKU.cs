@@ -35,7 +35,7 @@ namespace SIC
 
         private void ErroIntegracaoSKU_Load(object sender, EventArgs e)
         {
-
+            this.NomeDaJanela("Consulta SKU com erro integração");
         }
 
         public void ConsultarErroIntegracaoSKU(int idSKU, LoginModelo loginModelo)

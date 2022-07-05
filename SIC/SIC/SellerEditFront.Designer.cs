@@ -51,9 +51,10 @@
             // 
             this.gridSellerFront.AllowUserToAddRows = false;
             this.gridSellerFront.AllowUserToDeleteRows = false;
+            this.gridSellerFront.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSellerFront.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSellerFront.ContextMenuStrip = this.contextMenuStripSellerFront;
-            this.gridSellerFront.Location = new System.Drawing.Point(39, 199);
+            this.gridSellerFront.Location = new System.Drawing.Point(39, 236);
             this.gridSellerFront.Name = "gridSellerFront";
             this.gridSellerFront.ReadOnly = true;
             this.gridSellerFront.RowHeadersVisible = false;
@@ -75,47 +76,47 @@
             this.ativarLojaToolStripMenuItem1,
             this.pesquisarToolStripMenuItem});
             this.contextMenuStripSellerFront.Name = "contextMenuStripSeller";
-            this.contextMenuStripSellerFront.Size = new System.Drawing.Size(150, 136);
+            this.contextMenuStripSellerFront.Size = new System.Drawing.Size(138, 126);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
             // 
             // copiarToolStripMenuItem
             // 
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.copiarToolStripMenuItem.Text = "Copiar";
             // 
             // colarToolStripMenuItem
             // 
             this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
-            this.colarToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
+            this.colarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.colarToolStripMenuItem.Text = "Colar";
             // 
             // recortarToolStripMenuItem
             // 
             this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
-            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
+            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.recortarToolStripMenuItem.Text = "Recortar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(134, 6);
             // 
             // ativarLojaToolStripMenuItem1
             // 
             this.ativarLojaToolStripMenuItem1.Name = "ativarLojaToolStripMenuItem1";
-            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(149, 24);
+            this.ativarLojaToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
             this.ativarLojaToolStripMenuItem1.Text = "Ativar Loja";
             this.ativarLojaToolStripMenuItem1.Click += new System.EventHandler(this.ativarLojaToolStripMenuItem1_Click);
             // 
             // pesquisarToolStripMenuItem
             // 
             this.pesquisarToolStripMenuItem.Name = "pesquisarToolStripMenuItem";
-            this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
+            this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.pesquisarToolStripMenuItem.Text = "Pesquisar";
             // 
             // groupBoxSeller
@@ -123,7 +124,7 @@
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
             this.groupBoxSeller.Controls.Add(this.txIdLojista);
             this.groupBoxSeller.Controls.Add(this.btPesquisarLojista);
-            this.groupBoxSeller.Location = new System.Drawing.Point(39, 64);
+            this.groupBoxSeller.Location = new System.Drawing.Point(39, 101);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
             this.groupBoxSeller.TabIndex = 3;
@@ -164,6 +165,7 @@
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "SellerEditFront";
             this.Text = "Pesquisar Lojista Front";
+            this.Load += new System.EventHandler(this.SellerEditFront_Load);
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);
             this.Controls.SetChildIndex(this.gridSellerFront, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridSellerFront)).EndInit();

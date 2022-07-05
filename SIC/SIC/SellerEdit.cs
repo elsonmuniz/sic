@@ -37,7 +37,7 @@ namespace SIC
 
         private void SellerEdit_Load(object sender, EventArgs e)
         {
-            
+            this.NomeDaJanela("Consulta status seller");
         }
 
         public void PesquisarSeller(int idLogista, LoginModelo loginModelo)

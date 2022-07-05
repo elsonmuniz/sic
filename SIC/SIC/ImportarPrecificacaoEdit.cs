@@ -99,5 +99,10 @@ namespace SIC
                 throw;
             }
         }
+
+        private void ImportarPrecificacaoEdit_Load(object sender, EventArgs e)
+        {
+            this.NomeDaJanela("Importar precificação");
+        }
     }
 }

@@ -35,18 +35,19 @@
             // 
             // btFechar
             // 
-            this.btFechar.Location = new System.Drawing.Point(342, 560);
+            this.btFechar.Location = new System.Drawing.Point(342, 580);
             this.btFechar.Name = "btFechar";
-            this.btFechar.Size = new System.Drawing.Size(75, 23);
+            this.btFechar.Size = new System.Drawing.Size(98, 36);
             this.btFechar.TabIndex = 5;
             this.btFechar.Text = "Fechar";
             this.btFechar.UseVisualStyleBackColor = true;
+            this.btFechar.Click += new System.EventHandler(this.btFechar_Click);
             // 
             // btImportar
             // 
-            this.btImportar.Location = new System.Drawing.Point(114, 560);
+            this.btImportar.Location = new System.Drawing.Point(114, 580);
             this.btImportar.Name = "btImportar";
-            this.btImportar.Size = new System.Drawing.Size(75, 23);
+            this.btImportar.Size = new System.Drawing.Size(98, 36);
             this.btImportar.TabIndex = 4;
             this.btImportar.Text = "Importar";
             this.btImportar.UseVisualStyleBackColor = true;
@@ -54,7 +55,7 @@
             // 
             // rtbImportarLoteAjuste
             // 
-            this.rtbImportarLoteAjuste.Location = new System.Drawing.Point(21, 44);
+            this.rtbImportarLoteAjuste.Location = new System.Drawing.Point(21, 79);
             this.rtbImportarLoteAjuste.Name = "rtbImportarLoteAjuste";
             this.rtbImportarLoteAjuste.Size = new System.Drawing.Size(553, 491);
             this.rtbImportarLoteAjuste.TabIndex = 3;

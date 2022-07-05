@@ -53,9 +53,10 @@
             this.gridOrder.AllowUserToAddRows = false;
             this.gridOrder.AllowUserToDeleteRows = false;
             this.gridOrder.AllowUserToOrderColumns = true;
+            this.gridOrder.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrder.ContextMenuStrip = this.contextMenuStripConsultaPedidoGetnet;
-            this.gridOrder.Location = new System.Drawing.Point(12, 185);
+            this.gridOrder.Location = new System.Drawing.Point(12, 191);
             this.gridOrder.Name = "gridOrder";
             this.gridOrder.ReadOnly = true;
             this.gridOrder.RowHeadersVisible = false;
@@ -126,16 +127,16 @@
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
             this.groupBoxSeller.Controls.Add(this.txOrderId);
             this.groupBoxSeller.Controls.Add(this.btPesquisarOrderId);
-            this.groupBoxSeller.Location = new System.Drawing.Point(12, 50);
+            this.groupBoxSeller.Location = new System.Drawing.Point(13, 93);
             this.groupBoxSeller.Name = "groupBoxSeller";
-            this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
+            this.groupBoxSeller.Size = new System.Drawing.Size(880, 88);
             this.groupBoxSeller.TabIndex = 5;
             this.groupBoxSeller.TabStop = false;
             this.groupBoxSeller.Text = "Pesquisar carteira do lojista na Getnet";
             // 
             // btImportarOrderLote
             // 
-            this.btImportarOrderLote.Location = new System.Drawing.Point(700, 47);
+            this.btImportarOrderLote.Location = new System.Drawing.Point(700, 31);
             this.btImportarOrderLote.Name = "btImportarOrderLote";
             this.btImportarOrderLote.Size = new System.Drawing.Size(149, 38);
             this.btImportarOrderLote.TabIndex = 4;
@@ -145,7 +146,7 @@
             // 
             // txNomeLojista
             // 
-            this.txNomeLojista.Location = new System.Drawing.Point(127, 55);
+            this.txNomeLojista.Location = new System.Drawing.Point(127, 39);
             this.txNomeLojista.Name = "txNomeLojista";
             this.txNomeLojista.ReadOnly = true;
             this.txNomeLojista.Size = new System.Drawing.Size(388, 22);
@@ -153,7 +154,7 @@
             // 
             // txOrderId
             // 
-            this.txOrderId.Location = new System.Drawing.Point(19, 55);
+            this.txOrderId.Location = new System.Drawing.Point(19, 39);
             this.txOrderId.MaxLength = 15;
             this.txOrderId.Name = "txOrderId";
             this.txOrderId.Size = new System.Drawing.Size(102, 22);
@@ -161,7 +162,7 @@
             // 
             // btPesquisarOrderId
             // 
-            this.btPesquisarOrderId.Location = new System.Drawing.Point(550, 47);
+            this.btPesquisarOrderId.Location = new System.Drawing.Point(550, 31);
             this.btPesquisarOrderId.Name = "btPesquisarOrderId";
             this.btPesquisarOrderId.Size = new System.Drawing.Size(119, 38);
             this.btPesquisarOrderId.TabIndex = 3;

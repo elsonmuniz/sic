@@ -64,9 +64,10 @@
             // 
             this.gridSeller.AllowUserToAddRows = false;
             this.gridSeller.AllowUserToDeleteRows = false;
+            this.gridSeller.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSeller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSeller.ContextMenuStrip = this.contextMenuStripSku;
-            this.gridSeller.Location = new System.Drawing.Point(39, 199);
+            this.gridSeller.Location = new System.Drawing.Point(39, 218);
             this.gridSeller.Name = "gridSeller";
             this.gridSeller.ReadOnly = true;
             this.gridSeller.RowHeadersVisible = false;
@@ -160,7 +161,7 @@
             this.groupBoxSeller.Controls.Add(this.txNomeSKU);
             this.groupBoxSeller.Controls.Add(this.txIdSKU);
             this.groupBoxSeller.Controls.Add(this.btPesquisarSKU);
-            this.groupBoxSeller.Location = new System.Drawing.Point(39, 64);
+            this.groupBoxSeller.Location = new System.Drawing.Point(39, 83);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
             this.groupBoxSeller.TabIndex = 3;
@@ -239,7 +240,7 @@
             // 
             // txQtdeLinhas
             // 
-            this.txQtdeLinhas.Location = new System.Drawing.Point(129, 636);
+            this.txQtdeLinhas.Location = new System.Drawing.Point(129, 655);
             this.txQtdeLinhas.Name = "txQtdeLinhas";
             this.txQtdeLinhas.ReadOnly = true;
             this.txQtdeLinhas.Size = new System.Drawing.Size(100, 22);
@@ -248,7 +249,7 @@
             // lbQuantidadeLiinhas
             // 
             this.lbQuantidadeLiinhas.AutoSize = true;
-            this.lbQuantidadeLiinhas.Location = new System.Drawing.Point(36, 639);
+            this.lbQuantidadeLiinhas.Location = new System.Drawing.Point(36, 658);
             this.lbQuantidadeLiinhas.Name = "lbQuantidadeLiinhas";
             this.lbQuantidadeLiinhas.Size = new System.Drawing.Size(77, 16);
             this.lbQuantidadeLiinhas.TabIndex = 6;
@@ -256,7 +257,7 @@
             // 
             // txInativo
             // 
-            this.txInativo.Location = new System.Drawing.Point(357, 633);
+            this.txInativo.Location = new System.Drawing.Point(357, 652);
             this.txInativo.Name = "txInativo";
             this.txInativo.ReadOnly = true;
             this.txInativo.Size = new System.Drawing.Size(100, 22);
@@ -265,7 +266,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(274, 639);
+            this.label1.Location = new System.Drawing.Point(274, 658);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 16);
             this.label1.TabIndex = 6;
@@ -273,7 +274,7 @@
             // 
             // txAtivo
             // 
-            this.txAtivo.Location = new System.Drawing.Point(596, 633);
+            this.txAtivo.Location = new System.Drawing.Point(596, 652);
             this.txAtivo.Name = "txAtivo";
             this.txAtivo.ReadOnly = true;
             this.txAtivo.Size = new System.Drawing.Size(100, 22);
@@ -282,7 +283,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(513, 639);
+            this.label2.Location = new System.Drawing.Point(513, 658);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 6;
@@ -291,7 +292,7 @@
             // SKURelated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1039, 678);
+            this.ClientSize = new System.Drawing.Size(1039, 705);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbQuantidadeLiinhas);

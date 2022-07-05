@@ -22,7 +22,7 @@ namespace SIC
         {
             InitializeComponent();
 
-            this.lbVersao.Text = this.GetVersion();
+            //this.lbVersao.Text = this.GetVersion();
         }
 
         private void btLogar_Click(object sender, EventArgs e)
@@ -35,6 +35,7 @@ namespace SIC
             loginModelo = new LoginModelo();
             loginModelo.Usuario = this.txUsuario.Text;
             loginModelo.Senha = this.txSenha.Text;
+            loginModelo.VersaoSIC = this.GetVersion(); ;
 
             logarBLL = new LogarBLL();
             logarBLL.Logar(loginModelo);
@@ -69,15 +70,31 @@ namespace SIC
 
         public string GetVersion()
         {
-            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
-            {
-                Version ver;
-                ver = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion;
-                return String.Format("{0}.{1}.{2}.{3}", ver.Major, ver.Minor, ver.Build, ver.Revision);
-            }
-            else
-                return "Not Published";
+            //if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+            //{
+            //    Version ver;
+            //    ver = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion;
+            //    return String.Format("{0}.{1}.{2}.{3}", ver.Major, ver.Minor, ver.Build, ver.Revision);
+            //}
+            //else
+            //    return "Not Published";
+
+            string assemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string fileVersion = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).FileVersion;
+            string productVersion = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).ProductVersion;
+
+            return productVersion;
 
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            this.VersaoSistema(GetVersion());
+        }
+
+        //public override void VersaoSistema(string sVersaoSistema)
+        //{
+        //    base.VersaoSistema(sVersaoSistema);
+        //}
     }
 }

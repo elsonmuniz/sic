@@ -7,7 +7,6 @@ using SIC.Modelo;
 using SIC.DAO;
 using System.Data;
 using System.Windows.Forms;
-using SIC.DAO;
 
 namespace SIC.BLL
 {

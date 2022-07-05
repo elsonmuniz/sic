@@ -80,5 +80,10 @@ namespace SIC
         {
             this.CompararPreco(this.txChamado.Text, loginModelo);
         }
+
+        private void CompararPlanilhaPreco_Load(object sender, EventArgs e)
+        {
+            this.NomeDaJanela("Importa~r planiha de preços");
+        }
     }
 }

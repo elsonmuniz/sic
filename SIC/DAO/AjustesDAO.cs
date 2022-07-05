@@ -59,10 +59,10 @@ namespace SIC.DAO
             //*************************** Conexão  ***************************
 
             //HOMOLOGAÇÃO
-            var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+            //var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
             //ESCRITA PRODUÇÃO            
-            //var dbClient = new MongoClient("mongodb://svc_sic:wIYOSE%254uXDA@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-adquirente?readPreference=nearest&connectTimeoutMS=10000&authSource=mp-adquirente&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+MP-Adquirente+-+ESCRITA&3t.defaultColor=231,52,70&3t.databases=mp-adquirente&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+            var dbClient = new MongoClient("mongodb://svc_sic:wIYOSE%254uXDA@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-adquirente?readPreference=nearest&connectTimeoutMS=10000&authSource=mp-adquirente&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+MP-Adquirente+-+ESCRITA&3t.defaultColor=231,52,70&3t.databases=mp-adquirente&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
             //LEITURA - PRD
             //var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
@@ -315,10 +315,10 @@ namespace SIC.DAO
             {
 
                 //HOMOLOGAÇÃO
-                var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                //var dbClient = new MongoClient("mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=TesteLocal&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
                 //ESCRITA PRODUÇÃO                
-                //var dbClient = new MongoClient("mongodb://svc_sic:wIYOSE%254uXDA@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-adquirente?readPreference=primary&connectTimeoutMS=10000&authSource=mp-adquirente&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+MP-Adquirente+-+ESCRITA&3t.defaultColor=231,52,70&3t.databases=mp-adquirente&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+                var dbClient = new MongoClient("mongodb://svc_sic:wIYOSE%254uXDA@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/mp-adquirente?readPreference=primary&connectTimeoutMS=10000&authSource=mp-adquirente&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+MP-Adquirente+-+ESCRITA&3t.defaultColor=231,52,70&3t.databases=mp-adquirente&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
 
                 //LEITURA - PRD
                 //var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");

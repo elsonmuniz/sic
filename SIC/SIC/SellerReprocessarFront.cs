@@ -107,7 +107,7 @@ namespace SIC
 
         private void SellerReprocessarFront_Load(object sender, EventArgs e)
         {
-
+            this.NomeDaJanela("Reprocessar loja front");
         }
 
         private void button1_Click(object sender, EventArgs e)

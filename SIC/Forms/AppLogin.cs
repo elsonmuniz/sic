@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,30 +18,61 @@ namespace Forms
             InitializeComponent();
         }
 
-        //private void AppLogin_Load(object sender, EventArgs e)
-        //{
+        //Para conseguir movimentar a tela clicando e arrastando
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
 
-        //}
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        //public virtual void Logar()
-        //{
+        public virtual void Fechar()
+        {
 
-        //}
-        //public virtual void Cancelar()
-        //{
+        }
 
-        //}
+        public virtual void Maximizar()
+        {
 
-        //private void btLogar_Click(object sender, EventArgs e)
-        //{
-        //    this.Logar();
-        //}
+        }
 
-        //private void btCancelar_Click(object sender, EventArgs e)
-        //{
-        //    Application.Exit();
-        //    this.Close();
+        public virtual void Minimizar()
+        {
 
-        //}
+        }
+
+        public virtual void VersaoSistema(string sVersaoSistema)
+        {
+            this.lbVersao.Text += sVersaoSistema;
+        }
+
+        private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+            //ReleaseCapture();
+            //SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void panelBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btMinimizar_Click(object sender, EventArgs e)
+        {
+            this.Minimizar();
+        }
+
+        private void btMaximizar_Click(object sender, EventArgs e)
+        {
+            this.Maximizar();
+        }
+
+        private void btFechar_Click(object sender, EventArgs e)
+        {
+            this.Fechar();
+            Application.Exit();
+        }
+
+
     }
 }

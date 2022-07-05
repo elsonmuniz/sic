@@ -41,8 +41,9 @@
             // 
             this.gridSKU.AllowUserToAddRows = false;
             this.gridSKU.AllowUserToDeleteRows = false;
+            this.gridSKU.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSKU.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSKU.Location = new System.Drawing.Point(28, 191);
+            this.gridSKU.Location = new System.Drawing.Point(28, 220);
             this.gridSKU.Name = "gridSKU";
             this.gridSKU.ReadOnly = true;
             this.gridSKU.RowHeadersVisible = false;
@@ -57,7 +58,7 @@
             this.groupBoxSeller.Controls.Add(this.txNomeSKU);
             this.groupBoxSeller.Controls.Add(this.txIdSKU);
             this.groupBoxSeller.Controls.Add(this.btPesquisarLojista);
-            this.groupBoxSeller.Location = new System.Drawing.Point(28, 56);
+            this.groupBoxSeller.Location = new System.Drawing.Point(28, 85);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(880, 119);
             this.groupBoxSeller.TabIndex = 3;
@@ -98,6 +99,7 @@
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "IntegracaoSKU";
             this.Text = "Consultar integração de SKU";
+            this.Load += new System.EventHandler(this.IntegracaoSKU_Load);
             this.Controls.SetChildIndex(this.groupBoxSeller, 0);
             this.Controls.SetChildIndex(this.gridSKU, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridSKU)).EndInit();

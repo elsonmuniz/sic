@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SIC
 {
-    public partial class AjustesLote : Forms.FormEdit
+    public partial class AjustesLote : Forms.DialogViewer
     {
         //Variável local
         FrmApp frmApp;
@@ -29,7 +29,7 @@ namespace SIC
 
         private void AjustesLote_Load(object sender, EventArgs e)
         {
-
+            this.NomeDaJanela("Importar ajustes em lote");
         }
 
         private void btImportar_Click(object sender, EventArgs e)
@@ -56,6 +56,16 @@ namespace SIC
             ajustes.PesquisarAjuste(listOrder);
 
             this.Dispose();
+        }
+
+        private void btFechar_Click(object sender, EventArgs e)
+        {
+            FecharJanela();
+        }
+
+        public override void FecharJanela()
+        {
+            base.FecharJanela();
         }
     }
 }

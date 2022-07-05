@@ -70,5 +70,10 @@ namespace SIC
                 MessageBox.Show("" + ex.Message,"Erro",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void SKUNaoExiteFront_Load(object sender, EventArgs e)
+        {
+            this.NomeDaJanela("Contula SKU front");
+        }
     }
 }

@@ -104,6 +104,7 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\BLL.pdb
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\DAO.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\Modelo.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\MongoDB.Bson.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\Oracle.ManagedDataAccess.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Buffers.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Memory.dll
@@ -113,7 +114,6 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Text.Encodings.Web.dl
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Text.Json.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.ValueTuple.dll
-C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\MongoDB.Bson.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\MongoDB.Driver.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\MongoDB.Driver.Core.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\Newtonsoft.Json.dll
@@ -124,6 +124,7 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\DAO.pdb
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\DAO.dll.config
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\Modelo.pdb
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\MongoDB.Bson.xml
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Buffers.xml
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Memory.xml
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Numerics.Vectors.xml
@@ -132,7 +133,6 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Text.Encodings.Web.xm
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Text.Json.xml
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\System.ValueTuple.xml
-C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\MongoDB.Bson.xml
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\MongoDB.Driver.xml
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\MongoDB.Driver.Core.xml
 C:\Users\7700650102\SIC_Teste\sic\SIC\BLL\bin\Debug\Newtonsoft.Json.xml

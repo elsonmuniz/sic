@@ -38,28 +38,8 @@ namespace SIC
 
         private void UsuarioExterno_Load(object sender, EventArgs e)
         {
-            //this.Listagemusuario();
+            this.NomeDaJanela("Consulta usuário externo");
         }
-
-        //public void Listagemusuario()
-        //{
-        //    //dtUsuarios = /*new DataTable();*/
-
-        //    DataColumn dcId = new DataColumn("IdLojista", typeof(String));
-        //    DataColumn dcNomeLojista = new DataColumn("Lojista", typeof(String));
-        //    DataColumn dcUsuario = new DataColumn("Usuário", typeof(String));
-        //    DataColumn dcEmail = new DataColumn("E-mail", typeof(String));
-
-        //    dtUsuarios.Columns.AddRange(new DataColumn[] {dcId, dcNomeLojista, dcUsuario, dcEmail });
-
-        //    this.gridUsuarios.DataSource = dtUsuarios;
-
-        //    this.gridUsuarios.Columns[0].Width = 80;
-        //    this.gridUsuarios.Columns[1].Width = 220;
-        //    this.gridUsuarios.Columns[2].Width = 200;
-        //    this.gridUsuarios.Columns[3].Width = 200;
-
-        //}
 
         private void btConsultar_Click(object sender, EventArgs e)
         {
@@ -80,9 +60,8 @@ namespace SIC
             usuarioExternoModelo.senha = this.txSenha.Text;
             usuarioExternoModelo.cpf = this.txCNPJ.Text;
             usuarioExternoModelo.modificadoPor = this.txModificadoPor.Text;
-            usuarioExternoModelo.dataAtualizacao = DateTime.Now; // Convert.ToDateTime(this.txDataModificacao.Text);
+            usuarioExternoModelo.dataAtualizacao = DateTime.Now;
             usuarioExternoModelo.dataCriacao = Convert.ToDateTime(this.txDataCriacao.Text);
-
 
             usuarioExternoBLL = new UsuarioExternoBLL();
 
@@ -100,7 +79,6 @@ namespace SIC
 
             if(rbEmail.Checked)
             {
-                //usuarioExternoModelo.email = this.txNomePesquisa.Text;
                 usuarioExternoModelo.email = this.txNomePesquisa.Text;
             }
 
@@ -114,15 +92,6 @@ namespace SIC
 
             if(usuarioExternoModelo != null)
             {
-                //DataRow drItem = dtUsuarios.NewRow();
-
-                //drItem[0] = usuarioExternoModelo.lojas[0].idLoja;
-                //drItem[1] = usuarioExternoModelo.lojas[0].nome;
-                //drItem[2] = usuarioExternoModelo.usuario;
-                //drItem[3] = usuarioExternoModelo.email;
-
-                //dtUsuarios.Rows.Add(drItem);
-
                 if(usuarioExternoModelo.inativo == true)
                 {
                     this.cbkSituacaoCadastral.Checked = true;
@@ -140,7 +109,6 @@ namespace SIC
                 this.txDataCriacao.Text = usuarioExternoModelo.dataCriacao.ToString();
                 this.txDataModificacao.Text = usuarioExternoModelo.dataAtualizacao.ToString();
 
-                //gridUsuarios.DataSource = dtUsuarios;
             }
             else
             {

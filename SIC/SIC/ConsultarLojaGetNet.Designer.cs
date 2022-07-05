@@ -56,9 +56,10 @@
             // 
             this.gridLojistaAdquirente.AllowUserToAddRows = false;
             this.gridLojistaAdquirente.AllowUserToDeleteRows = false;
+            this.gridLojistaAdquirente.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridLojistaAdquirente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridLojistaAdquirente.ContextMenuStrip = this.contextMenuStripConsultaLojistaGetnet;
-            this.gridLojistaAdquirente.Location = new System.Drawing.Point(39, 199);
+            this.gridLojistaAdquirente.Location = new System.Drawing.Point(39, 217);
             this.gridLojistaAdquirente.Name = "gridLojistaAdquirente";
             this.gridLojistaAdquirente.ReadOnly = true;
             this.gridLojistaAdquirente.RowHeadersVisible = false;
@@ -146,7 +147,7 @@
             this.groupBoxSeller.Controls.Add(this.txNomeLojista);
             this.groupBoxSeller.Controls.Add(this.txIdLojista);
             this.groupBoxSeller.Controls.Add(this.btPesquisarLojista);
-            this.groupBoxSeller.Location = new System.Drawing.Point(39, 64);
+            this.groupBoxSeller.Location = new System.Drawing.Point(39, 82);
             this.groupBoxSeller.Name = "groupBoxSeller";
             this.groupBoxSeller.Size = new System.Drawing.Size(1027, 119);
             this.groupBoxSeller.TabIndex = 3;
@@ -215,7 +216,7 @@
             // ConsultarLojaGetNet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1550, 678);
+            this.ClientSize = new System.Drawing.Size(1550, 718);
             this.Controls.Add(this.gridLojistaAdquirente);
             this.Controls.Add(this.groupBoxSeller);
             this.Name = "ConsultarLojaGetNet";

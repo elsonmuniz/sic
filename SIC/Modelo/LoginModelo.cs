@@ -36,5 +36,12 @@ namespace SIC.Modelo
             get { return logado; }
             set { logado = value; }
         }
+
+        private String versaoSIC;
+        public String VersaoSIC
+        {
+            get { return versaoSIC; }
+            set { versaoSIC = value; }
+        }
     }
 }

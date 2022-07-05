@@ -78,5 +78,10 @@ namespace SIC
             sellerBLL.AtivarSellerFront(Convert.ToInt32(this.txIdLojista.Text), loginModelo);
             this.PesquisarSellerFront(Convert.ToInt32(this.txIdLojista.Text.Trim()), loginModelo);
         }
+
+        private void SellerEditFront_Load(object sender, EventArgs e)
+        {
+            this.NomeDaJanela("Consulta loja ativa front");
+        }
     }
 }

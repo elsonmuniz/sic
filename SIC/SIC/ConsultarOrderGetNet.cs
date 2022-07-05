@@ -267,6 +267,7 @@ namespace SIC
 
         private void ConsultarOrderGetNet_Load(object sender, EventArgs e)
         {
+            this.NomeDaJanela("Consultar pagamento getnet");
             this.ListagemTransacoesGetNet();
         }
 

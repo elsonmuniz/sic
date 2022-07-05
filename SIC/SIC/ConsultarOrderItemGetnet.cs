@@ -20,7 +20,7 @@ namespace SIC
         FrmApp frmApp;
 
         //MODELO
-        LoginModelo loginModelo;
+        //LoginModelo loginModelo;
         OrderResponseGetNetModelo orderResponseGetNetModelo;
 
         //DataTable
@@ -333,6 +333,7 @@ namespace SIC
 
         private void ConsultarOrderItemGetnet_Load(object sender, EventArgs e)
         {
+            this.NomeDaJanela("Consultar liberação de item");
             this.ListagemGrid();
         }
 

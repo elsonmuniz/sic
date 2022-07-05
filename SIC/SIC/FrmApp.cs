@@ -19,6 +19,7 @@ namespace SIC
             InitializeComponent();
             this.toolStripStatusData.Text += DateTime.Now.ToString().Substring(0,10);
             this.loginModelo = loginModelo;
+            this.toolStripStatusVersao.Text += loginModelo.VersaoSIC;
         }
 
         private void sellerToolStripMenuItem_Click(object sender, EventArgs e)

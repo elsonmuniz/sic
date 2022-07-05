@@ -42,5 +42,20 @@ namespace SIC
 
             this.Dispose();
         }
+
+        public override void FecharJanela()
+        {
+            base.FecharJanela();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.FecharJanela();
+        }
+
+        private void ImportarTransacaoLote_Load(object sender, EventArgs e)
+        {
+            this.NomeDaJanela("Importar pedidos em lote");
+        }
     }
 }

@@ -73,5 +73,10 @@ namespace SIC
         {
             this.ConsultarIntegracaoSKU(Convert.ToInt32(this.txIdSKU.Text), loginModelo);
         }
+
+        private void IntegracaoSKU_Load(object sender, EventArgs e)
+        {
+            this.NomeDaJanela("Consultar integração de SKU");
+        }
     }
 }
