@@ -42,6 +42,7 @@
             // 
             this.gridOrderItem.AllowUserToAddRows = false;
             this.gridOrderItem.AllowUserToDeleteRows = false;
+            this.gridOrderItem.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridOrderItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrderItem.Location = new System.Drawing.Point(12, 216);
             this.gridOrderItem.Name = "gridOrderItem";
