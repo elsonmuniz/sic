@@ -45,6 +45,11 @@ namespace Forms
             WindowState = FormWindowState.Minimized;
         }
 
+        public virtual void MaximizarJanela()
+        {
+            WindowState = FormWindowState.Maximized;
+        }
+
         private void salvarToolStripButton_Click(object sender, EventArgs e)
         {
             this.Salvar();
@@ -76,5 +81,9 @@ namespace Forms
             this.FecharJanela();
         }
 
+        private void btMaximiar_Click(object sender, EventArgs e)
+        {
+            //this.MaximizarJanela();
+        }
     }
 }

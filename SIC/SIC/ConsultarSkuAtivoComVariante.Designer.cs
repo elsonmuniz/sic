@@ -41,6 +41,7 @@
             // 
             this.gridSKU.AllowUserToAddRows = false;
             this.gridSKU.AllowUserToDeleteRows = false;
+            this.gridSKU.AllowUserToOrderColumns = true;
             this.gridSKU.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSKU.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSKU.Location = new System.Drawing.Point(39, 215);

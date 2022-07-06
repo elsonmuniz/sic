@@ -49,6 +49,7 @@
             // 
             this.gridSKUsAlterar.AllowUserToAddRows = false;
             this.gridSKUsAlterar.AllowUserToDeleteRows = false;
+            this.gridSKUsAlterar.AllowUserToOrderColumns = true;
             this.gridSKUsAlterar.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSKUsAlterar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSKUsAlterar.Location = new System.Drawing.Point(39, 225);

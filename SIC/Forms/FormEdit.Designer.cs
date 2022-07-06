@@ -119,6 +119,7 @@
             this.btMaximiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btMaximiar.TabIndex = 3;
             this.btMaximiar.TabStop = false;
+            this.btMaximiar.Click += new System.EventHandler(this.btMaximiar_Click);
             // 
             // toolStrip1
             // 

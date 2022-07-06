@@ -64,6 +64,7 @@
             // 
             this.gridSeller.AllowUserToAddRows = false;
             this.gridSeller.AllowUserToDeleteRows = false;
+            this.gridSeller.AllowUserToOrderColumns = true;
             this.gridSeller.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSeller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSeller.ContextMenuStrip = this.contextMenuStripSku;
@@ -74,7 +75,7 @@
             this.gridSeller.RowHeadersWidth = 51;
             this.gridSeller.RowTemplate.Height = 24;
             this.gridSeller.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridSeller.Size = new System.Drawing.Size(963, 416);
+            this.gridSeller.Size = new System.Drawing.Size(976, 416);
             this.gridSeller.TabIndex = 4;
             // 
             // contextMenuStripSku

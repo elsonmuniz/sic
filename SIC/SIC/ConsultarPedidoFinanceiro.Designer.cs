@@ -131,7 +131,7 @@
             this.ativarLojaToolStripMenuItem1,
             this.pesquisarToolStripMenuItem});
             this.contextMenuStripConsultaPedidoGetnet.Name = "contextMenuStripSeller";
-            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(276, 154);
+            this.contextMenuStripConsultaPedidoGetnet.Size = new System.Drawing.Size(276, 126);
             // 
             // toolStripSeparator1
             // 
@@ -202,6 +202,7 @@
             // 
             this.gridOrderFinanceiro.AllowUserToAddRows = false;
             this.gridOrderFinanceiro.AllowUserToDeleteRows = false;
+            this.gridOrderFinanceiro.AllowUserToOrderColumns = true;
             this.gridOrderFinanceiro.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridOrderFinanceiro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrderFinanceiro.ContextMenuStrip = this.contextMenuStripConsultaPedidoGetnet;
@@ -229,6 +230,7 @@
             // 
             this.gridOrderPagamento.AllowUserToAddRows = false;
             this.gridOrderPagamento.AllowUserToDeleteRows = false;
+            this.gridOrderPagamento.AllowUserToOrderColumns = true;
             this.gridOrderPagamento.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridOrderPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrderPagamento.Location = new System.Drawing.Point(-4, 9);
@@ -255,6 +257,7 @@
             // 
             this.gridOrderGatilho.AllowUserToAddRows = false;
             this.gridOrderGatilho.AllowUserToDeleteRows = false;
+            this.gridOrderGatilho.AllowUserToOrderColumns = true;
             this.gridOrderGatilho.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridOrderGatilho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrderGatilho.Location = new System.Drawing.Point(-4, 9);
