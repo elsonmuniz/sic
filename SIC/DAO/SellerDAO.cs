@@ -380,8 +380,11 @@ namespace SIC.DAO
                                 lojistaAdquirenteModelo.numeroDocumento = itemSeller.GetValue("numeroDocumento").ToString();
                             }
 
-
-                            lojistaAdquirenteModelo.email = resultLojista[0].GetElement("email").Value.ToString();
+                            //if(resultLojista.Count > 0)
+                            //{
+                            //    lojistaAdquirenteModelo.email = resultLojista[0].GetElement("email").Value.ToString();
+                            //}
+                            
                             
 
                             String sNomeExibicao = this.getElement("nomeExibicao");

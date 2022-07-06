@@ -35,7 +35,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(26, 34);
+            this.richTextBox1.Location = new System.Drawing.Point(26, 94);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(553, 491);
             this.richTextBox1.TabIndex = 0;
@@ -43,7 +43,7 @@
             // 
             // btImportar
             // 
-            this.btImportar.Location = new System.Drawing.Point(119, 550);
+            this.btImportar.Location = new System.Drawing.Point(119, 610);
             this.btImportar.Name = "btImportar";
             this.btImportar.Size = new System.Drawing.Size(98, 36);
             this.btImportar.TabIndex = 1;
@@ -53,7 +53,7 @@
             // 
             // btFechar
             // 
-            this.btFechar.Location = new System.Drawing.Point(347, 550);
+            this.btFechar.Location = new System.Drawing.Point(347, 610);
             this.btFechar.Name = "btFechar";
             this.btFechar.Size = new System.Drawing.Size(98, 36);
             this.btFechar.TabIndex = 2;
@@ -63,14 +63,18 @@
             // ConsultarLojaGetNetLote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(629, 612);
+            this.ClientSize = new System.Drawing.Size(629, 659);
             this.Controls.Add(this.btFechar);
             this.Controls.Add(this.btImportar);
             this.Controls.Add(this.richTextBox1);
             this.Name = "ConsultarLojaGetNetLote";
             this.Text = "Importar CNPJ em lote";
             this.Load += new System.EventHandler(this.ConsultarLojaGetNetLote_Load);
+            this.Controls.SetChildIndex(this.richTextBox1, 0);
+            this.Controls.SetChildIndex(this.btImportar, 0);
+            this.Controls.SetChildIndex(this.btFechar, 0);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

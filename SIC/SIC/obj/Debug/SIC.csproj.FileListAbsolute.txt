@@ -156,6 +156,8 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\snappy64.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\libzstd.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\mongocrypt.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\SIC.exe.config
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\SIC.exe.manifest
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\SIC.application
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\SIC.exe
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\SIC.pdb
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\bin\Debug\BLL.dll
@@ -233,6 +235,18 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.SKURelated.resources
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.UsuarioExterno.resources
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.csproj.GenerateResource.cache
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.csproj.CoreCompileInputs.cache
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.TrustInfo.xml
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.exe.manifest
+C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.application
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.csproj.CopyComplete
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.exe
 C:\Users\7700650102\SIC_Teste\sic\SIC\SIC\obj\Debug\SIC.pdb
+C:\bin\debug\snappy32.dll
+C:\bin\debug\snappy64.dll
+C:\bin\debug\libzstd.dll
+C:\bin\debug\mongocrypt.dll
+C:\bin\debug\SIC.exe.config
+C:\bin\debug\SIC.exe.manifest
+C:\bin\debug\SIC.application
+C:\bin\debug\SIC.exe
+C:\bin\debug\SIC.pdb
