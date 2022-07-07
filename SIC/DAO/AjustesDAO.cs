@@ -228,11 +228,12 @@ namespace SIC.DAO
                                     AjustesModelo.Motivorecusa motivoRecusa = new AjustesModelo.Motivorecusa();
 
                                     this.listElements.Clear();
+                                    //this.setElement(vMotivoRecusa.AsBsonValue.ToArray());
 
                                     //if(itemMotivoRecusa.)
                                     motivoRecusa.statusNoMomentoDaRecusa = itemMotivoRecusa["statusNoMomentoDaRecusa"].ToString();
                                     motivoRecusa.dataDaRecusa = Convert.ToDateTime(itemMotivoRecusa["dataDaRecusa"]);
-                                    motivoRecusa.mensagem = itemMotivoRecusa["mensagem"].ToString();
+                                    //motivoRecusa.mensagem = itemMotivoRecusa["mensagem"].ToString();
 
                                     motivorecusasArray[0] = motivoRecusa;
 
