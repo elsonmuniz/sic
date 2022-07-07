@@ -57,6 +57,7 @@
             this.txQtdConfPagto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBarImportarTransacao = new System.Windows.Forms.ProgressBar();
+            this.lbImportacaoTransacao = new System.Windows.Forms.Label();
             this.groupBoxSeller.SuspendLayout();
             this.contextMenuStripConsultaPedidoGetnet.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -336,15 +337,24 @@
             // 
             // progressBarImportarTransacao
             // 
-            this.progressBarImportarTransacao.Location = new System.Drawing.Point(998, 732);
+            this.progressBarImportarTransacao.Location = new System.Drawing.Point(997, 732);
             this.progressBarImportarTransacao.Name = "progressBarImportarTransacao";
             this.progressBarImportarTransacao.Size = new System.Drawing.Size(380, 23);
             this.progressBarImportarTransacao.TabIndex = 10;
+            // 
+            // lbImportacaoTransacao
+            // 
+            this.lbImportacaoTransacao.AutoSize = true;
+            this.lbImportacaoTransacao.Location = new System.Drawing.Point(1108, 701);
+            this.lbImportacaoTransacao.Name = "lbImportacaoTransacao";
+            this.lbImportacaoTransacao.Size = new System.Drawing.Size(0, 20);
+            this.lbImportacaoTransacao.TabIndex = 11;
             // 
             // ConsultarPedidoFinanceiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1498, 798);
+            this.Controls.Add(this.lbImportacaoTransacao);
             this.Controls.Add(this.progressBarImportarTransacao);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
@@ -356,6 +366,7 @@
             this.Controls.SetChildIndex(this.tabControl1, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.progressBarImportarTransacao, 0);
+            this.Controls.SetChildIndex(this.lbImportacaoTransacao, 0);
             this.groupBoxSeller.ResumeLayout(false);
             this.groupBoxSeller.PerformLayout();
             this.contextMenuStripConsultaPedidoGetnet.ResumeLayout(false);
@@ -402,5 +413,6 @@
         private System.Windows.Forms.TextBox txQtdConfPagto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBarImportarTransacao;
+        private System.Windows.Forms.Label lbImportacaoTransacao;
     }
 }

@@ -12,12 +12,12 @@ namespace SIC.BLL
     public class MPComprasBLL
     {
         MPComprasDAO mPComprasDAO;
-        public DataSet ConsultarPedidoFinanceiro(List<Int64> orderId)
+        public async Task<DataSet> ConsultarPedidoFinanceiro(List<Int64> orderId)
         {
             try
             {
                 mPComprasDAO = new MPComprasDAO();
-                return mPComprasDAO.ConsultarPedidoFinanceiro(orderId);
+                return await mPComprasDAO.ConsultarPedidoFinanceiro(orderId);
             }
             catch (Exception)
             {

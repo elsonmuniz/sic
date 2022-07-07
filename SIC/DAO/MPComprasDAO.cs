@@ -143,9 +143,9 @@ namespace SIC.DAO
         List<OrderBandeiraModelo> listOrderBandeira = new List<OrderBandeiraModelo>();
 
         // private methods
-        public DataSet ConsultarPedidoFinanceiro(List<Int64> orderId)
+        public async Task<DataSet> ConsultarPedidoFinanceiro(List<Int64> orderId)
         {
-            
+
             int contadorPedido = 0;
             Int64 orderIdAtual = 0;
             int contPagamento = 1;
@@ -160,19 +160,19 @@ namespace SIC.DAO
             //30400966101
 
             //Criação da DataTable TRANSAÇÃO para retorno
-            DataColumn dcNumero                 = new DataColumn("Nro", typeof(string));
-            DataColumn dcIdEntrega              = new DataColumn("IdEntrega", typeof(string));
-            DataColumn dcBandeira               = new DataColumn("Bandeira", typeof(string));
-            DataColumn dcSite                   = new DataColumn("Site", typeof(string));
-            DataColumn dcIdTransacaoGet         = new DataColumn("Id Getnet", typeof(string));
-            DataColumn dcConfirmacaoPagamento   = new DataColumn("Confirmação de Pagamento", typeof(string));
-            DataColumn dcDataPrevisaoPagamento  = new DataColumn("Previsão Pagto", typeof(string));
-            DataColumn dcInicioCiclo            = new DataColumn("Início Ciclo", typeof(string));
-            DataColumn dcFimCiclo               = new DataColumn("Fim Ciclo", typeof(string));
-            DataColumn dcStatusGatilho          = new DataColumn("Tipo Transação", typeof(string));
+            DataColumn dcNumero = new DataColumn("Nro", typeof(string));
+            DataColumn dcIdEntrega = new DataColumn("IdEntrega", typeof(string));
+            DataColumn dcBandeira = new DataColumn("Bandeira", typeof(string));
+            DataColumn dcSite = new DataColumn("Site", typeof(string));
+            DataColumn dcIdTransacaoGet = new DataColumn("Id Getnet", typeof(string));
+            DataColumn dcConfirmacaoPagamento = new DataColumn("Confirmação de Pagamento", typeof(string));
+            DataColumn dcDataPrevisaoPagamento = new DataColumn("Previsão Pagto", typeof(string));
+            DataColumn dcInicioCiclo = new DataColumn("Início Ciclo", typeof(string));
+            DataColumn dcFimCiclo = new DataColumn("Fim Ciclo", typeof(string));
+            DataColumn dcStatusGatilho = new DataColumn("Tipo Transação", typeof(string));
             //DataColumn dcQtdeParcela            = new DataColumn("Qtd Parcela", typeof(string));
-            DataColumn dcVarlorParcela          = new DataColumn("Valor Parcela", typeof(string));
-            DataColumn dcValorPedido            = new DataColumn("Valor Pedido", typeof(string));
+            DataColumn dcVarlorParcela = new DataColumn("Valor Parcela", typeof(string));
+            DataColumn dcValorPedido = new DataColumn("Valor Pedido", typeof(string));
 
             //Inserindo as colunas criadas acima na tabela de Transação
             dtOrderFinanceiro.Columns.AddRange(new DataColumn[] {dcNumero, dcIdEntrega, dcBandeira, dcSite, dcIdTransacaoGet,
@@ -183,7 +183,7 @@ namespace SIC.DAO
             //Criação da DataTable PAGAMENTO para retorno
             DataColumn dcNumeroPagamento = new DataColumn("Número", typeof(string));
             DataColumn dcIdEntregaPagamento = new DataColumn("Id Entrega", typeof(string));
-            DataColumn dcStatusOperacaoPagamento  = new DataColumn("Status Operação", typeof(string));
+            DataColumn dcStatusOperacaoPagamento = new DataColumn("Status Operação", typeof(string));
             DataColumn dcPontoControlePagamento = new DataColumn("Ponto Controle", typeof(string));
             DataColumn dcDataCriacaoPagamento = new DataColumn("Data Criação", typeof(string));
             DataColumn dcIdPagamentoPagamento = new DataColumn("Id Pagamento", typeof(string));
@@ -202,7 +202,7 @@ namespace SIC.DAO
 
             //Inserindo as colunas criadas acima na tabela de Gatilhos
             dtOrderGatilho.Columns.AddRange(new DataColumn[] { dcNumeroGatilho, dcIdEntregaGatilho, dcStatusOperacaoGatilho, dcDataGatilhoGatilho, dcMotivo });
-            
+
 
             try
             {
@@ -212,11 +212,11 @@ namespace SIC.DAO
 
                 //*************************** Collections MP-ADQUIRENTE ***************************
                 IMongoDatabase db = dbClient.GetDatabase("mp-adquirente");
-                IMongoDatabase dbPagamento = dbClient.GetDatabase("mp-dinheiro");
+                var dbPagamento = dbClient.GetDatabase("mp-dinheiro");
 
                 //*************************** Collections MP-COMPRAS ***************************
                 IMongoDatabase dbMPCompras = dbMPComprasClient.GetDatabase("mp-compras");
-                
+
                 //Percorre todo o trajeto com um determiado pedido recebido da List deste método
                 for (int i = 0; i < orderId.Count; i++)
                 {
@@ -227,8 +227,10 @@ namespace SIC.DAO
 
                     // *************************** MP-Compra ***************************
                     var mpComprasCollection = dbMPCompras.GetCollection<BsonDocument>("compra");
-                    var filterMPCompras = Builders<BsonDocument>.Filter.Eq("id", Convert.ToInt64(orderId[i].ToString().Substring(0,9)+"01"));
-                    var resultMPCompras = mpComprasCollection.Find(filterMPCompras).ToList();
+                    var filterMPCompras =  Builders<BsonDocument>.Filter.Eq("id", Convert.ToInt64(orderId[i].ToString().Substring(0, 9) + "01"));
+                    var resultMPCompra = await mpComprasCollection.FindAsync(filterMPCompras);
+
+                    var resultMPCompras = resultMPCompra.ToList();
 
                     // *************************** Pagamentos ***************************
                     var pagamentoCollection = dbPagamento.GetCollection<BsonDocument>("pagamentos");
@@ -250,8 +252,8 @@ namespace SIC.DAO
                      Pegar a bandeira para a consulta da GetNet no método
                      */
                     this.idBandeira = resultMPCompras[0].GetElement("idUnidadeNegocio").Value.ToInt32(); // ToBsonDocument().GetElement("idUnidadeNegocio").Value.ToInt32(); // idBandeira.ToBsonDocument("idUnidadeNegocio").AsBsonArray[i].AsBsonValue; // ("idUnidadeNegocio").ToInt32();
-                    
-                    if(resultGatilho.Count > 0)
+
+                    if (resultGatilho.Count > 0)
                     {
                         foreach (var itemGatilho in resultGatilho.ToArray())
                         {
@@ -307,12 +309,12 @@ namespace SIC.DAO
                             }
 
                             String sMotivos = this.getElement("motivos");
-                            if(sMotivos.Length != 0)
+                            if (sMotivos.Length != 0)
                             {
                                 var gatilho = itemGatilho.AsBsonDocument.GetElement("motivos");
                                 //var payload = pagamento.AsBsonDocument.GetValue("payload");
 
-                               
+
 
                                 GatilhoModelo.Motivos motivos = new GatilhoModelo.Motivos();
 
@@ -345,7 +347,7 @@ namespace SIC.DAO
 
                                 gatilhoModelo.setMotivos(motivosArray);
                             }
-                            
+
 
                             //var tres = gatilho.Value.AsBsonArray[3].ToString();
 
@@ -355,7 +357,7 @@ namespace SIC.DAO
                                 gatilhoModelo._class = itemGatilho.GetValue("_class").ToString();
                             }
 
-                            if(gatilhoModelo.motivos != null)
+                            if (gatilhoModelo.motivos != null)
                             {
                                 //Insere os dados lidos acima da tabela Gatilho para retorno em tela
                                 dtOrderGatilho.Rows.Add(contGatilho, gatilhoModelo.IdEntrega.ToString(), gatilhoModelo.StatusOperacao, gatilhoModelo.DataGatilho, gatilhoModelo.motivos[0].tres);
@@ -364,7 +366,7 @@ namespace SIC.DAO
                             {
                                 dtOrderGatilho.Rows.Add(contGatilho, gatilhoModelo.IdEntrega.ToString(), gatilhoModelo.StatusOperacao, gatilhoModelo.DataGatilho, "");
                             }
-                            
+
 
                             contGatilho++;
 
@@ -377,7 +379,7 @@ namespace SIC.DAO
                         contGatilho++;
                     }
                     //Percorre o resultado de Gatilho
-                    
+
 
                     //PREENCHIMENTO DOS OBJETOS CONFOMRE RETORNO DO MONGODB ACIMA
 
@@ -389,7 +391,7 @@ namespace SIC.DAO
                     //Pagamentos
                     pagamentosPayload = new PagamentosModelo.Payload[2];
 
-                    if(resultPagamentos.Count > 0)
+                    if (resultPagamentos.Count > 0)
                     {
                         //Percorredo a consulta de Pagamentos
                         foreach (var pagamento in resultPagamentos.ToArray())
@@ -607,11 +609,11 @@ namespace SIC.DAO
                     {
                         dtOrderPagamento.Rows.Add(contPagamento, orderId[i], "Sem pagamento", "Sem pagamento",
                                     "Sem pagamento", "Sem pagamento");
-                        
+
                         contPagamento++;
                     }
 
-                    
+
 
                     //Deleta o o registro anterior que tá em listElements
                     this.listElements.Clear();
@@ -623,103 +625,103 @@ namespace SIC.DAO
                         foreach (var itemTransacao in resultTransacoes.ToArray())
                         {
                             contTransacao++;
-                            
-                            this.listElements.Clear(); 
+
+                            this.listElements.Clear();
                             this.setElement(itemTransacao.AsBsonValue);
 
                             //PED. EXEMPLO: 24660835702
 
                             transacoesModelo = new TransacoesModelo();
 
-                        String _Id = this.getElement("_id");
-                        if(_Id.Length != 0)
-                        {
-                            transacoesModelo._id = itemTransacao.GetElement("_id").Value.ToString();
-                        }
+                            String _Id = this.getElement("_id");
+                            if (_Id.Length != 0)
+                            {
+                                transacoesModelo._id = itemTransacao.GetElement("_id").Value.ToString();
+                            }
 
-                        String dataCriacao = this.getElement("dataCriacao");
-                        if (dataCriacao.Length != 0)
-                        {
-                            transacoesModelo.dataCriacao = ((DateTime)itemTransacao.GetElement("dataCriacao").Value);
-                        }
+                            String dataCriacao = this.getElement("dataCriacao");
+                            if (dataCriacao.Length != 0)
+                            {
+                                transacoesModelo.dataCriacao = ((DateTime)itemTransacao.GetElement("dataCriacao").Value);
+                            }
 
-                        String dataModificacao = this.getElement("dataModificacao");
-                        if (dataModificacao.Length != 0)
-                        {
-                            transacoesModelo.dataModificacao = ((DateTime)itemTransacao.GetElement("dataModificacao").Value);
-                        }
+                            String dataModificacao = this.getElement("dataModificacao");
+                            if (dataModificacao.Length != 0)
+                            {
+                                transacoesModelo.dataModificacao = ((DateTime)itemTransacao.GetElement("dataModificacao").Value);
+                            }
 
-                        String idAgendamentoMarketplace = this.getElement("idAgendamentoMarketplace");
-                        if (idAgendamentoMarketplace.Length != 0)
-                        {
-                            transacoesModelo.idAgendamentoMarketplace = itemTransacao.GetElement("idAgendamentoMarketplace").Value.ToInt64();
-                        }
+                            String idAgendamentoMarketplace = this.getElement("idAgendamentoMarketplace");
+                            if (idAgendamentoMarketplace.Length != 0)
+                            {
+                                transacoesModelo.idAgendamentoMarketplace = itemTransacao.GetElement("idAgendamentoMarketplace").Value.ToInt64();
+                            }
 
-                        String valorComissao = this.getElement("valorComissao");
-                        if (valorComissao.Length != 0)
-                        {
-                            transacoesModelo.valorComissao = itemTransacao.GetElement("valorComissao").Value.ToString();
-                        }
+                            String valorComissao = this.getElement("valorComissao");
+                            if (valorComissao.Length != 0)
+                            {
+                                transacoesModelo.valorComissao = itemTransacao.GetElement("valorComissao").Value.ToString();
+                            }
 
-                        String valorTransacao = this.getElement("valorTransacao");
-                        if (valorTransacao.Length != 0)
-                        {
-                            transacoesModelo.valorTransacao = itemTransacao.GetElement("valorTransacao").Value.ToString();
-                        }
+                            String valorTransacao = this.getElement("valorTransacao");
+                            if (valorTransacao.Length != 0)
+                            {
+                                transacoesModelo.valorTransacao = itemTransacao.GetElement("valorTransacao").Value.ToString();
+                            }
 
-                        String valorPedido = this.getElement("valorPedido");
-                        if (valorPedido.Length != 0)
-                        {
-                            transacoesModelo.valorPedido = itemTransacao.GetElement("valorPedido").Value.ToString();
-                        }
+                            String valorPedido = this.getElement("valorPedido");
+                            if (valorPedido.Length != 0)
+                            {
+                                transacoesModelo.valorPedido = itemTransacao.GetElement("valorPedido").Value.ToString();
+                            }
 
-                        String valorParcela = this.getElement("valorParcela");
-                        if (valorParcela.Length != 0)
-                        {
-                            transacoesModelo.valorParcela = itemTransacao.GetElement("valorParcela").Value.ToString();
-                        }
+                            String valorParcela = this.getElement("valorParcela");
+                            if (valorParcela.Length != 0)
+                            {
+                                transacoesModelo.valorParcela = itemTransacao.GetElement("valorParcela").Value.ToString();
+                            }
 
-                        String valorRepasse = this.getElement("valorRepasse");
-                        if (valorRepasse.Length != 0)
-                        {
-                            transacoesModelo.valorRepasse = itemTransacao.GetElement("valorRepasse").Value.ToString();
-                        }
+                            String valorRepasse = this.getElement("valorRepasse");
+                            if (valorRepasse.Length != 0)
+                            {
+                                transacoesModelo.valorRepasse = itemTransacao.GetElement("valorRepasse").Value.ToString();
+                            }
 
-                        String porcentagemComissao = this.getElement("porcentagemComissao");
-                        if (porcentagemComissao.Length != 0)
-                        {
-                            transacoesModelo.porcentagemComissao = itemTransacao.GetElement("porcentagemComissao").Value.ToString();
-                        }
+                            String porcentagemComissao = this.getElement("porcentagemComissao");
+                            if (porcentagemComissao.Length != 0)
+                            {
+                                transacoesModelo.porcentagemComissao = itemTransacao.GetElement("porcentagemComissao").Value.ToString();
+                            }
 
-                        String dataTransacao = this.getElement("dataTransacao");
-                        if (dataTransacao.Length != 0)
-                        {
-                            transacoesModelo.dataTransacao = ((DateTime)itemTransacao.GetElement("dataTransacao").Value);
-                        }
+                            String dataTransacao = this.getElement("dataTransacao");
+                            if (dataTransacao.Length != 0)
+                            {
+                                transacoesModelo.dataTransacao = ((DateTime)itemTransacao.GetElement("dataTransacao").Value);
+                            }
 
-                        String dataImportacao = this.getElement("dataImportacao");
-                        if (dataImportacao.Length != 0)
-                        {
-                            transacoesModelo.dataImportacao = ((DateTime)itemTransacao.GetElement("dataImportacao").Value);
-                        }
+                            String dataImportacao = this.getElement("dataImportacao");
+                            if (dataImportacao.Length != 0)
+                            {
+                                transacoesModelo.dataImportacao = ((DateTime)itemTransacao.GetElement("dataImportacao").Value);
+                            }
 
-                        String dataEnvio = this.getElement("dataEnvio");
-                        if (dataEnvio.Length != 0)
-                        {
-                            transacoesModelo.dataEnvio = ((DateTime)itemTransacao.GetElement("dataEnvio").Value);
-                        }
+                            String dataEnvio = this.getElement("dataEnvio");
+                            if (dataEnvio.Length != 0)
+                            {
+                                transacoesModelo.dataEnvio = ((DateTime)itemTransacao.GetElement("dataEnvio").Value);
+                            }
 
-                        String dataGatilho = this.getElement("dataGatilho");
-                        if (dataGatilho.Length != 0)
-                        {
-                            transacoesModelo.dataGatilho = ((DateTime)itemTransacao.GetElement("dataGatilho").Value);
-                        }
+                            String dataGatilho = this.getElement("dataGatilho");
+                            if (dataGatilho.Length != 0)
+                            {
+                                transacoesModelo.dataGatilho = ((DateTime)itemTransacao.GetElement("dataGatilho").Value);
+                            }
 
-                        String dataPrevisaoPagamento = this.getElement("dataPrevisaoPagamento");
-                        if (dataPrevisaoPagamento.Length != 0)
-                        {
-                            transacoesModelo.dataPrevisaoPagamento = ((DateTime)itemTransacao.GetElement("dataPrevisaoPagamento").Value);
-                        }
+                            String dataPrevisaoPagamento = this.getElement("dataPrevisaoPagamento");
+                            if (dataPrevisaoPagamento.Length != 0)
+                            {
+                                transacoesModelo.dataPrevisaoPagamento = ((DateTime)itemTransacao.GetElement("dataPrevisaoPagamento").Value);
+                            }
 
                             String dataEnvioPagamento = this.getElement("dataEnvioPagamento");
                             if (dataEnvioPagamento.Length != 0)
@@ -734,110 +736,110 @@ namespace SIC.DAO
                             }
 
                             String dataPedido = this.getElement("dataPedido");
-                        if (dataPedido.Length != 0)
-                        {
-                            transacoesModelo.dataPedido = ((DateTime)itemTransacao.GetElement("dataPedido").Value);
-                        }
+                            if (dataPedido.Length != 0)
+                            {
+                                transacoesModelo.dataPedido = ((DateTime)itemTransacao.GetElement("dataPedido").Value);
+                            }
 
-                        String dataParcela = this.getElement("dataParcela");
-                        if (dataParcela.Length != 0)
-                        {
-                            transacoesModelo.dataParcela = ((DateTime)itemTransacao.GetElement("dataParcela").Value);
-                        }
+                            String dataParcela = this.getElement("dataParcela");
+                            if (dataParcela.Length != 0)
+                            {
+                                transacoesModelo.dataParcela = ((DateTime)itemTransacao.GetElement("dataParcela").Value);
+                            }
 
-                        String numeroParcelas = this.getElement("numeroParcelas");
-                        if (numeroParcelas.Length != 0)
-                        {
-                            transacoesModelo.numeroParcelas = itemTransacao.GetElement("numeroParcelas").Value.ToInt32();
-                        }
+                            String numeroParcelas = this.getElement("numeroParcelas");
+                            if (numeroParcelas.Length != 0)
+                            {
+                                transacoesModelo.numeroParcelas = itemTransacao.GetElement("numeroParcelas").Value.ToInt32();
+                            }
 
-                        String idEntrega = this.getElement("idEntrega");
-                        if (idEntrega.Length != 0)
-                        {
-                            transacoesModelo.idEntrega = itemTransacao.GetElement("idEntrega").Value.ToInt64();
-                        }
+                            String idEntrega = this.getElement("idEntrega");
+                            if (idEntrega.Length != 0)
+                            {
+                                transacoesModelo.idEntrega = itemTransacao.GetElement("idEntrega").Value.ToInt64();
+                            }
 
-                        String idCompraBandeira = this.getElement("idCompraBandeira");
-                        if (idCompraBandeira.Length != 0)
-                        {
-                            transacoesModelo.idCompraBandeira = itemTransacao.GetElement("idCompraBandeira").Value.ToInt64();
-                        }
+                            String idCompraBandeira = this.getElement("idCompraBandeira");
+                            if (idCompraBandeira.Length != 0)
+                            {
+                                transacoesModelo.idCompraBandeira = itemTransacao.GetElement("idCompraBandeira").Value.ToInt64();
+                            }
 
-                        String cpfcnpjSubseller = this.getElement("cpfcnpjSubseller");
-                        if (cpfcnpjSubseller.Length != 0)
-                        {
-                            transacoesModelo.cpfcnpjSubseller = itemTransacao.GetElement("cpfcnpjSubseller").Value.ToString();
-                        }
+                            String cpfcnpjSubseller = this.getElement("cpfcnpjSubseller");
+                            if (cpfcnpjSubseller.Length != 0)
+                            {
+                                transacoesModelo.cpfcnpjSubseller = itemTransacao.GetElement("cpfcnpjSubseller").Value.ToString();
+                            }
 
-                        String cnpjMarketplace = this.getElement("cnpjMarketplace");
-                        if (cnpjMarketplace.Length != 0)
-                        {
-                            transacoesModelo.cnpjMarketplace = itemTransacao.GetElement("cnpjMarketplace").Value.ToString();
-                        }
+                            String cnpjMarketplace = this.getElement("cnpjMarketplace");
+                            if (cnpjMarketplace.Length != 0)
+                            {
+                                transacoesModelo.cnpjMarketplace = itemTransacao.GetElement("cnpjMarketplace").Value.ToString();
+                            }
 
-                        String codigoBandeiraCartao = this.getElement("codigoBandeiraCartao");
-                        if (codigoBandeiraCartao.Length != 0)
-                        {
-                            transacoesModelo.codigoBandeiraCartao = itemTransacao.GetElement("codigoBandeiraCartao").Value.ToInt32();
-                        }
+                            String codigoBandeiraCartao = this.getElement("codigoBandeiraCartao");
+                            if (codigoBandeiraCartao.Length != 0)
+                            {
+                                transacoesModelo.codigoBandeiraCartao = itemTransacao.GetElement("codigoBandeiraCartao").Value.ToInt32();
+                            }
 
-                        String descricaoBandeiraCartao = this.getElement("descricaoBandeiraCartao");
-                        if (descricaoBandeiraCartao.Length != 0)
-                        {
-                            transacoesModelo.descricaoBandeiraCartao = itemTransacao.GetElement("descricaoBandeiraCartao").Value.ToString();
-                        }
+                            String descricaoBandeiraCartao = this.getElement("descricaoBandeiraCartao");
+                            if (descricaoBandeiraCartao.Length != 0)
+                            {
+                                transacoesModelo.descricaoBandeiraCartao = itemTransacao.GetElement("descricaoBandeiraCartao").Value.ToString();
+                            }
 
-                        //Provisório, depois melhorar essa pegado do Id do lojista
+                            //Provisório, depois melhorar essa pegado do Id do lojista
                             var site = itemTransacao.GetElement("site");
                             int idSite = site.Value[0].ToInt32();
 
-                        String tipoTransacao = this.getElement("tipoTransacao");
-                        if (tipoTransacao.Length != 0)
-                        {
-                            transacoesModelo.tipoTransacao = itemTransacao.GetElement("tipoTransacao").Value.ToString();
-                        }
+                            String tipoTransacao = this.getElement("tipoTransacao");
+                            if (tipoTransacao.Length != 0)
+                            {
+                                transacoesModelo.tipoTransacao = itemTransacao.GetElement("tipoTransacao").Value.ToString();
+                            }
 
-                        String idGetNet = this.getElement("idGetNet");
-                        if (idGetNet.Length != 0)
-                        {
-                            transacoesModelo.idGetNet = itemTransacao.GetElement("idGetNet").Value.ToString();
-                        }
+                            String idGetNet = this.getElement("idGetNet");
+                            if (idGetNet.Length != 0)
+                            {
+                                transacoesModelo.idGetNet = itemTransacao.GetElement("idGetNet").Value.ToString();
+                            }
 
-                        String dataAprovacao = this.getElement("dataAprovacao");
-                        if (dataAprovacao.Length != 0)
-                        {
-                            transacoesModelo.dataAprovacao = ((DateTime)itemTransacao.GetElement("dataAprovacao").Value);
-                        }
+                            String dataAprovacao = this.getElement("dataAprovacao");
+                            if (dataAprovacao.Length != 0)
+                            {
+                                transacoesModelo.dataAprovacao = ((DateTime)itemTransacao.GetElement("dataAprovacao").Value);
+                            }
 
-                        String pontoControle = this.getElement("pontoControle");
-                        if (pontoControle.Length != 0)
-                        {
-                            transacoesModelo.pontoControle = itemTransacao.GetElement("pontoControle").Value.ToString();
-                        }
+                            String pontoControle = this.getElement("pontoControle");
+                            if (pontoControle.Length != 0)
+                            {
+                                transacoesModelo.pontoControle = itemTransacao.GetElement("pontoControle").Value.ToString();
+                            }
 
-                        String dataNotificacao = this.getElement("dataNotificacao");
-                        if (dataNotificacao.Length != 0)
-                        {
-                            transacoesModelo.dataNotificacao = ((DateTime)itemTransacao.GetElement("dataNotificacao").Value);
-                        }
+                            String dataNotificacao = this.getElement("dataNotificacao");
+                            if (dataNotificacao.Length != 0)
+                            {
+                                transacoesModelo.dataNotificacao = ((DateTime)itemTransacao.GetElement("dataNotificacao").Value);
+                            }
 
-                        String valorFrete = this.getElement("valorFrete");
-                        if (valorFrete.Length != 0)
-                        {
-                            transacoesModelo.valorFrete = itemTransacao.GetElement("valorFrete").Value.ToString();
-                        }
+                            String valorFrete = this.getElement("valorFrete");
+                            if (valorFrete.Length != 0)
+                            {
+                                transacoesModelo.valorFrete = itemTransacao.GetElement("valorFrete").Value.ToString();
+                            }
 
-                        String valorFreteLojista = this.getElement("valorFreteLojista");
-                        if (valorFreteLojista.Length != 0)
-                        {
-                            transacoesModelo.valorFreteLojista = itemTransacao.GetElement("valorFreteLojista").Value.ToString();
-                        }
+                            String valorFreteLojista = this.getElement("valorFreteLojista");
+                            if (valorFreteLojista.Length != 0)
+                            {
+                                transacoesModelo.valorFreteLojista = itemTransacao.GetElement("valorFreteLojista").Value.ToString();
+                            }
 
-                        String sDataInicioCiclo = this.getElement("dataInicioCiclo");
-                        if(sDataInicioCiclo.Length != 0)
-                         {
+                            String sDataInicioCiclo = this.getElement("dataInicioCiclo");
+                            if (sDataInicioCiclo.Length != 0)
+                            {
                                 transacoesModelo.dataInicioCiclo = Convert.ToDateTime(itemTransacao.GetElement("dataInicioCiclo").Value);
-                         }
+                            }
 
                             String sDataFimCiclo = this.getElement("dataFimCiclo");
                             if (sDataFimCiclo.Length != 0)
@@ -846,58 +848,58 @@ namespace SIC.DAO
                             }
 
                             String plataformaTransacao = this.getElement("plataformaTransacao");
-                        if (plataformaTransacao.Length != 0)
-                        {
-                            transacoesModelo.plataformaTransacao = itemTransacao.GetElement("plataformaTransacao").Value.ToString();
+                            if (plataformaTransacao.Length != 0)
+                            {
+                                transacoesModelo.plataformaTransacao = itemTransacao.GetElement("plataformaTransacao").Value.ToString();
+                            }
+
+                            String tipoFrete = this.getElement("tipoFrete");
+                            if (tipoFrete.Length != 0)
+                            {
+                                transacoesModelo.tipoFrete = itemTransacao.GetElement("tipoFrete").Value.ToString();
+                            }
+
+                            String tipoPagamento = this.getElement("tipoPagamento");
+                            if (tipoPagamento.Length != 0)
+                            {
+                                transacoesModelo.tipoPagamento = itemTransacao.GetElement("tipoPagamento").Value.ToString();
+                            }
+
+                            String valorItem = this.getElement("valorItem");
+                            if (valorItem.Length != 0)
+                            {
+                                transacoesModelo.valorItem = itemTransacao.GetElement("valorItem").Value.ToString();
+                            }
+
+                            String canal = this.getElement("canal");
+                            if (canal.Length != 0)
+                            {
+                                transacoesModelo.canal = itemTransacao.GetElement("canal").Value.ToString();
+                            }
+
+                            String _class = this.getElement("_class");
+                            if (_class.Length != 0)
+                            {
+                                transacoesModelo._class = itemTransacao.GetElement("_class").Value.ToString();
+                            }
+
+                            //Inserindo na tabela de transação
+                            dtOrderFinanceiro.Rows.Add(contadorPedido + 1, orderIdAtual, transacoesModelo.descricaoBandeiraCartao, idSite,
+                                transacoesModelo.idGetNet, transacoesModelo.dataConfirmacaoPagamento, transacoesModelo.dataPrevisaoPagamento, transacoesModelo.dataInicioCiclo, transacoesModelo.dataFimCiclo,
+                                transacoesModelo.tipoTransacao,
+                                                string.Format("{0:N}", transacoesModelo.valorTransacao), transacoesModelo.valorPedido);
+
+
                         }
-
-                        String tipoFrete = this.getElement("tipoFrete");
-                        if (tipoFrete.Length != 0)
-                        {
-                            transacoesModelo.tipoFrete = itemTransacao.GetElement("tipoFrete").Value.ToString();
-                        }
-
-                        String tipoPagamento = this.getElement("tipoPagamento");
-                        if (tipoPagamento.Length != 0)
-                        {
-                            transacoesModelo.tipoPagamento = itemTransacao.GetElement("tipoPagamento").Value.ToString();
-                        }
-
-                        String valorItem = this.getElement("valorItem");
-                        if (valorItem.Length != 0)
-                        {
-                            transacoesModelo.valorItem = itemTransacao.GetElement("valorItem").Value.ToString();
-                        }
-
-                        String canal = this.getElement("canal");
-                        if (canal.Length != 0)
-                        {
-                            transacoesModelo.canal = itemTransacao.GetElement("canal").Value.ToString();
-                        }
-
-                        String _class = this.getElement("_class");
-                        if (_class.Length != 0)
-                        {
-                            transacoesModelo._class = itemTransacao.GetElement("_class").Value.ToString();
-                        }
-
-                        //Inserindo na tabela de transação
-                        dtOrderFinanceiro.Rows.Add(contadorPedido + 1, orderIdAtual, transacoesModelo.descricaoBandeiraCartao, idSite,
-                            transacoesModelo.idGetNet, transacoesModelo.dataConfirmacaoPagamento, transacoesModelo.dataPrevisaoPagamento, transacoesModelo.dataInicioCiclo, transacoesModelo.dataFimCiclo,
-                            transacoesModelo.tipoTransacao, 
-                                            string.Format("{0:N}", transacoesModelo.valorTransacao), transacoesModelo.valorPedido);
-
-                            
                     }
-                }
                     else
-                {
+                    {
                         //Se não tiver transação preenche a tabela de transação conforme abaixo
-                    dtOrderFinanceiro.Rows.Add(contadorPedido + 1, orderIdAtual, "Sem transação", "Sem transação", "Sem transação", "Sem transação", "Sem transação",
-                                                "Sem transação", "Sem transação", "Sem transação", "Sem transação");
+                        dtOrderFinanceiro.Rows.Add(contadorPedido + 1, orderIdAtual, "Sem transação", "Sem transação", "Sem transação", "Sem transação", "Sem transação",
+                                                    "Sem transação", "Sem transação", "Sem transação", "Sem transação");
                     }
 
-            }
+                }
                 //Insere as tabelas preenchidas no DataSet
                 dsOrderFinanceiro.Tables.Add(dtOrderGatilho);
                 dsOrderFinanceiro.Tables.Add(dtOrderFinanceiro);
@@ -906,8 +908,8 @@ namespace SIC.DAO
 
             catch (Exception ex)
             {
-                
-                MessageBox.Show("Erro ao consultar o pedido " + orderIdAtual + "." + ex.Message,"Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("Erro ao consultar o pedido " + orderIdAtual + "." + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             //Retorna o DataSet preenchido
@@ -1111,13 +1113,24 @@ namespace SIC.DAO
 
         public List<OrderBandeiraModelo> ConsultarOrderBandeira(List<OrderBandeiraModelo> listOrderBandeira)
         {
+            //Conexão MPCompras e MP-Dinheiro
             var dbClientCompra = new MongoClient("mongodb://mp-compras-admin:mp-compras-admin%40@mp-compras-mongo-prd001.dc.nova:27017,mp-compras-mongo-prd002.dc.nova:27017,mp-compras-mongo-prd003.dc.nova:27017/mp-compras?readPreference=secondary&connectTimeoutMS=10000&authSource=mp-compras&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MP-COMPRAS+-+leitura&3t.ssh=true&3t.sshAddress=10.128.46.16&3t.sshPort=22&3t.sshAuthMode=password&3t.sshUser=leitura&3t.sshPassword=temp@123&3t.databases=mp-compras&3t.alwaysShowAuthDB=false&3t.alwaysShowDBFromUserRole=false");
+            var dbClient = new MongoClient("mongodb://usr_dev:asdf%40ghjk@10.128.46.109:27017,10.128.46.110:27017,10.128.46.111:27017/admin?readPreference=nearest&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=dinheiro+-+leitura+-+imported+on+30+de+nov+de+2021+%281%29&3t.defaultColor=0,120,215&3t.databases=admin,mp-dinheiro&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true");
+
+            //Collection MP-Dinheiro e MP-Compras
+            var dbMpDinheiro = dbClient.GetDatabase("mp-dinheiro");
             IMongoDatabase dataBaseCompra = dbClientCompra.GetDatabase("mp-compras");
 
             for(int i = 0; i < listOrderBandeira.Count; i++)
             {
+                var collectionTrackComissionamento = dbMpDinheiro.GetCollection<BsonDocument>("trackingComissionamento");
+                var filterTrackComissinoamento = Builders<BsonDocument>.Filter.Eq("idEntrega", listOrderBandeira[i].OrderId);
+                var resultTrackingComissionamento = collectionTrackComissionamento.Find(filterTrackComissinoamento).First();
+
+                //var tracking = resultTrackingComissionamento.AsBsonDocument.GetElement("idCompra").Value;
+
                 var collectionCompra = dataBaseCompra.GetCollection<BsonDocument>("compra");
-                var filterCompra = Builders<BsonDocument>.Filter.Eq("id", listOrderBandeira[i].OrderId);
+                var filterCompra = Builders<BsonDocument>.Filter.Eq("id", resultTrackingComissionamento.GetElement("idCompra").Value);// listOrderBandeira[i].OrderId);
                 var resultCompra = collectionCompra.Find(filterCompra).ToList();
 
                 foreach(var itemOrder in resultCompra.ToArray())

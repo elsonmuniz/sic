@@ -72,7 +72,7 @@ namespace SIC
 
         }
         
-        public void ConsultaPedidoFinanceiro(List<Int64> orderId)
+        public async Task ConsultaPedidoFinanceiro(List<Int64> orderId)
         {
             gatilhoModelo = new GatilhoModelo();
             mPComprasBLL = new MPComprasBLL();
@@ -80,7 +80,7 @@ namespace SIC
             dsOrderFinanceiro = new DataSet();
 
             //gatilhoModelo = mPComprasBLL.ConsultarPedidoFinanceiro(idEntrega);
-            dsOrderFinanceiro = mPComprasBLL.ConsultarPedidoFinanceiro(orderId);
+            dsOrderFinanceiro = await mPComprasBLL.ConsultarPedidoFinanceiro(orderId);
             
             gridOrderFinanceiro.DataSource = dsOrderFinanceiro.Tables["Transacao"];
             gridOrderPagamento.DataSource = dsOrderFinanceiro.Tables["Pagamento"];
@@ -117,13 +117,13 @@ namespace SIC
             importarTransacaoLote.Show();
         }
 
-        private void btPesquisarOrder_Click(object sender, EventArgs e)
+        private async void btPesquisarOrder_Click(object sender, EventArgs e)
         {
             //this.ConsultaPedidoFinanceiro(Convert.ToInt64(this.txOrderId.Text));
             List<Int64> orderId = new List<long>();
             orderId.Add(Convert.ToInt64(this.txOrderId.Text));
 
-            this.ConsultaPedidoFinanceiro(orderId);
+            await this.ConsultaPedidoFinanceiro(orderId);
         }
 
         private void txOrderId_KeyDown(object sender, KeyEventArgs e)
@@ -135,7 +135,7 @@ namespace SIC
             
         }
 
-        private void pesquisarToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void pesquisarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.ImportarTransacao();
         }
@@ -153,12 +153,21 @@ namespace SIC
 
         public async void ImportarTransacao()
         {
+            //Limpando o progressbar
+            this.progressBarImportarTransacao.Value = 0; 
+
             MPComprasDAO mPComprasDAO = new MPComprasDAO();
             List<OrderBandeiraModelo> listOrderBandeira = new List<OrderBandeiraModelo>();
-            
-            //progressBarImportarTransacao.Value = 0;
+
+            this.lbImportacaoTransacao.Text = "Aguarde importação das transações...";
 
             //Passar as linhas da tabela aqui por um foreach
+
+            //PROGRESS BAR
+            this.progressBarImportarTransacao.Minimum = 1;
+            this.progressBarImportarTransacao.Maximum = 0;
+
+            int contProgressBar = 0;
 
             foreach(DataGridViewRow dr in this.gridOrderFinanceiro.Rows)
             {
@@ -168,10 +177,15 @@ namespace SIC
                 //orderBandeiraModelo.DataConfirmacaoPagamento = dr.Cells[5].Value.ToString();
                 orderBandeiraModelo.DataPrevisaoPagamento = "";
                 orderBandeiraModelo.DataPrevisaoPagamento = dr.Cells[6].Value.ToString();
+
                 listOrderBandeira.Add(orderBandeiraModelo);
+
+                contProgressBar++;
+                this.progressBarImportarTransacao.Maximum = contProgressBar;
             }
 
-            this.progressBarImportarTransacao.Minimum = 1;
+            
+            
             
 
             listOrderBandeira = mPComprasDAO.ConsultarOrderBandeira(listOrderBandeira);
@@ -184,6 +198,10 @@ namespace SIC
 
                 for(int i = 0; i < listOrderBandeira.Count; i++)
                 {
+                cont++;
+                this.progressBarImportarTransacao.Increment(1);
+                this.progressBarImportarTransacao.Refresh();
+
                 if (listOrderBandeira[i].IdGetnet.Length != 0 && listOrderBandeira[i].DataConfirmacaoPagamento == null ) 
                 {
                     if(Convert.ToDateTime(listOrderBandeira[i].DataPrevisaoPagamento) != null && Convert.ToDateTime(listOrderBandeira[i].DataPrevisaoPagamento) < DateTime.Now)
@@ -195,11 +213,11 @@ namespace SIC
                         HttpResponseMessage response = await client.GetAsync(String.Format(url.Trim() + listOrderBandeira[i].IdGetnet));
                         var responseJson = response.Content.ReadAsStringAsync();
 
-                        cont++;
+                        
 
                         this.txQtdConfPagto.Text = cont.ToString();
 
-                        this.progressBarImportarTransacao.Maximum = cont ;
+                        //this.progressBarImportarTransacao.Maximum = cont ;
 
                         //}
 
@@ -258,9 +276,11 @@ namespace SIC
                 //    cont++;
                 //}
 
-
+                
             }
-            
+
+            this.lbImportacaoTransacao.Text = "";
+            this.lbImportacaoTransacao.Text = "Importação concluída.";
 
             MessageBox.Show("Importação efetuada com suscesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
@@ -269,6 +289,9 @@ namespace SIC
         public async Task<List<OrderBandeiraModelo>> PesquisarPedidoGetnet(List<OrderBandeiraModelo> listOrderBandeira)
         {
             //this.dtOrderGetNet.Clear();
+
+            //this.progressBarImportarTransacao.Minimum = 1;
+            //this.progressBarImportarTransacao.Maximum = listOrderBandeira.Count;
 
             for(int a = 0; a < listOrderBandeira.Count; a++)
             {
@@ -433,18 +456,30 @@ namespace SIC
                         MessageBox.Show("Erro" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                
+
+                //this.progressBarImportarTransacao.Increment(1);
+
+
             }
 
             
-
+            
             return listOrderBandeira;
         }
 
         private void btImportarLote_Click_1(object sender, EventArgs e)
         {
+            this.progressBarImportarTransacao.Value = 0;
+            this.LimparRotuloImportacaoProgressBar();
+
             ImportarTransacaoLote importarTransacaoLote = new ImportarTransacaoLote(frmApp, this);
             importarTransacaoLote.Show();
+        }
+
+        public void LimparRotuloImportacaoProgressBar()
+        {
+            this.lbImportacaoTransacao.Text = "";
+            this.txQtdConfPagto.Text = "";
         }
         
     }

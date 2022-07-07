@@ -23,22 +23,44 @@ namespace SIC
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
+            progressBarImportarPedido.Visible = true;
+            this.lbImportandoPedido.Text = "Aguarde consulta dos pedidos...";
+            progressBarImportarPedido.Minimum = 1;
             
             List<Int64> listOrder = new List<Int64>();
 
             string[] dados = richTextBox1.Text.Split('\n');
+            
+            progressBarImportarPedido.Maximum = 0;
+            int cont = 0;
+
+            foreach (string id in dados)
+            {
+                if (id.ToString().Length != 0)
+                {
+                    cont++;
+                    progressBarImportarPedido.Maximum = cont;
+                }
+            }
+
 
             foreach (string id in dados)
             {
                 if(id.ToString().Length != 0)
                 {
                     listOrder.Add(Convert.ToInt64(id));
+                    
+                    progressBarImportarPedido.Increment(1);
+                    progressBarImportarPedido.Refresh();
                 }
+
+                
+
             }
 
-            this.consultarPedidoFinanceiro.ConsultaPedidoFinanceiro(listOrder);
+            await this.consultarPedidoFinanceiro.ConsultaPedidoFinanceiro(listOrder);
 
             this.Dispose();
         }
