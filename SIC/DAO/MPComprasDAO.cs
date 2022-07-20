@@ -1014,29 +1014,12 @@ namespace SIC.DAO
                         {
                             for (int j = 0; j < orderResponseGetNetModelo.conteudo.transacoes.Length; j++)
                             {
-                                //int cont = orderResponseGetNetModelo.conteudo.transacoes[0].detalhes[0].d;
-                                //DataRow dr = dtOrderGetNet.NewRow();
-                                //dr[0] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].idAgendamentoMarketplace;
-                                //dr[1] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].nomePlanoPagamento;
-                                //dr[2] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].valorParcela;
-                                //dr[3] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].numeroParcelas;
-                                //dr[4] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].dataTransacao;
-                                //dr[5] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].dataPagamento;
-                                //dr[6] = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].statusLiberacao;
-
+                                
                                 statusLiberacao = orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].statusLiberacao.ToString();
 
-                                return statusLiberacao; // orderResponseGetNetModelo.conteudo.transacoes[j].detalhes[0].statusLiberacao.ToString();
-
-                                //dtOrderGetNet.Rows.Add(dr);
-
+                                return statusLiberacao; 
                             }
                         }
-
-                        //if (dtOrderGetNet.Rows.Count != 0)
-                        //{
-                        //    return;
-                        //}
 
                     }
 
@@ -1073,34 +1056,16 @@ namespace SIC.DAO
                         {
                             for (int a = 0; a < orderResponseGetNetModelo.conteudo.transacoes.Length; a++)
                             {
-                                //DataRow dr = dtOrderGetNet.NewRow();
-                                //dr[0] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].idItem;
-                                //dr[1] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].nomePlanoPagamento;
-                                //dr[2] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].valorParcela;
-                                //dr[3] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].numeroParcelas;
-                                //dr[4] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].dataTransacao;
-                                //dr[5] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].dataPagamento;
-                                //dr[6] = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].statusLiberacao;
-
                                 statusLiberacao = orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].statusLiberacao.ToString();
 
-                                return statusLiberacao; // orderResponseGetNetModelo.conteudo.transacoes[a].detalhes[0].statusLiberacao.ToString();
-
-                                
-
-                                //dtOrderGetNet.Rows.Add(dr);
+                                return statusLiberacao;
 
                             }
                         }
-                        //if (dtOrderGetNet.Rows.Count != 0)
-                        //{
-                        //    return;
-                        //}
+                        
                     }
                 }
 
-                //return statusLiberacao;
-                //this.gridSeller.DataSource = dtOrderGetNet;
             }
             catch (Exception ex)
             {

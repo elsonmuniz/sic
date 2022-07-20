@@ -153,6 +153,7 @@
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(32, 32);
             this.btSalvar.Text = "F2 - Salvar";
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // btExcluir
             // 

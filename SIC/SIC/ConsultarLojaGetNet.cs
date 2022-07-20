@@ -31,6 +31,12 @@ namespace SIC
         List<String> listCNPJ = new List<string>();
         List<LojistaAdquirenteModelo> lojistaAdquirenteModeloList;
 
+        private void ConsultarLojaGetNet_Load(object sender, EventArgs e)
+        {
+            this.NomeDaJanela("Consultar carteira Getnet");
+            this.ListarGrid();
+        }
+
         public ConsultarLojaGetNet(FrmApp frmApp)
         {
             InitializeComponent();
@@ -95,11 +101,7 @@ namespace SIC
 
         }
 
-        private void ConsultarLojaGetNet_Load(object sender, EventArgs e)
-        {
-            this.NomeDaJanela("Consultar carteira Getnet");
-            this.ListarGrid();
-        }
+        
 
         private void btPesquisarLojista_Click(object sender, EventArgs e)
         {
@@ -118,33 +120,18 @@ namespace SIC
 
             try
             {
-                //listCNPJ = new List<string>();
-
+                
                 if(this.txIdLojista.Text.Length != 0)
                 {
                     listCNPJ.Add(this.txIdLojista.Text);
                 }
                 
 
-                //listCNPJ.Add("34197974000129");
-                //listCNPJ.Add("42401930000105");
-                //listCNPJ.Add("44879216000144");
-                //listCNPJ.Add("39948196000186");
-                //listCNPJ.Add("10428528000110");
-                //listCNPJ.Add("34404048000187");
-                //listCNPJ.Add("44980207000145");
-                //listCNPJ.Add("43974590000166");
-                //listCNPJ.Add("28669807000130");
-                //listCNPJ.Add("45838862000126");
-                //listCNPJ.Add("45486904000107");
-                //listCNPJ.Add("21642808000142");
-
-
                 lojistaAdquirenteModeloList = lojistaAdquirenteBLL.PesquisarAsync(listCNPJ);
 
                 for(int i = 0; i < lojistaAdquirenteModeloList.Count; i++)
                 {
-                    DataRow drLojista;// = new DataRow();
+                    DataRow drLojista;
                     drLojista = dtLojistaAdquirente.NewRow();
                     
                     if (lojistaAdquirenteModeloList[i] != null)
@@ -189,8 +176,6 @@ namespace SIC
                         }
                         
                         drLojista[13] = lojistaAdquirenteModeloList[i].dataModificacao;
-
-                        //drLojista[14] = false;
 
                         //E-mail
                         drLojista[14] = lojistaAdquirenteModeloList[i].email;

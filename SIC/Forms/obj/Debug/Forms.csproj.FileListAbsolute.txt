@@ -31,3 +31,16 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.GenerateResou
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.pdb
+C:\SIC_Teste\sic\SIC\Forms\bin\Debug\Forms.dll
+C:\SIC_Teste\sic\SIC\Forms\bin\Debug\Forms.pdb
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.AssemblyReference.cache
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.AppForm.resources
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.AppLogin.resources
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.DialogViewer.resources
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.FormEdit.resources
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.FormViewer.resources
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.Properties.Resources.resources
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.GenerateResource.cache
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.dll
+C:\SIC_Teste\sic\SIC\Forms\obj\Debug\Forms.pdb

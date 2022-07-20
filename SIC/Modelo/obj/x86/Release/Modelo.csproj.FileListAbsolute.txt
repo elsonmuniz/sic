@@ -1,0 +1,12 @@
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\x86\Release\Modelo.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\x86\Release\Modelo.pdb
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\x86\Release\MongoDB.Bson.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\x86\Release\System.ComponentModel.Annotations.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\x86\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\x86\Release\MongoDB.Bson.xml
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\bin\x86\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\x86\Release\Modelo.csproj.AssemblyReference.cache
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\x86\Release\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\x86\Release\Modelo.csproj.CopyComplete
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\x86\Release\Modelo.dll
+C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\x86\Release\Modelo.pdb

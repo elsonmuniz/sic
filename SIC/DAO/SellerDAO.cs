@@ -55,7 +55,8 @@ namespace SIC.DAO
         {
             this.listElements.Add(listElement);
         }
-
+        
+        
         public String getElement(String sElement)
         {
             foreach (var itemTransaction in listElements)
@@ -266,7 +267,7 @@ namespace SIC.DAO
             return sellerAtivada;
         }
 
-        public Boolean ReprocessarLoja(int idLojista, LoginModelo loginModelo)
+        public async Task<Boolean> ReprocessarLoja(int idLojista, LoginModelo loginModelo)
         {
             conexaoADPRD = new OracleConnection();
             try
@@ -291,7 +292,7 @@ namespace SIC.DAO
                                                     "AND STORE_QUALIFIER_ID not in (select store_qualifier_id from AC_ADMIN.ECMA_SHOP_SHOP_GROUP) " +
                                                     "AND status = 'Y' and SITE_ID in ('2', '3', '4')";
                 
-                string sReader = cmdSellerAD.ExecuteNonQuery().ToString();
+                int sReader = await cmdSellerAD.ExecuteNonQueryAsync();
                 
 
                 transaction.Commit();

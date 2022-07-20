@@ -42,7 +42,7 @@ namespace SIC
             this.NomeDaJanela("Consultar SKU com variante");
         }
 
-        public void PesquisarSKU(int idLogista, LoginModelo loginModelo)
+        public async void PesquisarSKU(int idLogista, LoginModelo loginModelo)
         {
             produtosBLL = new ProdutosBLL();
             
@@ -59,7 +59,7 @@ namespace SIC
                 
                 dtSKU.Columns.AddRange(new DataColumn[] { dcId, dcSKU });
 
-                dt = produtosBLL.ConsultarSkuAtivoComVariante(idLogista, loginModelo);
+                dt = await produtosBLL.ConsultarSkuAtivoComVariante(idLogista, loginModelo);
 
                 int count = 0;
 

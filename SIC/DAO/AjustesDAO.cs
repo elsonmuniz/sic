@@ -56,6 +56,8 @@ namespace SIC.DAO
             //Entra limpando o list
             listAjusteModelo.Clear();
 
+  //          var login = System.Configuration.ConfigurationManager.ConnectionStrings["MPDinheiro"].ConnectionString.GetEnumerator();
+
             //*************************** Conexão  ***************************
 
             //HOMOLOGAÇÃO

@@ -85,5 +85,10 @@ namespace Forms
         {
             //this.MaximizarJanela();
         }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+            this.Salvar();
+        }
     }
 }

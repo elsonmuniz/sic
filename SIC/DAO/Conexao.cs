@@ -51,7 +51,7 @@ namespace SIC.DAO
                 
                 conexao = new OracleConnection(conn);
 
-                conexao.Open();
+                conexao.OpenAsync();
 
                 //SqlConnection conexaoSQLServer = ConectarSL();
                 //conexaoSQLServer.Open();

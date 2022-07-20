@@ -34,3 +34,15 @@ C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.csproj.CoreCompile
 C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.csproj.CopyComplete
 C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.dll
 C:\Users\7700650102\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.pdb
+C:\SIC_Teste\sic\SIC\Modelo\bin\Debug\Modelo.dll
+C:\SIC_Teste\sic\SIC\Modelo\bin\Debug\Modelo.pdb
+C:\SIC_Teste\sic\SIC\Modelo\bin\Debug\MongoDB.Bson.dll
+C:\SIC_Teste\sic\SIC\Modelo\bin\Debug\System.ComponentModel.Annotations.dll
+C:\SIC_Teste\sic\SIC\Modelo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\SIC_Teste\sic\SIC\Modelo\bin\Debug\MongoDB.Bson.xml
+C:\SIC_Teste\sic\SIC\Modelo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.dll
+C:\SIC_Teste\sic\SIC\Modelo\obj\Debug\Modelo.pdb

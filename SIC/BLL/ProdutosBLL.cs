@@ -30,13 +30,13 @@ namespace SIC.BLL
             return produtosDAO.ListarSKUNaoExisteFront(idLogista, loginModelo);
         }
 
-        public DataTable ConsultarSkuAtivoComVariante(int idLogista, LoginModelo loginModelo)
+        public Task<DataTable> ConsultarSkuAtivoComVariante(int idLogista, LoginModelo loginModelo)
         {
             produtosDAO = new ProdutosDAO();
 
             try
             {
-                return produtosDAO.ConsultarSkuAtivoComVariante(idLogista, loginModelo);
+                return Task.FromResult(produtosDAO.ConsultarSkuAtivoComVariante(idLogista, loginModelo));
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ namespace SIC.BLL
                 MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return produtosDAO.ConsultarSkuAtivoComVariante(idLogista, loginModelo);
+            return Task.FromResult(produtosDAO.ConsultarSkuAtivoComVariante(idLogista, loginModelo));
 
         }
 

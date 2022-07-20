@@ -118,14 +118,14 @@ namespace SIC.BLL
             
         }
 
-        public bool ReprocessarLoja(int idLogista, Label label, LoginModelo loginModelo)
+        public async Task<bool> ReprocessarLoja(int idLogista, Label label, LoginModelo loginModelo)
         {
             try
             {
                 label.Enabled = true;
 
                 sellerDAO = new SellerDAO();
-                sellerReprocessada = sellerDAO.ReprocessarLoja(idLogista, loginModelo);
+                sellerReprocessada = await sellerDAO.ReprocessarLoja(idLogista, loginModelo);
 
                 if (sellerReprocessada == true)
                 {

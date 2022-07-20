@@ -17,7 +17,7 @@ namespace SIC.DAO
         DataTable dtusuario;
 
         //Modelo
-        UsuarioExternoModelo usuarioExternoModelo;
+        //UsuarioExternoModelo usuarioExternoModelo;
 
         List<UsuarioExternoModelo> listUsuarioModelo = new List<UsuarioExternoModelo>();
 

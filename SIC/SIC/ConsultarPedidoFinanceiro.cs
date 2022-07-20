@@ -135,7 +135,7 @@ namespace SIC
             
         }
 
-        private async void pesquisarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pesquisarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.ImportarTransacao();
         }
