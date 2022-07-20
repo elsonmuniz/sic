@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAO.dll" size="79360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAO.dll" size="78336">
       <assemblyIdentity name="DAO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DTGPO1Rpvi5n4OnH1qNEkU+CSKh4R4XWsUjobqkC4Jk=</dsig:DigestValue>
+        <dsig:DigestValue>Pik0ZaDxRH4lLSLXusln59x1Vws0Z8eKwua/I8q58Wk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -398,7 +398,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Pj1bhyw4XcYTM57R+L+F7aIh3hjwTlemMFSlo/0Ovqg=</dsig:DigestValue>
+        <dsig:DigestValue>02NJfrLtMt50fDUHU6P9uoPkdSNejG8inLvsQZAh8FY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
