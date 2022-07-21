@@ -391,14 +391,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIC.exe" size="427960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SIC.exe" size="423352">
       <assemblyIdentity name="SIC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>02NJfrLtMt50fDUHU6P9uoPkdSNejG8inLvsQZAh8FY=</dsig:DigestValue>
+        <dsig:DigestValue>vjN/GWoPsg+WS95xp1q1imwk2JF2V+sA5LHGGTNFhKE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

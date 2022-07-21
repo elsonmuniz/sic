@@ -31,8 +31,6 @@
             this.gridSeller = new System.Windows.Forms.DataGridView();
             this.groupBoxSeller = new System.Windows.Forms.GroupBox();
             this.btConsultarEmLote = new System.Windows.Forms.Button();
-            this.cbBandeira = new System.Windows.Forms.ComboBox();
-            this.lbBandeira = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txIdCompra = new System.Windows.Forms.TextBox();
             this.btPesquisarSKU = new System.Windows.Forms.Button();
@@ -60,21 +58,19 @@
             // groupBoxSeller
             // 
             this.groupBoxSeller.Controls.Add(this.btConsultarEmLote);
-            this.groupBoxSeller.Controls.Add(this.cbBandeira);
-            this.groupBoxSeller.Controls.Add(this.lbBandeira);
             this.groupBoxSeller.Controls.Add(this.label3);
             this.groupBoxSeller.Controls.Add(this.txIdCompra);
             this.groupBoxSeller.Controls.Add(this.btPesquisarSKU);
-            this.groupBoxSeller.Location = new System.Drawing.Point(18, 78);
+            this.groupBoxSeller.Location = new System.Drawing.Point(18, 109);
             this.groupBoxSeller.Name = "groupBoxSeller";
-            this.groupBoxSeller.Size = new System.Drawing.Size(1049, 119);
+            this.groupBoxSeller.Size = new System.Drawing.Size(1049, 88);
             this.groupBoxSeller.TabIndex = 7;
             this.groupBoxSeller.TabStop = false;
-            this.groupBoxSeller.Text = "Consulta status de pedido na getnet";
+            this.groupBoxSeller.Text = "Consulta status de pedido na getnet pelo IdEntrega";
             // 
             // btConsultarEmLote
             // 
-            this.btConsultarEmLote.Location = new System.Drawing.Point(752, 49);
+            this.btConsultarEmLote.Location = new System.Drawing.Point(752, 41);
             this.btConsultarEmLote.Name = "btConsultarEmLote";
             this.btConsultarEmLote.Size = new System.Drawing.Size(164, 38);
             this.btConsultarEmLote.TabIndex = 14;
@@ -82,49 +78,25 @@
             this.btConsultarEmLote.UseVisualStyleBackColor = true;
             this.btConsultarEmLote.Click += new System.EventHandler(this.btConsultarEmLote_Click);
             // 
-            // cbBandeira
-            // 
-            this.cbBandeira.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBandeira.FormattingEnabled = true;
-            this.cbBandeira.Items.AddRange(new object[] {
-            "2- Extra",
-            "3 - Casas Bahia",
-            "4 - Ponto Frio"});
-            this.cbBandeira.Location = new System.Drawing.Point(101, 33);
-            this.cbBandeira.Name = "cbBandeira";
-            this.cbBandeira.Size = new System.Drawing.Size(345, 24);
-            this.cbBandeira.TabIndex = 0;
-            this.cbBandeira.Visible = false;
-            // 
-            // lbBandeira
-            // 
-            this.lbBandeira.AutoSize = true;
-            this.lbBandeira.Location = new System.Drawing.Point(21, 36);
-            this.lbBandeira.Name = "lbBandeira";
-            this.lbBandeira.Size = new System.Drawing.Size(65, 16);
-            this.lbBandeira.TabIndex = 13;
-            this.lbBandeira.Text = "Bandeira:";
-            this.lbBandeira.Visible = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 80);
+            this.label3.Location = new System.Drawing.Point(32, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 16);
+            this.label3.Size = new System.Drawing.Size(68, 16);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Pedido:";
+            this.label3.Text = "IdEntrega:";
             // 
             // txIdCompra
             // 
-            this.txIdCompra.Location = new System.Drawing.Point(101, 80);
+            this.txIdCompra.Location = new System.Drawing.Point(115, 49);
             this.txIdCompra.Name = "txIdCompra";
             this.txIdCompra.Size = new System.Drawing.Size(345, 22);
             this.txIdCompra.TabIndex = 1;
             // 
             // btPesquisarSKU
             // 
-            this.btPesquisarSKU.Location = new System.Drawing.Point(583, 49);
+            this.btPesquisarSKU.Location = new System.Drawing.Point(583, 41);
             this.btPesquisarSKU.Name = "btPesquisarSKU";
             this.btPesquisarSKU.Size = new System.Drawing.Size(119, 38);
             this.btPesquisarSKU.TabIndex = 0;
@@ -157,8 +129,6 @@
         private System.Windows.Forms.TextBox txIdCompra;
         private System.Windows.Forms.Button btPesquisarSKU;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbBandeira;
-        private System.Windows.Forms.Label lbBandeira;
         private System.Windows.Forms.Button btConsultarEmLote;
     }
 }
